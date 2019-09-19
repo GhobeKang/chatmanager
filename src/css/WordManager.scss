@@ -1,0 +1,57 @@
+.wordmanager_tb {
+    width: 90%;
+    margin: 20px auto;
+    thead > tr {
+        background: #ffe8e8;
+        height: 40px;
+    }
+    tbody > tr {
+        height: 40px;
+        
+        &:nth-child(2n) {
+            background: #bbbbbba4;
+        }
+        &:hover {
+            background: #bbbbbb;
+            color: white;
+        }
+        th {
+            font-weight: normal;
+            border-bottom: solid 1px #909090;
+            &:nth-child(2):hover {
+                color: rgb(3, 0, 175);
+                text-decoration: underline;
+                cursor:pointer;
+            }
+        }
+        th > a.icon {
+            width: 18px;
+            height: 18px;
+            background-size: contain;
+            display: block;
+            margin: 0 auto;
+        }
+        .delete_icon {
+            background: url('../img/delete.png');
+        }
+        .edit_icon {
+            background: url('../img/edit.png');
+        }
+    }
+    
+}
+.append_btn {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 1px 1px 20px #001f86;
+    border: solid 1px #003479;
+    right: 40px;
+    bottom: 40px;
+    font-size: 20px;
+    background: #00196b;
+    color: white;
+}

@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Contents from './components/Contents';
+import RegisterChat from './components/Register_chat';
+import LeftNav from './components/LeftNav';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [ isValid, setIsValid ] = useState(false);
+  const [ statusNav, setStatusNav ] = useState('word');
+
+  if (isValid) {
+    return (
+      <div className="main_container">
+        <LeftNav setStatus={setStatusNav} statusNav={statusNav}></LeftNav>
+        <section className="section_content">
+          <Contents nav={statusNav}></Contents>
+        </section>
+        <div className="dim"></div>
+      </div>
+    )
+  } else {
+    return (
+      <RegisterChat setValid={setIsValid}></RegisterChat>
+    );
+  }
 }
+
 
 export default App;
