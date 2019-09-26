@@ -1,0 +1,48 @@
+.section_log {
+    .log_tb {
+        width: 90%;
+        margin: 20px auto;
+        thead > tr {
+            background: #ffe8e8;
+            height: 40px;
+        }
+        tbody > tr {
+            height: 40px;
+            
+            &:nth-child(2n) {
+                background: #bbbbbba4;
+            }
+            &:hover {
+                background: #bbbbbb;
+                color: white;
+            }
+            td {
+                font-weight: normal;
+                border-bottom: solid 1px #909090;
+                text-align: center;
+                &:nth-child(2):hover {
+                    color: rgb(3, 0, 175);
+                    text-decoration: underline;
+                    cursor:pointer;
+                }
+            }
+            td:first-child {
+                width: 3%;
+                padding: 0 10px;
+            }
+            td > a.icon {
+                width: 18px;
+                height: 18px;
+                background-size: contain;
+                display: block;
+                margin: 0 auto;
+            }
+            .delete_icon {
+                background: url('../img/delete.png');
+            }
+            .edit_icon {
+                background: url('../img/edit.png');
+            }
+        }
+    }
+}

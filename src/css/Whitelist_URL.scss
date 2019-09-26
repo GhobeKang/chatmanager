@@ -1,0 +1,92 @@
+.section_whitelist {
+    width: 70%;
+    margin: 40px auto;
+    .whitelist_input_wrap {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        input.whitelist_input {
+            width: 50%;
+            height: 30px;
+            text-align: center;
+            margin-left: 20px;
+        }
+        button.whitelist_register {
+            width: 100px;
+            height: 30px;
+            margin-left: 20px;
+            border: #575757 solid 2px;
+            box-shadow: #00196b 0px 1px 20px;
+            background: transparent;
+            border-radius: 10px;
+            font-size: .9rem;
+            &:hover {
+                transform: translateY(1px);
+                box-shadow: #00196b 0px 0px 10px;
+            }
+        }
+    }
+    
+    .whitelist_tb {
+        width: 100%;
+        margin: 20px 0;
+        thead > tr {
+            background: #ffe8e8;
+            height: 40px;
+        }
+        tbody > tr {
+            height: 40px;
+            
+            &:nth-child(2n) {
+                background: #bbbbbba4;
+            }
+            &:hover {
+                background: #bbbbbb;
+                color: white;
+            }
+            td {
+                font-weight: normal;
+                border-bottom: solid 1px #909090;
+                &:nth-child(2):hover {
+                    color: rgb(3, 0, 175);
+                    text-decoration: underline;
+                    cursor:pointer;
+                }
+            }
+            td:first-child {
+                width: 50%;
+                padding: 0 10px;
+            }
+            td > a.icon {
+                width: 18px;
+                height: 18px;
+                background-size: contain;
+                display: block;
+                margin: 0 auto;
+            }
+            .delete_icon {
+                background: url('../img/delete.png');
+            }
+            .edit_icon {
+                background: url('../img/edit.png');
+            }
+        }
+        
+    }
+    .append_btn {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+        text-align: center;
+        box-shadow: 1px 1px 20px #001f86;
+        border: solid 1px #003479;
+        right: 40px;
+        bottom: 40px;
+        font-size: 20px;
+        background: #00196b;
+        color: white;
+    }    
+}

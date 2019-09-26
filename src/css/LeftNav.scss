@@ -19,8 +19,11 @@
     }
     .nav_contents {
         margin: 40px 0;
+        display: flex;
+        flex-direction: column;
         a {
             font-size: .9rem;
+            margin: 10px 0;
             cursor: pointer;
             &:hover {
                 color: white;

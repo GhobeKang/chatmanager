@@ -11,7 +11,10 @@ function RegisterChat (props) {
           if (response.status === 200) {
             if (response.data !== false) {
               window.localStorage.setItem('chat_id', response.data.id)
+              window.localStorage.setItem('living', true)
               props.setValid(true)
+            } else {
+              alert('you should include a chat-bot of @aqoom_bot into your chatting-room and apply for permission to admin')
             }
           }
         })

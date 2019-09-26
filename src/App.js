@@ -7,8 +7,9 @@ import LeftNav from './components/LeftNav';
 function App() {
   const [ isValid, setIsValid ] = useState(false);
   const [ statusNav, setStatusNav ] = useState('word');
+  const isLiving = window.localStorage.getItem('living');
 
-  if (isValid) {
+  if (isLiving || isValid) {
     return (
       <div className="main_container">
         <LeftNav setStatus={setStatusNav} statusNav={statusNav}></LeftNav>

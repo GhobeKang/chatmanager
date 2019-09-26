@@ -16,7 +16,9 @@ function LeftNav (props) {
             </p>
           </div>
           <div className="nav_contents">
-            <a onClick={nav_link_to('word')}>Manage Words</a>
+            <a onClick={() => nav_link_to('word')}>BlackList (Words)</a>
+            <a onClick={() => nav_link_to('wlist')}>WhiteList (URL)</a>
+            <a onClick={() => nav_link_to('log')}>Log</a>
           </div>
         </section>
     )

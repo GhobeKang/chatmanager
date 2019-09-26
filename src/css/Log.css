@@ -1,0 +1,56 @@
+.section_log .log_tb {
+  width: 90%;
+  margin: 20px auto;
+}
+
+.section_log .log_tb thead > tr {
+  background: #ffe8e8;
+  height: 40px;
+}
+
+.section_log .log_tb tbody > tr {
+  height: 40px;
+}
+
+.section_log .log_tb tbody > tr:nth-child(2n) {
+  background: #bbbbbba4;
+}
+
+.section_log .log_tb tbody > tr:hover {
+  background: #bbbbbb;
+  color: white;
+}
+
+.section_log .log_tb tbody > tr td {
+  font-weight: normal;
+  border-bottom: solid 1px #909090;
+  text-align: center;
+}
+
+.section_log .log_tb tbody > tr td:nth-child(2):hover {
+  color: #0300af;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.section_log .log_tb tbody > tr td:first-child {
+  width: 3%;
+  padding: 0 10px;
+}
+
+.section_log .log_tb tbody > tr td > a.icon {
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.section_log .log_tb tbody > tr .delete_icon {
+  background: url("../img/delete.png");
+}
+
+.section_log .log_tb tbody > tr .edit_icon {
+  background: url("../img/edit.png");
+}
+/*# sourceMappingURL=Log.css.map */
