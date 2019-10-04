@@ -2,6 +2,8 @@ import React from 'react';
 import WordManager from './WordManager'
 import Whitelist from './Whitelist_URL'
 import Log from './Log'
+import Faq from './FAQ_register'
+import Start from './StartMenu'
 
 function Contents (props) {
     if (props.nav === 'word') {
@@ -22,7 +24,19 @@ function Contents (props) {
                 <Log></Log>
             </div>
         )
-    }else {
+    } else if (props.nav === 'faq') {
+        return (
+            <div className="content_container">
+                <Faq></Faq>
+            </div>
+        ) 
+    } else if (props.nav === 'start') {
+        return (
+            <div className="content_container">
+                <Start></Start>
+            </div>
+        )
+    } else {
         return (
             <div className="content_container">
                 <p>invalid path</p>

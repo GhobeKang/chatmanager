@@ -43,8 +43,8 @@ class WordManager extends React.Component {
                     dataset.push(data.name)    
                 }
                 
-                this.setState({wordlist: dataset.map((data) => 
-                    <tr>
+                this.setState({wordlist: dataset.map((data, index) => 
+                    <tr key={index}>
                         <th>
                             {data}
                         </th>

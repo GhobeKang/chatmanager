@@ -4,9 +4,11 @@ import Axios from 'axios';
 function RegisterChat (props) {
     function req_validCheck () {
         const suffered_title = document.querySelector('input.strChatName').value;
-    
+        const activation_code = document.querySelector('input.activationCode').value;
+        
         Axios.post('http://localhost:4000/api/checkValidation', {
-          title: suffered_title
+          title: suffered_title,
+          ac_code: activation_code
         }).then(function(response) {
           if (response.status === 200) {
             if (response.data !== false) {
@@ -27,8 +29,9 @@ function RegisterChat (props) {
                 <p>Register your chatting room</p>
             </div>
             <div className="register_form">
+                <input type="text" name="activation_code" className="activationCode" placeholder="Activation Code" required></input>
                 <input type="text" name="title" className="strChatName" placeholder="plaese write a Chatting room's Title" required></input>
-                <button className="submit_btn" onClick={req_validCheck}>submit</button>
+                <button className="submit_btn" onClick={() => req_validCheck()}>submit</button>
             </div>
             </header>
         </div>

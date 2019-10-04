@@ -21,7 +21,7 @@ class Log extends React.Component{
                 }
                 
                 this.setState({loglist: result.map((data, index) => 
-                    <tr>
+                    <tr key={index}>
                         <td>
                             {index}
                         </td>

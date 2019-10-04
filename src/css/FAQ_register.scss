@@ -1,0 +1,118 @@
+.faq_section {
+    width: 70%;
+    margin: 40px auto;
+    .faq_input_wrap {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        .faq_content_wrap {
+            flex-direction: column;    
+            width: 100%;
+            input.faq_input, textarea {
+                width: 100%;
+                height: 30px;
+                text-align: center;
+                align-content: center;
+                margin: 20px 0;
+            }
+            textarea {
+                height: 90px;
+            }
+            input[type=radio] {
+                margin-right: 20px;
+            }
+            input[type=file] {
+                display: block;
+                margin-top: 20px;
+            }
+        }
+        button.faq_register {
+            width: 100px;
+            height: 140px;
+            margin-left: 30px;
+            border: #575757 solid 2px;
+            box-shadow: #00196b 0px 1px 20px;
+            background: transparent;
+            border-radius: 10px;
+            font-size: .9rem;
+            cursor: pointer;
+            &:hover {
+                transform: translateY(1px);
+                box-shadow: #00196b 0px 0px 10px;
+            }
+        }
+    }
+    
+    .faq_tb {
+        width: 100%;
+        margin: 20px 0;
+        thead > tr {
+            background: #ffe8e8;
+            height: 40px;
+        }
+        tbody > tr {
+            height: 40px;
+            
+            &:nth-child(2n) {
+                background: #bbbbbba4;
+            }
+            &:hover {
+                background: #bbbbbb;
+                color: white;
+            }
+            td {
+                font-weight: normal;
+                border-bottom: solid 1px #909090;
+                &:nth-child(2):hover {
+                    color: rgb(3, 0, 175);
+                    text-decoration: underline;
+                    cursor:pointer;
+                }
+            }
+            td:first-child {
+                width: 5%;
+                padding: 0 10px;
+            }
+            td:nth-child(4) {
+                width: 5%;
+                cursor: pointer;
+            }
+            td > img[id^=faq_img] {
+                width: 100%;
+            }
+            td:last-child {
+                width: 20%;
+            }
+            td > a.icon {
+                width: 18px;
+                height: 18px;
+                background-size: contain;
+                display: block;
+                margin: 0 auto;
+            }
+            .delete_icon {
+                background: url('../img/delete.png');
+            }
+            .edit_icon {
+                background: url('../img/edit.png');
+            }
+        }
+        
+    }
+    .append_btn {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+        text-align: center;
+        box-shadow: 1px 1px 20px #001f86;
+        border: solid 1px #003479;
+        right: 40px;
+        bottom: 40px;
+        font-size: 20px;
+        background: #00196b;
+        color: white;
+    }    
+}

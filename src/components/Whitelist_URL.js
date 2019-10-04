@@ -79,8 +79,8 @@ class Whitelist_URL extends React.Component{
                     result.push(item)
                 }
                 
-                this.setState({whitelist: result.map((data) => 
-                    <tr>
+                this.setState({whitelist: result.map((data, index) => 
+                    <tr key={index}>
                         <td>
                             {data.url_pattern}
                         </td>
