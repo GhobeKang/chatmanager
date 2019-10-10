@@ -1,5 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
+import Title from './Section_title';
 import '../css/Log.css';
 
 class Log extends React.Component{
@@ -58,6 +59,7 @@ class Log extends React.Component{
     render () {
         return (
             <div className="section_log">
+                <Title title={'Logs about blocked words or pictures'}></Title>
                 <table className="log_tb">
                     <thead>
                         <tr>

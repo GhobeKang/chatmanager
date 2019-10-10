@@ -1,5 +1,5 @@
 .faq_section {
-  width: 70%;
+  width: 80%;
   margin: 40px auto;
 }
 
@@ -95,6 +95,7 @@
 .faq_section .faq_tb tbody > tr td {
   font-weight: normal;
   border-bottom: solid 1px #909090;
+  text-align: center;
 }
 
 .faq_section .faq_tb tbody > tr td:nth-child(2):hover {
@@ -114,7 +115,7 @@
 }
 
 .faq_section .faq_tb tbody > tr td > img[id^=faq_img] {
-  width: 100%;
+  width: 30%;
 }
 
 .faq_section .faq_tb tbody > tr td:last-child {

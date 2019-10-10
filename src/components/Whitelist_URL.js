@@ -1,5 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
+import Title from './Section_title';
 import '../css/Whitelist_URL.css';
 
 class Whitelist_URL extends React.Component{
@@ -105,6 +106,7 @@ class Whitelist_URL extends React.Component{
     render () {
         return (
             <div className="section_whitelist">
+                <Title title={'Whitelist for URL'}></Title>
                 <div className="whitelist_input_wrap">
                     <label for="whitelist_input" className="whitelist_label">http(s)://</label>
                     <input id="whitelist_input" className="whitelist_input" placeholder="Input a URL to shut down" onChange={(ev) => this.changeValues(ev)} onKeyUp={(ev)=> {if(ev.which === 13) {this.submit_whitelist(ev)}}}></input>
@@ -113,7 +115,12 @@ class Whitelist_URL extends React.Component{
                 
                 <table className="whitelist_tb">
                     <tbody>
-                        {this.state.whitelist}
+                        {this.state.whitelist.length === 0 
+                        ?
+                            <tr><td colSpan="3" className="empty_item">No Items</td></tr>
+                        :
+                            this.state.whitelist
+                        }
                     </tbody>
                 </table>
             </div>

@@ -1,0 +1,80 @@
+.startmenu_section {
+  width: 80%;
+  margin: 40px auto;
+}
+
+.startmenu_section .start_input_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.startmenu_section .start_input_wrap .start_content_wrap {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.startmenu_section .start_input_wrap .start_content_wrap input.faq_input, .startmenu_section .start_input_wrap .start_content_wrap textarea {
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  margin: 20px 0;
+}
+
+.startmenu_section .start_input_wrap .start_content_wrap textarea {
+  height: 90px;
+}
+
+.startmenu_section .start_input_wrap .start_content_wrap input[type=radio] {
+  margin-right: 20px;
+}
+
+.startmenu_section .start_input_wrap .start_content_wrap input[type=file] {
+  display: block;
+  margin-top: 20px;
+}
+
+.startmenu_section .start_input_wrap button.start_register {
+  width: 100px;
+  height: 140px;
+  margin-left: 30px;
+  border: #575757 solid 2px;
+  -webkit-box-shadow: #00196b 0px 1px 20px;
+          box-shadow: #00196b 0px 1px 20px;
+  background: transparent;
+  border-radius: 10px;
+  font-size: .9rem;
+  cursor: pointer;
+}
+
+.startmenu_section .start_input_wrap button.start_register:hover {
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
+  -webkit-box-shadow: #00196b 0px 0px 10px;
+          box-shadow: #00196b 0px 0px 10px;
+}
+
+.startmenu_section .preview_wrap {
+  width: 60%;
+  margin: 20px auto;
+}
+
+.startmenu_section .preview_wrap img {
+  width: 100%;
+}
+/*# sourceMappingURL=StartMenu_reg.css.map */

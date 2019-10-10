@@ -7,8 +7,18 @@ import LeftNav from './components/LeftNav';
 function App() {
   const [ isValid, setIsValid ] = useState(false);
   const [ statusNav, setStatusNav ] = useState('word');
-  const isLiving = window.localStorage.getItem('living');
+  const isLiving = getCookie('living');
 
+  function getCookie(id) {
+    const cookies = document.cookie.split(';');
+    for (var cookie of cookies) {
+      var parse = cookie.split('=')
+      if (parse[0] === id) {
+        return parse[1];
+      }
+    }
+  }
+  
   if (isLiving || isValid) {
     return (
       <div className="main_container">

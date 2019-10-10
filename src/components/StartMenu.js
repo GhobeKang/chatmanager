@@ -1,5 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
+import Title from './Section_title';
+import '../css/StartMenu_reg.css';
 
 class StartMenu extends React.Component {
     constructor(props) {
@@ -115,9 +117,10 @@ class StartMenu extends React.Component {
 
     render () {
         return (
-            <div className="faq_section">
-                <div className="faq_input_wrap">
-                    <div className="faq_content_wrap">
+            <div className="startmenu_section">
+                <Title title={"Register a response of command \'\/start\'"}></Title>
+                <div className="start_input_wrap">
+                    <div className="start_content_wrap">
                         <label htmlFor="response_text">Text</label>
                         <input type="radio" id="response_text" name="response_type" value="Text" onChange={(ev) => this.toggleRespType(ev)}></input>
 
@@ -125,12 +128,12 @@ class StartMenu extends React.Component {
                         <input type="radio" id="response_image" name="response_type" value="Image" onChange={(ev) => this.toggleRespType(ev)}></input>
                         {!this.state.isImage 
                         ? 
-                            <textarea id="faq_response" className="faq_response" placeholder="Input a answer for FAQ question" onChange={(ev) => this.changeResponse(ev)}></textarea>    
+                            <textarea id="start_response" className="start_response" placeholder="Input a answer for FAQ question" onChange={(ev) => this.changeResponse(ev)}></textarea>    
                         : 
-                            <input type="file" className="faq_response_img" onChange={(ev) => this.uploadedImage(ev)}></input>
+                            <input type="file" className="start_response_img" onChange={(ev) => this.uploadedImage(ev)}></input>
                         }
                     </div>
-                    <button type="button" className="faq_register" onClick={(ev) => this.submit_faqlist(ev)}>submit</button>
+                    <button type="button" className="start_register" onClick={(ev) => this.submit_faqlist(ev)}>submit</button>
                 </div>
                 <div className="preview_wrap">
                     {this.state.preview_img !== 'undefined' ? 

@@ -42,6 +42,9 @@
   font-size: 1rem;
   margin-bottom: 40px;
 }
+.activationCode {
+  animation: fadeIn 1s ease-out;
+}
 
 .register_form > button {
   width: 100px;
@@ -61,3 +64,11 @@
   display: none;
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

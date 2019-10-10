@@ -1,57 +1,75 @@
-.wordmanager_tb {
-    width: 90%;
-    margin: 20px auto;
-    thead > tr {
-        background: #ffe8e8;
-        height: 40px;
-    }
-    tbody > tr {
-        height: 40px;
-        
-        &:nth-child(2n) {
-            background: #bbbbbba4;
-        }
-        &:hover {
-            background: #bbbbbb;
+.section_wordmanager {
+    width: 80%;
+    margin: 0 auto;
+    .header_section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        .append_btn {
+            width: 100px;
+            border-radius: 5px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 1px 1px 20px #001f86;
+            border: solid 1px #003479;
+            font-size: 20px;
+            background: #00196b;
             color: white;
-        }
-        th {
-            font-weight: normal;
-            border-bottom: solid 1px #909090;
-            &:nth-child(2):hover {
-                color: rgb(3, 0, 175);
-                text-decoration: underline;
-                cursor:pointer;
+            cursor: pointer;
+            &:hover {
+                transform: translateY(1px);
+                box-shadow: 0px 0px 10px #001f86;
             }
         }
-        th > a.icon {
-            width: 18px;
-            height: 18px;
-            background-size: contain;
-            display: block;
-            margin: 0 auto;
+    }
+    .wordmanager_tb {
+        width: 100%;
+        margin: 20px auto;
+        thead > tr {
+            background: #ffe8e8;
+            height: 40px;
         }
-        .delete_icon {
-            background: url('../img/delete.png');
+        tbody > tr {
+            height: 40px;
+            
+            &:nth-child(2n) {
+                background: #bbbbbba4;
+            }
+            &:hover {
+                background: #bbbbbb;
+                color: white;
+            }
+            th {
+                font-weight: normal;
+                border-bottom: solid 1px #909090;
+                &:nth-child(2):hover {
+                    color: rgb(3, 0, 175);
+                    text-decoration: underline;
+                    cursor:pointer;
+                }
+            }
+            th > a.icon {
+                width: 18px;
+                height: 18px;
+                background-size: contain;
+                display: block;
+                margin: 0 auto;
+            }
+            .delete_icon {
+                background: url('../img/delete.png');
+            }
+            .edit_icon {
+                background: url('../img/edit.png');
+            }
         }
-        .edit_icon {
-            background: url('../img/edit.png');
+        .empty_item {
+            text-align: center;
+            color: #909090;
+            font-weight: bold;
+            font-size: 1.2rem;
         }
+        
     }
     
-}
-.append_btn {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    text-align: center;
-    box-shadow: 1px 1px 20px #001f86;
-    border: solid 1px #003479;
-    right: 40px;
-    bottom: 40px;
-    font-size: 20px;
-    background: #00196b;
-    color: white;
 }

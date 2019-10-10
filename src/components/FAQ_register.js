@@ -1,5 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
+import Title from './Section_title';
 import '../css/FAQ_register.css'
 
 class FAQ_register extends React.Component {
@@ -145,6 +146,7 @@ class FAQ_register extends React.Component {
     render () {
         return (
             <div className="faq_section">
+                <Title title={'Register automatic response of FAQ'}></Title>
                 <div className="faq_input_wrap">
                     <div className="faq_content_wrap">
                         <input id="faq_input" className="faq_input" placeholder="Input a pattern of FAQ" onChange={(ev) => this.changeValues(ev)}></input>
@@ -165,7 +167,12 @@ class FAQ_register extends React.Component {
                 
                 <table className="faq_tb">
                     <tbody>
-                        {this.state.faqlist}
+                        {this.state.faqlist.length === 0 
+                        ? 
+                            <tr><td colSpan="3" className="empty_item">No Items</td></tr>
+                        :
+                            this.state.faqlist
+                        }
                     </tbody>
                 </table>
             </div>

@@ -1,5 +1,5 @@
 .section_whitelist {
-  width: 70%;
+  width: 80%;
   margin: 40px auto;
 }
 
@@ -98,6 +98,13 @@
 
 .section_whitelist .whitelist_tb tbody > tr .edit_icon {
   background: url("../img/edit.png");
+}
+
+.section_whitelist .whitelist_tb tbody > tr .empty_item {
+  text-align: center;
+  color: #909090;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 .section_whitelist .append_btn {

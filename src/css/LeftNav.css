@@ -1,9 +1,10 @@
 .left_nav {
   width: 300px;
-  background: #ececec;
-  text-align: center;
-  -webkit-box-shadow: 0px 2px 10px #909090, 1px 1px 5px inset #000;
-          box-shadow: 0px 2px 10px #909090, 1px 1px 5px inset #000;
+  background: #ffffff;
+  text-align: left;
+  -webkit-box-shadow: 0px 2px 10px #909090;
+          box-shadow: 0px 2px 10px #909090;
+  padding: 0 0 0 40px;
 }
 
 .left_nav .nav_header {
@@ -11,16 +12,61 @@
   font-weight: bold;
   position: relative;
   margin-bottom: 10px;
+  color: #000546;
+}
+
+.left_nav .nav_header .header_logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.left_nav .nav_header .header_logo img {
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+}
+
+.left_nav .nav_header .header_logo::after {
+  content: '';
+  width: 30px;
+  height: 2px;
+  background-color: #ca4820;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+}
+
+.left_nav .nav_header .header_title {
+  font-style: italic;
+}
+
+.left_nav .nav_header .header_rate {
+  font-size: .9rem;
+  font-weight: normal;
+}
+
+.left_nav .nav_header .header_rate span {
+  color: #ca4820;
+  font-weight: bold;
 }
 
 .left_nav .nav_header::after {
   content: '';
   width: 100%;
   height: 2px;
-  background-color: #ffffff;
+  background-color: #000546;
   position: absolute;
-  bottom: -10;
-  left: 0;
+  bottom: -20px;
+  left: -20px;
 }
 
 .left_nav .nav_contents {
@@ -37,10 +83,11 @@
 .left_nav .nav_contents a {
   font-size: .9rem;
   margin: 10px 0;
+  color: #000546;
   cursor: pointer;
 }
 
 .left_nav .nav_contents a:hover {
-  color: white;
+  color: #4e74db;
 }
 /*# sourceMappingURL=LeftNav.css.map */

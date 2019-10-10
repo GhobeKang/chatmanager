@@ -1,5 +1,5 @@
 .faq_section {
-    width: 70%;
+    width: 80%;
     margin: 40px auto;
     .faq_input_wrap {
         display: flex;
@@ -64,6 +64,7 @@
             td {
                 font-weight: normal;
                 border-bottom: solid 1px #909090;
+                text-align: center;
                 &:nth-child(2):hover {
                     color: rgb(3, 0, 175);
                     text-decoration: underline;
@@ -79,7 +80,7 @@
                 cursor: pointer;
             }
             td > img[id^=faq_img] {
-                width: 100%;
+                width: 30%;
             }
             td:last-child {
                 width: 20%;

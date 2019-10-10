@@ -1,5 +1,5 @@
 .section_whitelist {
-    width: 70%;
+    width: 80%;
     margin: 40px auto;
     .whitelist_input_wrap {
         display: flex;
@@ -70,6 +70,12 @@
             }
             .edit_icon {
                 background: url('../img/edit.png');
+            }
+            .empty_item {
+                text-align: center;
+                color: #909090;
+                font-weight: bold;
+                font-size: 1.2rem;
             }
         }
         

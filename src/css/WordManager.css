@@ -1,38 +1,80 @@
-.wordmanager_tb {
-  width: 90%;
+.section_wordmanager {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.section_wordmanager .header_section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.section_wordmanager .header_section .append_btn {
+  width: 100px;
+  border-radius: 5px;
+  overflow: hidden;
+  text-align: center;
+  -webkit-box-shadow: 1px 1px 20px #001f86;
+          box-shadow: 1px 1px 20px #001f86;
+  border: solid 1px #003479;
+  font-size: 20px;
+  background: #00196b;
+  color: white;
+  cursor: pointer;
+}
+
+.section_wordmanager .header_section .append_btn:hover {
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
+  -webkit-box-shadow: 0px 0px 10px #001f86;
+          box-shadow: 0px 0px 10px #001f86;
+}
+
+.section_wordmanager .wordmanager_tb {
+  width: 100%;
   margin: 20px auto;
 }
 
-.wordmanager_tb thead > tr {
+.section_wordmanager .wordmanager_tb thead > tr {
   background: #ffe8e8;
   height: 40px;
 }
 
-.wordmanager_tb tbody > tr {
+.section_wordmanager .wordmanager_tb tbody > tr {
   height: 40px;
 }
 
-.wordmanager_tb tbody > tr:nth-child(2n) {
+.section_wordmanager .wordmanager_tb tbody > tr:nth-child(2n) {
   background: #bbbbbba4;
 }
 
-.wordmanager_tb tbody > tr:hover {
+.section_wordmanager .wordmanager_tb tbody > tr:hover {
   background: #bbbbbb;
   color: white;
 }
 
-.wordmanager_tb tbody > tr th {
+.section_wordmanager .wordmanager_tb tbody > tr th {
   font-weight: normal;
   border-bottom: solid 1px #909090;
 }
 
-.wordmanager_tb tbody > tr th:nth-child(2):hover {
+.section_wordmanager .wordmanager_tb tbody > tr th:nth-child(2):hover {
   color: #0300af;
   text-decoration: underline;
   cursor: pointer;
 }
 
-.wordmanager_tb tbody > tr th > a.icon {
+.section_wordmanager .wordmanager_tb tbody > tr th > a.icon {
   width: 18px;
   height: 18px;
   background-size: contain;
@@ -40,28 +82,18 @@
   margin: 0 auto;
 }
 
-.wordmanager_tb tbody > tr .delete_icon {
+.section_wordmanager .wordmanager_tb tbody > tr .delete_icon {
   background: url("../img/delete.png");
 }
 
-.wordmanager_tb tbody > tr .edit_icon {
+.section_wordmanager .wordmanager_tb tbody > tr .edit_icon {
   background: url("../img/edit.png");
 }
 
-.append_btn {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
+.section_wordmanager .wordmanager_tb .empty_item {
   text-align: center;
-  -webkit-box-shadow: 1px 1px 20px #001f86;
-          box-shadow: 1px 1px 20px #001f86;
-  border: solid 1px #003479;
-  right: 40px;
-  bottom: 40px;
-  font-size: 20px;
-  background: #00196b;
-  color: white;
+  color: #909090;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 /*# sourceMappingURL=WordManager.css.map */

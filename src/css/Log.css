@@ -1,5 +1,10 @@
+.section_log {
+  width: 80%;
+  margin: 0 auto;
+}
+
 .section_log .log_tb {
-  width: 90%;
+  width: 100%;
   margin: 20px auto;
 }
 

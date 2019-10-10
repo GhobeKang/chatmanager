@@ -2,6 +2,7 @@ import React, { useState, useEffect, Component } from 'react';
 import Axios from 'axios';
 import Append_modal from './Append_modal';
 import Edit_modal from './Edit_modal';
+import Title from './Section_title';
 import '../css/WordManager.css';
 
 class WordManager extends React.Component {
@@ -102,9 +103,13 @@ class WordManager extends React.Component {
     render() {
         return (
             <div className="section_wordmanager">
-                <div className="append_btn_wrap">
-                    <button type="button" className="append_btn" onClick={(e) => this.appendWord()}>+</button>
+                <div className="header_section">
+                    <Title title={'manage banned words'}></Title>
+                    <div className="append_btn_wrap">
+                        <button type="button" className="append_btn" onClick={(e) => this.appendWord()}>+</button>
+                    </div>
                 </div>
+        
                 <table className="wordmanager_tb">
                     <thead>
                         <tr>
@@ -114,7 +119,9 @@ class WordManager extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.wordlist}
+                        {this.state.wordlist.length === 0 ? 
+                            <tr><td colSpan="3" className="empty_item">No Items</td></tr>
+                            : this.state.wordlist}
                     </tbody>
                 </table>
                 <Append_modal state={this.state.isOpenModal} closeModal={() => this.closeModal()} getWordData={() => this.getWordData()}></Append_modal>
