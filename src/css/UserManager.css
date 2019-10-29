@@ -1,9 +1,9 @@
-.section_wordmanager {
+.section_usermanager {
   width: 80%;
   margin: 0 auto;
 }
 
-.section_wordmanager .header_section {
+.section_usermanager .header_section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -19,7 +19,7 @@
           justify-content: space-between;
 }
 
-.section_wordmanager .header_section .append_btn {
+.section_usermanager .header_section .append_btn {
   width: 100px;
   border-radius: 5px;
   overflow: hidden;
@@ -33,67 +33,76 @@
   cursor: pointer;
 }
 
-.section_wordmanager .header_section .append_btn:hover {
+.section_usermanager .header_section .append_btn:hover {
   -webkit-transform: translateY(1px);
           transform: translateY(1px);
   -webkit-box-shadow: 0px 0px 10px #001f86;
           box-shadow: 0px 0px 10px #001f86;
 }
 
-.section_wordmanager .wordmanager_tb {
+.section_usermanager .usermanager_tb {
   width: 100%;
   margin: 20px auto;
 }
 
-.section_wordmanager .wordmanager_tb thead > tr {
+.section_usermanager .usermanager_tb thead > tr {
   background: #ffe8e8;
   height: 40px;
 }
 
-.section_wordmanager .wordmanager_tb tbody > tr {
+.section_usermanager .usermanager_tb tbody > tr {
   height: 40px;
 }
 
-.section_wordmanager .wordmanager_tb tbody > tr:nth-child(2n) {
+.section_usermanager .usermanager_tb tbody > tr:nth-child(2n) {
   background: #bbbbbba4;
 }
 
-.section_wordmanager .wordmanager_tb tbody > tr:hover {
+.section_usermanager .usermanager_tb tbody > tr:hover {
   background: #bbbbbb;
   color: white;
 }
 
-.section_wordmanager .wordmanager_tb tbody > tr th {
+.section_usermanager .usermanager_tb tbody > tr td {
   font-weight: normal;
   border-bottom: solid 1px #909090;
 }
 
-.section_wordmanager .wordmanager_tb tbody > tr th:nth-child(2):hover {
+.section_usermanager .usermanager_tb tbody > tr td:nth-child(2):hover {
   color: #0300af;
   text-decoration: underline;
   cursor: pointer;
 }
 
-.section_wordmanager .wordmanager_tb tbody > tr th > span.icon {
+.section_usermanager .usermanager_tb tbody > tr td > span.icon {
   width: 18px;
   height: 18px;
   background-size: contain;
   display: block;
   margin: 0 auto;
+  cursor: pointer;
 }
 
-.section_wordmanager .wordmanager_tb tbody > tr .delete_icon {
+.section_usermanager .usermanager_tb tbody > tr .delete_icon {
   background: url("../img/delete.png");
 }
 
-.section_wordmanager .wordmanager_tb tbody > tr .edit_icon {
+.section_usermanager .usermanager_tb tbody > tr .edit_icon {
   background: url("../img/edit.png");
 }
 
-.section_wordmanager .wordmanager_tb .empty_item {
+.section_usermanager .usermanager_tb tbody > tr .kick_icon {
+  background: url("../img/user-slash-solid.svg") no-repeat;
+}
+
+.section_usermanager .usermanager_tb tbody > tr .ban_icon {
+  background: url("../img/ban-solid.svg") no-repeat;
+}
+
+.section_usermanager .usermanager_tb .empty_item {
   text-align: center;
   color: #909090;
   font-weight: bold;
   font-size: 1.2rem;
 }
-/*# sourceMappingURL=WordManager.css.map */
+/*# sourceMappingURL=UserManager.css.map */

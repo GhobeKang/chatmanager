@@ -8,7 +8,7 @@ function Append_modal (props) {
         ev.stopPropagation();
         
         const val = document.querySelector('.append_modal > input.append_word').value
-        Axios.post('http://localhost:4000/api/pushWordData', {
+        Axios.post('pushWordData', {
             word: val,
             chat_id: window.localStorage.getItem('chat_id')
         }).then((res) => {

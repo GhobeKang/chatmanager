@@ -122,7 +122,7 @@
   width: 20%;
 }
 
-.faq_section .faq_tb tbody > tr td > a.icon {
+.faq_section .faq_tb tbody > tr td > span.icon {
   width: 18px;
   height: 18px;
   background-size: contain;

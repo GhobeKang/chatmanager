@@ -3,6 +3,8 @@ import './App.css';
 import Contents from './components/Contents';
 import RegisterChat from './components/Register_chat';
 import LeftNav from './components/LeftNav';
+import Axios from 'axios';
+Axios.defaults.baseURL = 'http://localhost:4000/api/'
 
 function App() {
   const [ isValid, setIsValid ] = useState(false);

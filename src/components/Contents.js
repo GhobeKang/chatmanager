@@ -4,6 +4,7 @@ import Whitelist from './Whitelist_URL'
 import Log from './Log'
 import Faq from './FAQ_register'
 import Start from './StartMenu'
+import Users from './UserManager'
 
 function Contents (props) {
     if (props.nav === 'word') {
@@ -34,6 +35,12 @@ function Contents (props) {
         return (
             <div className="content_container">
                 <Start></Start>
+            </div>
+        )
+    } else if (props.nav === 'users') {
+        return (
+            <div className="content_container">
+                <Users></Users>
             </div>
         )
     } else {

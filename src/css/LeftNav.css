@@ -36,7 +36,7 @@
 }
 
 .left_nav .nav_header .header_logo::after {
-  content: '';
+  content: "";
   width: 30px;
   height: 2px;
   background-color: #ca4820;
@@ -50,7 +50,7 @@
 }
 
 .left_nav .nav_header .header_rate {
-  font-size: .9rem;
+  font-size: 0.9rem;
   font-weight: normal;
 }
 
@@ -60,7 +60,7 @@
 }
 
 .left_nav .nav_header::after {
-  content: '';
+  content: "";
   width: 100%;
   height: 2px;
   background-color: #000546;
@@ -81,7 +81,7 @@
 }
 
 .left_nav .nav_contents a {
-  font-size: .9rem;
+  font-size: 0.9rem;
   margin: 10px 0;
   color: #000546;
   cursor: pointer;

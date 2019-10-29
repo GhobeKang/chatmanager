@@ -61,7 +61,7 @@ class FAQ_register extends React.Component {
         form_data.append('img_type', this.state.imageType)
 
         if (form_data.get('chat_id') && form_data.get('content') !== '') {
-            Axios.post('http://localhost:4000/api/pushFaqlist', form_data)
+            Axios.post('pushFaqlist', form_data)
                 .then((res) => {
                     if (res.data) {
                         this.getFaqList();
@@ -79,7 +79,7 @@ class FAQ_register extends React.Component {
                 chat_id : window.localStorage.getItem('chat_id')
             }
     
-            Axios.post('http://localhost:4000/api/delFaqlist', data)
+            Axios.post('delFaqlist', data)
                 .then((res) => {
                     if (res.data) {
                         this.getFaqList();
@@ -105,7 +105,7 @@ class FAQ_register extends React.Component {
         const chat_id = window.localStorage.getItem('chat_id')
 
         if (chat_id.length !== 0) {
-            Axios.post('http://localhost:4000/api/getFaqlist', {chat_id: chat_id})
+            Axios.post('getFaqlist', {chat_id: chat_id})
             .then((res) => {
                 const listup = res.data;
                 let result = [];
@@ -123,10 +123,10 @@ class FAQ_register extends React.Component {
                             {data.faq_content}
                         </td>
                         <td>
-                            {data.response_type === 'txt' ? data.faq_response : <img id={'faq_img' + index} src={data.faq_response_img}></img>}
+                            {data.response_type === 'txt' ? data.faq_response : <img id={'faq_img' + index} src={data.faq_response_img} alt="registerd for FAQ"></img>}
                         </td>
                         <td>
-                            <a className="delete_icon icon" onClick={(e) => this.deleteFaqList(data.faq_content)}></a>
+                            <span className="delete_icon icon" onClick={(e) => this.deleteFaqList(data.faq_content)}></span>
                         </td>
                         <td>
                             {new Date(data.created_date).toUTCString()}

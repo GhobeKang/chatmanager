@@ -19,7 +19,7 @@ class Whitelist_URL extends React.Component{
             if (validation) {
                 const chat_id = window.localStorage.getItem('chat_id')
                 if (chat_id.length !== 0) {
-                    Axios.post('http://localhost:4000/api/pushWhitelist', {pattern: val, chat_id: chat_id})
+                    Axios.post('pushWhitelist', {pattern: val, chat_id: chat_id})
                     .then((res) => {
                         if (res.data) {
                             this.getWhitelist()
@@ -54,7 +54,7 @@ class Whitelist_URL extends React.Component{
     deleteWhitelist(url) {
         var check = window.confirm('Are you sure to Delete this Item?')
         if (check) {
-            Axios.post('http://localhost:4000/api/delWhitelist', {
+            Axios.post('delWhitelist', {
                 url: url,
                 chat_id: window.localStorage.getItem('chat_id')
             }).then((res) => {
@@ -71,7 +71,7 @@ class Whitelist_URL extends React.Component{
         const chat_id = window.localStorage.getItem('chat_id')
 
         if (chat_id.length !== 0) {
-            Axios.post('http://localhost:4000/api/getWhitelist', {chat_id: chat_id})
+            Axios.post('getWhitelist', {chat_id: chat_id})
             .then((res) => {
                 const listup = res.data;
                 let result = [];
@@ -86,7 +86,7 @@ class Whitelist_URL extends React.Component{
                             {data.url_pattern}
                         </td>
                         <td>
-                            <a className="delete_icon icon" onClick={(e) => this.deleteWhitelist(data.url_pattern)}></a>
+                            <span className="delete_icon icon" onClick={(e) => this.deleteWhitelist(data.url_pattern)}></span>
                         </td>
                         <td>
                             {new Date(data.created_date).toUTCString()}

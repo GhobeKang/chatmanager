@@ -9,7 +9,7 @@ function Edit_modal (props) {
         
         const val = document.querySelector('.edit_modal > input.edit_word').value
         
-        Axios.post('http://localhost:4000/api/editWordData', {
+        Axios.post('editWordData', {
             rep : val,
             ori : props.oriword,
             chat_id: window.localStorage.getItem('chat_id')

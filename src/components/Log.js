@@ -1,7 +1,7 @@
 import React from 'react';
-import Axios from 'axios';
 import Title from './Section_title';
 import '../css/Log.css';
+import Axios from 'axios';
 
 class Log extends React.Component{
     constructor (props) {
@@ -12,7 +12,7 @@ class Log extends React.Component{
     }
 
     componentDidMount() {
-        Axios.post('http://localhost:4000/api/getLogs', {'chat_id' : window.localStorage.getItem('chat_id')})
+        Axios.post('getLogs', {'chat_id' : window.localStorage.getItem('chat_id')})
             .then((res) => {
                 const listup = res.data;
                 let result = [];
@@ -35,6 +35,9 @@ class Log extends React.Component{
                         <td>
                             {new Date(data.del_date).toUTCString()}
                         </td>
+                        <td>
+                            {this.render_resend_icon(data)}
+                        </td>
                     </tr>
                 )})
 
@@ -44,15 +47,36 @@ class Log extends React.Component{
 
     getContent(data) {
         if (data.type !== 'photo') {
-            return data.text;
+            return data.msg;
         } else {
             if (data.photo_base64) {
                 const img_sr = "data:image/jpg;base64," + data.photo_base64;
             
                 return (
-                    <img src={img_sr}></img>
+                    <img src={img_sr} alt="result of log" ></img>
                 )
             }
+        }
+    }
+
+    restoreMsg(data) {
+        const dataset = {
+            chat_id: window.localStorage.getItem('chat_id'),
+            text: `<i> -> ${data.msg_from}</i>
+            
+            origin msg : <b>${data.msg}</b>`,
+            parse_mode: 'html'
+        }
+        Axios.post(`https://api.telegram.org/bot847825836:AAFv02ESsTVjnrzIomgdiVjBGWVw7CpN_Cg/sendMessage`, dataset)
+    }
+
+    render_resend_icon(data) {
+        if (data.type === 'text') {
+            return (
+                <span className="icon resend_icon" onClick={(ev) => this.restoreMsg(data)}></span>
+            )
+        } else {
+            return ''
         }
     }
 
@@ -75,7 +99,9 @@ class Log extends React.Component{
                             <th width="20%">
                                 date
                             </th>
-                            
+                            <th width="8%">
+                                re-send
+                            </th>
                         </tr>
                     </thead>
                     <tbody>

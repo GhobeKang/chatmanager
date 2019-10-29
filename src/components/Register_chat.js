@@ -1,60 +1,92 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Axios from 'axios';
 
-function RegisterChat (props) {
-    const [isActive, setIsActive] = useState(true)
+class RegisterChat extends React.Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      isActive : false
+    }
+  }
 
-    function req_validCheck () {
-        const suffered_title = document.querySelector('input.strChatName').value;
+  componentDidMount() {
+    if (window.location.search !== '') {
+      const qstring = window.location.search.slice(1).split('&');
+      if (qstring.length !== 0) {
+        const room_name = qstring[0].split('=')[1];
+        const activation_code = qstring[1].split('=')[1];
         
-        if (isActive) {
-          Axios.post('http://localhost:4000/api/checkValidationRoom', {
-          title: suffered_title
-            }, {withCredentials: true}).then(function(response) {
-              if (response.status === 200) {
-                if (response.data !== false) {
-                  window.localStorage.setItem('chat_id', response.data.id)
-                  props.setValid(true)
-                } else {
-                  setIsActive(false)
-                  alert('your Room is not activated properly. Please chack your activation code again. if you don\'t have an activation code, ask to AQOOM service manager.')
-                }
-              }
-            })  
-        } else {
-          const activation_code = document.querySelector('input.activationCode').value;
+        this.checkValidation(room_name, activation_code);
 
-          Axios.post('http://localhost:4000/api/checkValidation', {
-            title: suffered_title,
-            ac_code: activation_code
-          }, {withCredentials: true}).then(function(response) {
-            if (response.status === 200) {
-              if (response.data !== false) {
-                window.localStorage.setItem('chat_id', response.data.id)
-                props.setValid(true)
-              } else {
-                alert('it\'s not valid input. check again if chat Room\'s name or activation code is valid.')
-              }
-            }
-          })  
-        }
-        
       }
+    }
+  }
 
+  req_validCheck () {
+    const suffered_title = document.querySelector('input.strChatName').value;
+    
+    if (this.isActive) {
+      
+      this.checkValidationRoom(suffered_title);
+
+    } else {
+      const activation_code = document.querySelector('input.activationCode').value;
+
+      this.checkValidation(suffered_title, activation_code);
+       
+    }
+  }
+
+  checkValidationRoom(t) {
+    Axios.post('checkValidationRoom', {
+      title: t
+        }, {withCredentials: true}).then((response) => {
+          if (response.status === 200) {
+            if (response.data !== false) {
+              window.localStorage.setItem('chat_id', response.data.id)
+              this.props.setValid(true)
+            } else {
+              this.isActive = false
+              alert('your Room is not activated properly. Please chack your activation code again. if you don\'t have an activation code, ask to AQOOM service manager.')
+            }
+          }
+        })  
+  }
+
+  checkValidation(t, a) {
+    Axios.post('checkValidation', {
+        title: t,
+        ac_code: a
+      }, {withCredentials: true}).then((response) => {
+        if (response.status === 200) {
+          if (response.data !== false) {
+            window.localStorage.setItem('chat_id', response.data.id)
+            this.props.setValid(true)
+          } else {
+            alert('it\'s not valid input. check again if chat Room\'s name or activation code is valid.')
+          }
+        }
+      })  
+  }
+  
+
+  render() {
     return (
-        <div className="App">
+      <div className="App">
             <header className="App-header">
             <div className="register_title">
                 <p>Register your chatting room</p>
             </div>
             <div className="register_form">
-                {!isActive ? <input type="text" name="activation_code" className="activationCode" placeholder="Activation Code" required></input> : ''}
+                {!this.state.isActive ? <input type="text" name="activation_code" className="activationCode" placeholder="Activation Code" required></input> : ''}
                 <input type="text" name="title" className="strChatName" placeholder="plaese write a Chatting room's Title" required></input>
-                <button className="submit_btn" onClick={() => req_validCheck()}>submit</button>
+                <button className="submit_btn" onClick={() => this.req_validCheck()}>submit</button>
             </div>
             </header>
         </div>
     )
+  }
 }
 
 export default RegisterChat;

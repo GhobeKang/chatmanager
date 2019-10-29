@@ -1,7 +1,7 @@
-import React, { useState, useEffect, Component } from 'react';
+import React from 'react';
 import Axios from 'axios';
-import Append_modal from './Append_modal';
-import Edit_modal from './Edit_modal';
+import AppendModal from './Append_modal';
+import EditModal from './Edit_modal';
 import Title from './Section_title';
 import '../css/WordManager.css';
 
@@ -35,7 +35,7 @@ class WordManager extends React.Component {
     }
 
     getWordData() {
-        Axios.post('http://localhost:4000/api/getWordData', {chat_id: window.localStorage.getItem('chat_id')})
+        Axios.post('getWordData', {chat_id: window.localStorage.getItem('chat_id')})
         .then((res) => {
             if (res.data && res.status === 200) {
                 let dataset = []
@@ -50,10 +50,10 @@ class WordManager extends React.Component {
                             {data}
                         </th>
                         <th>
-                            <a className="delete_icon icon" onClick={(e) => this.deleteWord(data)}></a>
+                            <span className="delete_icon icon" onClick={(e) => this.deleteWord(data)}></span>
                         </th>
                         <th>
-                            <a className="edit_icon icon" onClick={(e) => this.editWord(data)}></a>
+                            <span className="edit_icon icon" onClick={(e) => this.editWord(data)}></span>
                         </th>
                     </tr> 
                 )})
@@ -64,7 +64,7 @@ class WordManager extends React.Component {
     deleteWord(word) {
         var check = window.confirm('Are you sure to Delete this Item?')
         if (check) {
-            Axios.post('http://localhost:4000/api/delWordData', {
+            Axios.post('delWordData', {
                 word: word,
                 chat_id: window.localStorage.getItem('chat_id')
             }).then((res) => {
@@ -124,8 +124,8 @@ class WordManager extends React.Component {
                             : this.state.wordlist}
                     </tbody>
                 </table>
-                <Append_modal state={this.state.isOpenModal} closeModal={() => this.closeModal()} getWordData={() => this.getWordData()}></Append_modal>
-                <Edit_modal state_edit={this.state.isOpenModal_edit} oriword={this.state.oriword} closeModal={() => this.closeModal_edit()} getWordData={() => this.getWordData()}></Edit_modal>
+                <AppendModal state={this.state.isOpenModal} closeModal={() => this.closeModal()} getWordData={() => this.getWordData()}></AppendModal>
+                <EditModal state_edit={this.state.isOpenModal_edit} oriword={this.state.oriword} closeModal={() => this.closeModal_edit()} getWordData={() => this.getWordData()}></EditModal>
             </div>
         )
     }

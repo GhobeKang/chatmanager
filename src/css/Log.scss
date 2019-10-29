@@ -32,18 +32,22 @@
                 width: 3%;
                 padding: 0 10px;
             }
-            td > a.icon {
+            td > span.icon {
                 width: 18px;
                 height: 18px;
                 background-size: contain;
                 display: block;
                 margin: 0 auto;
+                cursor:pointer;
             }
             .delete_icon {
                 background: url('../img/delete.png');
             }
             .edit_icon {
                 background: url('../img/edit.png');
+            }
+            .resend_icon {
+                background: url('../img/share-option.png');
             }
         }
     }
