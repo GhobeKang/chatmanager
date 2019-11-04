@@ -83,6 +83,11 @@ class Log extends React.Component{
     render () {
         return (
             <div className="section_log">
+                 <div className="module_path">
+                <p>
+                    <span>Modules / </span>Logs
+                </p>
+                </div>
                 <Title title={'Logs about blocked words or pictures'}></Title>
                 <table className="log_tb">
                     <thead>

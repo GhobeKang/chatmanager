@@ -1,6 +1,6 @@
 .section_usermanager {
   width: 80%;
-  margin: 0 auto;
+  margin: 20px 0 20px 40px;
 }
 
 .section_usermanager .header_section {
@@ -43,10 +43,12 @@
 .section_usermanager .usermanager_tb {
   width: 100%;
   margin: 20px auto;
+  border: solid 1px #E2E2E3;
+  border-radius: 4px;
 }
 
 .section_usermanager .usermanager_tb thead > tr {
-  background: #ffe8e8;
+  background: #F9FAFB;
   height: 40px;
 }
 
@@ -55,23 +57,12 @@
 }
 
 .section_usermanager .usermanager_tb tbody > tr:nth-child(2n) {
-  background: #bbbbbba4;
-}
-
-.section_usermanager .usermanager_tb tbody > tr:hover {
-  background: #bbbbbb;
-  color: white;
+  background: #F9FAFB;
 }
 
 .section_usermanager .usermanager_tb tbody > tr td {
   font-weight: normal;
-  border-bottom: solid 1px #909090;
-}
-
-.section_usermanager .usermanager_tb tbody > tr td:nth-child(2):hover {
-  color: #0300af;
-  text-decoration: underline;
-  cursor: pointer;
+  border-bottom: solid 1px #E2E2E3;
 }
 
 .section_usermanager .usermanager_tb tbody > tr td > span.icon {

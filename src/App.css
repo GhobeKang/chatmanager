@@ -1,3 +1,6 @@
+*:focus {
+  outline: none;
+}
 .App {
   text-align: center;
 }
@@ -5,13 +8,21 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  position: absolute;
   width: 100%;
   height: 100%;
-  left:0 ; top:0;
+  left: 0;
+  top: 0;
 }
 .section_content {
   width: 100%;
+}
+.module_path span {
+  color: #2185d0;
+  font-size: 0.8rem;
+}
+.module_path p {
+  color: #1b1c1d;
+  font-size: 0.8rem;
 }
 .App-header {
   background-color: #282c34;
@@ -51,7 +62,7 @@
   height: 30px;
   border: solid #909090 2px;
   border-radius: 10px;
-  font-size: .9rem;
+  font-size: 0.9rem;
   box-shadow: rgb(218, 217, 217) 0px 0px 20px;
 }
 
@@ -62,6 +73,72 @@
   background: #282c34a3;
   z-index: 10;
   display: none;
+}
+
+.section_header {
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 80px;
+  box-shadow: #0000000a 0 2px 6px;
+}
+.header_logo {
+  background: url(./img/AQOOM_logo.png) no-repeat;
+  background-size: contain;
+  width: fit-content;
+  width: 250px;
+}
+.header_infos {
+  display: table;
+  width: 220px;
+}
+.header_infos .header_name {
+  display: table-cell;
+  width: 50%;
+  line-height: 80px;
+  font-size: 14px;
+  color: #4d4f5c;
+  cursor: pointer;
+  overflow: hidden;
+}
+.header_infos .header_photo {
+  display: table-cell;
+  width: 50%;
+  vertical-align: middle;
+}
+.header_infos .header_photo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.icon.icon-down {
+  width: 15px;
+  height: 15px;
+  background: url(./img/sort-down-solid.svg) no-repeat;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+.header_drop {
+  display: none;
+  width: 140px;
+  height: 64px;
+  border-radius: 3px;
+  box-shadow: #00000038 0 3px 6px;
+  position: absolute;
+  top: 58px;
+  right: 63px;
+  z-index: 100;
+  list-style: none;
+  font-size: 10px;
+  color: #00000038;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.header_drop.open {
+  display: flex;
 }
 
 @keyframes fadeIn {

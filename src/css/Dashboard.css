@@ -1,0 +1,65 @@
+.section_title {
+  margin-left: 20px;
+}
+
+.dashboard_list_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 80%;
+}
+
+.dashboard_list_wrap .module_item {
+  width: 25%;
+  height: 208px;
+  border: solid 1px #707070;
+  border-radius: 6px;
+  margin: 20px;
+  padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  position: relative;
+}
+
+.dashboard_list_wrap .module_item .module_title p {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.dashboard_list_wrap .module_item .module_content {
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+
+.dashboard_list_wrap .module_item a {
+  position: absolute;
+  width: 185px;
+  height: 35px;
+  color: white;
+  background: #43425D;
+  border: solid 1px #43425D;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 1rem;
+  text-decoration: none;
+  line-height: 35px;
+  bottom: 20px;
+}
+/*# sourceMappingURL=Dashboard.css.map */

@@ -1,0 +1,47 @@
+
+.set_options {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 20px 0 20px 40px;
+    .section_title {
+        margin: 0;
+    }
+    .filter_group {
+        margin: 10px 0;
+        &:hover > .filter_label {
+        background: #909090;
+        border: solid 1px rgb(15, 15, 15);
+        }
+        .filter_label {
+        width: 15px;
+        height: 15px;
+        background: #fff;
+        border-radius: 5px;
+        border: solid 1px #707070;
+        transition: all 0.5s;
+        position: absolute;
+        margin-left: 10px;
+        }
+        .option_item {
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+        position: absolute;
+        &:checked + .filter_label {
+            background: #707070;
+        }
+        }
+    }
+    .save_btn {
+        width: 141px;
+        height: 38px;
+        background: #43425D 0% 0% no-repeat padding-box;
+        border: 1px solid #43425D;
+        border-radius: 4px;
+        opacity: 1;
+        color: white;
+        font-size: 0.8rem;
+        margin-top: 34px;
+    }
+}

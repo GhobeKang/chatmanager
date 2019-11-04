@@ -5,6 +5,7 @@ import Log from './Log'
 import Faq from './FAQ_register'
 import Start from './StartMenu'
 import Users from './UserManager'
+import Dashboard from './Dashboard'
 
 function Contents (props) {
     if (props.nav === 'word') {
@@ -41,6 +42,12 @@ function Contents (props) {
         return (
             <div className="content_container">
                 <Users></Users>
+            </div>
+        )
+    } else if (props.nav === 'dashboard') {
+        return (
+            <div className="dashboard_container">
+                <Dashboard></Dashboard>
             </div>
         )
     } else {

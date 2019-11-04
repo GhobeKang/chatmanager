@@ -10,9 +10,7 @@ class WordManager extends React.Component {
         super(props);
         this.state = {
           wordlist: [],
-          isOpenModal: false,
-          isOpenModal_edit : false,
-          oriword : ''
+          value: ''
         };
     }
 
@@ -20,41 +18,51 @@ class WordManager extends React.Component {
         this.getWordData();
     }
 
-    closeModal() {
-        this.setState({isOpenModal: false}) 
-        
-        document.querySelector('.dim').style = 'display: none'
-        document.querySelector('.dim').removeEventListener('click', () => {})   
+    changeValues (event) {
+        this.setState({value: event.target.value})
     }
 
-    closeModal_edit() {
-        this.setState({isOpenModal_edit: false}) 
+    submit_blacklist (ev) {
+        if (this.state.value.length !== 0) {
+            const val = this.state.value
+            
+            const chat_id = window.localStorage.getItem('chat_id')
+            if (chat_id.length !== 0) {
+                Axios.post('pushWordData', {word: val, chat_id: chat_id})
+                .then((res) => {
+                    if (res.data) {
+                        this.getWordData()
+                    }
+                })
+            } else {
+                alert('There is any valid key of chatting information')
+                return false
+            }
         
-        document.querySelector('.dim').style = 'display: none'
-        document.querySelector('.dim').removeEventListener('click', () => {})   
+        }
     }
 
     getWordData() {
         Axios.post('getWordData', {chat_id: window.localStorage.getItem('chat_id')})
         .then((res) => {
             if (res.data && res.status === 200) {
-                let dataset = []
-
-                for (var data of res.data) {
-                    dataset.push(data.name)    
-                }
+                let dataset = res.data;
                 
                 this.setState({wordlist: dataset.map((data, index) => 
                     <tr key={index}>
-                        <th>
-                            {data}
-                        </th>
-                        <th>
-                            <span className="delete_icon icon" onClick={(e) => this.deleteWord(data)}></span>
-                        </th>
-                        <th>
-                            <span className="edit_icon icon" onClick={(e) => this.editWord(data)}></span>
-                        </th>
+                        <td>
+                            {data.word_name}
+                        </td>
+                        <td>
+                            {data.created_time}
+                        </td>
+                        <td>
+                            <span className="delete_icon icon" onClick={(e) => this.deleteWord(data.word_name)}></span>
+                            <span> Delete</span>
+                        </td>
+                        <td>
+                            <span className="edit_icon icon" onClick={(e) => this.editWord(data.word_name)}></span>
+                        </td>
                     </tr> 
                 )})
             }
@@ -77,55 +85,42 @@ class WordManager extends React.Component {
         
     }
 
-    dimControl() {
-        const _this = this
-        document.querySelector('.dim').style = 'display: block'
-        document.querySelector('.dim').addEventListener('click', function(ev) {
-            ev.stopPropagation()
-            
-            _this.setState({isOpenModal: false})
-            // document.querySelector('.modal.append_modal').classList.add('hidden')
-            document.querySelector('.dim').style = 'display: none'
-            document.querySelector('.dim').removeEventListener('click', () => {})
-        })
-    }
-
-    editWord(word) {
-        this.dimControl()
-        this.setState({isOpenModal_edit: true, oriword: word})
-    }
-
-    appendWord() {
-        this.dimControl()
-        this.setState({isOpenModal : true})
-    }
-
     render() {
         return (
             <div className="section_wordmanager">
-                <div className="header_section">
-                    <Title title={'manage banned words'}></Title>
-                    <div className="append_btn_wrap">
-                        <button type="button" className="append_btn" onClick={(e) => this.appendWord()}>+</button>
+                <div className="module_path">
+                    <p><span>Modules  /  </span>Blacklist</p>
+                </div>
+                <Title title={'Manage Blacklist'}></Title>
+                <div className="blacklist_input_wrap">
+                    <label htmlFor="blacklist_input" className="blacklist_label">Enter words you want to ban</label>
+                    <div className="input_wrap">
+                        <input id="blacklist_input" className="blacklist_input" placeholder="Input a URL to shut down" onChange={(ev) => this.changeValues(ev)} onKeyUp={(ev)=> {if(ev.which === 13) {this.submit_blacklist(ev)}}}></input>
+                        <button type="button" className="blacklist_register" onClick={(ev) => this.submit_blacklist(ev)}>ADD</button>
                     </div>
                 </div>
-        
-                <table className="wordmanager_tb">
+                
+                <p className="table_title">
+                    Blacklist
+                </p>
+                <table className="blacklist_tb">
                     <thead>
                         <tr>
-                            <th>word_name</th>
-                            <th>delete</th>
-                            <th>edit</th>
+                            <th width="35%">Words</th>
+                            <th width="45%">Date Added</th>
+                            <th width="10%">Action</th>
+                            <th width="10%">Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.wordlist.length === 0 ? 
+                        {this.state.wordlist.length === 0 
+                        ?
                             <tr><td colSpan="3" className="empty_item">No Items</td></tr>
-                            : this.state.wordlist}
+                        :
+                            this.state.wordlist
+                        }
                     </tbody>
                 </table>
-                <AppendModal state={this.state.isOpenModal} closeModal={() => this.closeModal()} getWordData={() => this.getWordData()}></AppendModal>
-                <EditModal state_edit={this.state.isOpenModal_edit} oriword={this.state.oriword} closeModal={() => this.closeModal_edit()} getWordData={() => this.getWordData()}></EditModal>
             </div>
         )
     }

@@ -62,12 +62,23 @@ class RegisterChat extends React.Component {
         if (response.status === 200) {
           if (response.data !== false) {
             window.localStorage.setItem('chat_id', response.data.id)
+            const expire_time = this.getUTCExpiredTime();
+            document.cookie = "living=true; expires=" + expire_time;
             this.props.setValid(true)
           } else {
             alert('it\'s not valid input. check again if chat Room\'s name or activation code is valid.')
           }
         }
       })  
+  }
+
+  getUTCExpiredTime() {
+    var now = new Date();
+    var time = now.getTime();
+    var expireTime = time + 2*360000;
+    now.setTime(expireTime);
+
+    return now.toUTCString();
   }
   
 

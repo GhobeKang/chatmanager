@@ -1,68 +1,89 @@
 .section_whitelist {
     width: 80%;
-    margin: 40px auto;
-    .whitelist_input_wrap {
+    margin: 20px 0 20px 40px;
+    .section_title {
+        margin: 0;
+    }
+    .whitelist_label {
+        font-size: 0.7rem;
+        line-height: 1.4rem;
+    }
+    .input_wrap {
         display: flex;
         flex-direction: row;
-        justify-content: flex-end;
+        justify-content: flex-start;
         align-items: center;
         input.whitelist_input {
             width: 50%;
             height: 30px;
             text-align: center;
-            margin-left: 20px;
+            border-radius: 4px;
+            padding: 0 15px;
         }
         button.whitelist_register {
             width: 100px;
             height: 30px;
             margin-left: 20px;
-            border: #575757 solid 2px;
-            box-shadow: #00196b 0px 1px 20px;
-            background: transparent;
-            border-radius: 10px;
+            border: #43425D solid 2px;
+            background: #43425D;
+            border-radius: 4px;
             font-size: .9rem;
+            color: white;
             &:hover {
                 transform: translateY(1px);
                 box-shadow: #00196b 0px 0px 10px;
             }
         }
     }
-    
+    .table_title {
+        color: #333333DE;
+        font-size: 0.8rem;
+        margin: 40px 0 0;
+    }
     .whitelist_tb {
         width: 100%;
-        margin: 20px 0;
+        margin: 10px 0;
+        border-radius: 4px;
+        border: solid 1px #E2E2E3;
         thead > tr {
-            background: #ffe8e8;
+            background: #F9FAFB;
             height: 40px;
+            th {
+                text-align: left;
+                padding-left: 20px;
+            }
         }
         tbody > tr {
             height: 40px;
             
             &:nth-child(2n) {
-                background: #bbbbbba4;
-            }
-            &:hover {
-                background: #bbbbbb;
-                color: white;
+                background: #FAFAFB;
             }
             td {
                 font-weight: normal;
-                border-bottom: solid 1px #909090;
+                border-bottom: solid 1px #E2E2E3;
+                text-align: left;
+                padding-left: 20px;
+                font-size: 0.8rem;
+                color: #000000CC;
                 &:nth-child(2):hover {
                     color: rgb(3, 0, 175);
                     text-decoration: underline;
                     cursor:pointer;
                 }
-            }
-            td:first-child {
-                width: 50%;
-                padding: 0 10px;
+                &:nth-child(3) {
+                    padding: 0;
+                    text-align: center;
+                }
+                &:nth-child(4) {
+                    position: relative;
+                }
             }
             td > span.icon {
                 width: 18px;
                 height: 18px;
                 background-size: contain;
-                display: block;
+                display: inline-block;
                 margin: 0 auto;
             }
             .delete_icon {
@@ -95,4 +116,42 @@
         background: #00196b;
         color: white;
     }    
+    .disable_btn_wrap {
+        position: absolute;
+        top: 6px;
+        .filter_group {
+            .filter_label {
+                width: 50px;
+                height: 25px;
+                border-radius: 20px;
+                background: #707070;
+                position: absolute;
+                border: 1px solid #70707083;
+                transition: all 0.5s ease;
+            }
+            .filter_circle {
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: linear-gradient(#ffffff, #FCFCFC);
+                border: solid 1px #DEDFDF;
+                box-shadow: 0px 1px 3px #0000001A;
+                position: absolute;
+                right: -25px;
+                top: 2px;
+                transition: transform 0.3s ease-out;
+            }
+            input {
+                width: 1px; height: 1px;
+                opacity: 0;
+                position: absolute;
+                &:checked + .filter_label {
+                    background: #0C71BB;
+                }
+                &:checked ~ .filter_circle {
+                    transform: translateX(25px);
+                }
+            }
+        }
+    }
 }

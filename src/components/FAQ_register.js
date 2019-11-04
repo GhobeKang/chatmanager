@@ -1,6 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import Title from './Section_title';
+import QnA_List from './QnA_List_Component';
 import '../css/FAQ_register.css'
 
 class FAQ_register extends React.Component {
@@ -24,10 +25,10 @@ class FAQ_register extends React.Component {
         return this.setState({response: event.target.value})
     }
 
-    toggleRespType(event) {
-        if (event.target.value === 'Text') {
+    toggleRespType(type) {
+        if (type === 'text') {
             this.setState({isImage: false})
-        } else if (event.target.value === 'Image') {
+        } else if (type === 'pic') {
             this.setState({isImage: true})
         }
     }
@@ -38,14 +39,42 @@ class FAQ_register extends React.Component {
             alert('File size should be less than 2MB')
             return false
         }
+        this.makePreview(file);
         this.setState({imageType: file.type.split('/')[1], uploadImage: file})
     }
 
+    makePreview(file) {
+        const fr = new FileReader();
+        
+        fr.onload = function(e) {
+            const img_el = document.createElement('img');
+            img_el.setAttribute('src', e.target.result);
+            
+            const target_el = document.querySelector('.input_file_preview');
+            while (target_el.firstChild) {
+                target_el.removeChild(target_el.firstChild);
+            }
+
+            document.querySelector('.input_file_preview').appendChild(img_el)
+        }
+
+        fr.readAsDataURL(file)
+    }
+
+    removeImagePreview() {
+        const target_el = document.querySelector('.input_file_preview');
+        while (target_el.firstChild) {
+            target_el.removeChild(target_el.firstChild);
+        }
+    }
+
     clearTexts() {
-        document.querySelector('input.faq_input').value = '';
+        document.querySelector('textarea.faq_input').value = '';
         if (!this.state.isImage) {
-            document.querySelector('textarea.faq_response').value = '';
-        } 
+            document.querySelector('textarea#faq_response_input').value = '';
+        } else {
+            this.removeImagePreview()
+        }
 
         return true;
     }
@@ -69,23 +98,6 @@ class FAQ_register extends React.Component {
                     }
                 })
         } 
-    }
-
-    deleteFaqList(content) {
-        var check = window.confirm('Are you sure to Delete this Item?')
-        if (check) {
-            const data = {
-                content: content,
-                chat_id : window.localStorage.getItem('chat_id')
-            }
-    
-            Axios.post('delFaqlist', data)
-                .then((res) => {
-                    if (res.data) {
-                        this.getFaqList();
-                    }
-                })
-        }
     }
 
     convertToBase64 ( img, type, targetid ) {
@@ -115,23 +127,7 @@ class FAQ_register extends React.Component {
                 }
                 
                 this.setState({faqlist: result.map((data, index) => 
-                    <tr>
-                        <td>
-                            {index + 1}
-                        </td>
-                        <td>
-                            {data.faq_content}
-                        </td>
-                        <td>
-                            {data.response_type === 'txt' ? data.faq_response : <img id={'faq_img' + index} src={data.faq_response_img} alt="registerd for FAQ"></img>}
-                        </td>
-                        <td>
-                            <span className="delete_icon icon" onClick={(e) => this.deleteFaqList(data.faq_content)}></span>
-                        </td>
-                        <td>
-                            {new Date(data.created_date).toUTCString()}
-                        </td>
-                    </tr> 
+                    <QnA_List data={data} index={index} getFaqList={() => this.getFaqList()}></QnA_List>
                 )})
 
                 return
@@ -146,25 +142,34 @@ class FAQ_register extends React.Component {
     render () {
         return (
             <div className="faq_section">
-                <Title title={'Register automatic response of FAQ'}></Title>
+                <div className="module_path">
+                    <p><span>Modules  /  </span>FAQ Responder</p>
+                </div>
+                <Title title={'Manage automatic response for FAQ'}></Title>
                 <div className="faq_input_wrap">
                     <div className="faq_content_wrap">
-                        <input id="faq_input" className="faq_input" placeholder="Input a pattern of FAQ" onChange={(ev) => this.changeValues(ev)}></input>
-                        <label for="response_text">Text</label>
-                        <input type="radio" id="response_text" name="response_type" value="Text" onChange={(ev) => this.toggleRespType(ev)}></input>
-
-                        <label for="response_image">Image</label>
-                        <input type="radio" id="response_image" name="response_type" value="Image" onChange={(ev) => this.toggleRespType(ev)}></input>
-                        {!this.state.isImage 
-                        ? 
-                            <textarea id="faq_response" className="faq_response" placeholder="Input a answer for FAQ question" onChange={(ev) => this.changeResponse(ev)}></textarea>    
-                        : 
-                            <input type="file" className="faq_response_img" onChange={(ev) => this.uploadedImage(ev)}></input>
-                        }
+                        <label htmlFor="faq_input">If the user says something similar to</label>
+                        <textarea id="faq_input" className="faq_input" onChange={(ev) => this.changeValues(ev)}></textarea>
                     </div>
-                    <button type="button" className="faq_register" onClick={(ev) => this.submit_faqlist(ev)}>submit</button>
+                    <div className="faq_content_wrap">
+                        <label htmlFor="faq_response_input">The bot will reply</label>
+                        {this.state.isImage ? <div className="input_file_preview"></div> : <textarea id="faq_response_input" onChange={(ev) => this.changeResponse(ev)}></textarea>}
+                        <div className="response_type_btns_wrap">
+                            {this.state.isImage ? <span className="icon text-icon-disabled" onClick={(ev) => this.toggleRespType('text')}></span> : <span className="icon text-icon-active" onClick={(ev) => this.toggleRespType('text')}></span>}
+                            <span> | </span>
+                            <label>
+                                <input type="file" name="faq_img" onChange={(ev) => this.uploadedImage(ev)}></input>
+                                {this.state.isImage ? <span className="icon pic-icon-active" onClick={() => this.toggleRespType('pic')}></span> : <span className="icon pic-icon-disabled" onClick={() => this.toggleRespType('pic')}></span>}
+                            </label>
+                            
+                        </div>
+                    </div>
                 </div>
+                <button type="button" className="faq_register" onClick={(ev) => this.submit_faqlist(ev)}>ADD</button>
                 
+                <p className="table_title">
+                    Responds
+                </p>
                 <table className="faq_tb">
                     <tbody>
                         {this.state.faqlist.length === 0 

@@ -1,10 +1,8 @@
 .left_nav {
   width: 300px;
-  background: #ffffff;
+  background: #BEBEBE;
   text-align: left;
-  -webkit-box-shadow: 0px 2px 10px #909090;
-          box-shadow: 0px 2px 10px #909090;
-  padding: 0 0 0 40px;
+  height: 900px;
 }
 
 .left_nav .nav_header {
@@ -70,7 +68,6 @@
 }
 
 .left_nav .nav_contents {
-  margin: 40px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -81,13 +78,49 @@
 }
 
 .left_nav .nav_contents a {
+  margin: 5px 0;
   font-size: 0.9rem;
-  margin: 10px 0;
-  color: #000546;
+  padding: 15px;
+  color: #fff;
+  background: #A3A3A3;
   cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .left_nav .nav_contents a:hover {
-  color: #4e74db;
+  background: #4A4A4A;
+}
+
+.left_nav .nav_contents a i.icon {
+  width: 18px;
+  height: 18px;
+  font-size: 16px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.left_nav .nav_contents a .icon.icon-dashboard {
+  background: url(../img/bar-chart.png) no-repeat;
+  background-size: contain;
+}
+
+.left_nav .nav_contents a .icon.icon-setting {
+  background: url(../img/cog-solid.svg) no-repeat;
+  background-size: contain;
+}
+
+.left_nav .nav_contents a .icon.icon-modules {
+  background: url(../img/envelope-regular.svg) no-repeat;
+  background-size: contain;
 }
 /*# sourceMappingURL=LeftNav.css.map */

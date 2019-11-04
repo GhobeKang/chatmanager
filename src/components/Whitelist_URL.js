@@ -2,6 +2,7 @@ import React from 'react';
 import Axios from 'axios';
 import Title from './Section_title';
 import '../css/Whitelist_URL.css';
+import { networkInterfaces } from 'os';
 
 class Whitelist_URL extends React.Component{
     constructor (props) {
@@ -67,6 +68,26 @@ class Whitelist_URL extends React.Component{
         
     }
 
+    changeStateWhitelist(is_active, id) {
+        if (is_active) {
+            Axios.post('updateWhitelist', {
+                chat_id: window.localStorage.getItem('chat_id'),
+                content: 0,
+                type: 'status',
+                id: id
+            })
+        } else {
+            Axios.post('updateWhitelist', {
+                chat_id: window.localStorage.getItem('chat_id'),
+                content: 1,
+                type: 'status',
+                id: id
+            })
+        }
+
+        return false;
+    }
+
     getWhitelist () {
         const chat_id = window.localStorage.getItem('chat_id')
 
@@ -86,10 +107,26 @@ class Whitelist_URL extends React.Component{
                             {data.url_pattern}
                         </td>
                         <td>
-                            <span className="delete_icon icon" onClick={(e) => this.deleteWhitelist(data.url_pattern)}></span>
+                            {new Date(data.created_date).toUTCString()}
                         </td>
                         <td>
-                            {new Date(data.created_date).toUTCString()}
+                            <span className="delete_icon icon" onClick={(e) => this.deleteWhitelist(data.url_pattern)}></span>
+                            <span> Delete</span>
+                        </td>
+                        <td>
+                            <div className="disable_btn_wrap">
+                                <label className="filter_group" htmlFor={index + '_whitelist'}>
+                                    <input
+                                    type="checkbox"
+                                    className="option_item"
+                                    id={index + '_whitelist'}
+                                    onChange={(ev) => this.changeStateWhitelist(data.is_active, data.id)}
+                                    defaultChecked={data.is_active ? true : false}
+                                    ></input>
+                                    <span className="filter_label"></span>
+                                    <span className="filter_circle"></span>
+                                </label>
+                            </div>
                         </td>
                     </tr> 
                 )})
@@ -106,14 +143,30 @@ class Whitelist_URL extends React.Component{
     render () {
         return (
             <div className="section_whitelist">
-                <Title title={'Whitelist for URL'}></Title>
+                <div className="module_path">
+                    <p><span>Modules  /  </span>Whitelist</p>
+                </div>
+                <Title title={'Manage Whitelist'}></Title>
                 <div className="whitelist_input_wrap">
-                    <label for="whitelist_input" className="whitelist_label">http(s)://</label>
-                    <input id="whitelist_input" className="whitelist_input" placeholder="Input a URL to shut down" onChange={(ev) => this.changeValues(ev)} onKeyUp={(ev)=> {if(ev.which === 13) {this.submit_whitelist(ev)}}}></input>
-                    <button type="button" className="whitelist_register" onClick={(ev) => this.submit_whitelist(ev)}>submit</button>
+                    <label htmlFor="whitelist_input" className="whitelist_label">Enter URL you want to ban</label>
+                    <div className="input_wrap">
+                        <input id="whitelist_input" className="whitelist_input" placeholder="Input a URL to shut down" onChange={(ev) => this.changeValues(ev)} onKeyUp={(ev)=> {if(ev.which === 13) {this.submit_whitelist(ev)}}}></input>
+                        <button type="button" className="whitelist_register" onClick={(ev) => this.submit_whitelist(ev)}>ADD</button>
+                    </div>
                 </div>
                 
+                <p className="table_title">
+                    Whitelist
+                </p>
                 <table className="whitelist_tb">
+                    <thead>
+                        <tr>
+                            <th width="35%">URL</th>
+                            <th width="45%">Date Added</th>
+                            <th width="10%">Action</th>
+                            <th width="10%">Status</th>
+                        </tr>
+                    </thead>
                     <tbody>
                         {this.state.whitelist.length === 0 
                         ?

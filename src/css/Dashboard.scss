@@ -1,0 +1,46 @@
+.section_title {
+    margin-left: 20px;
+}
+.dashboard_list_wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 80%;
+    .module_item {
+        width: 25%;
+        height: 208px;
+        border: solid 1px #707070;
+        border-radius: 6px;
+        margin: 20px;
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        position: relative;
+        .module_title {
+            p {
+                font-size: 1.3rem;
+                font-weight: bold;
+            }
+        }
+        .module_content {
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+        a {
+            position: absolute;
+            width: 185px;
+            height: 35px;
+            color: white;
+            background: #43425D;
+            border: solid 1px #43425D;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 1rem;
+            text-decoration: none;
+            line-height: 35px;
+            bottom: 20px;
+        }
+    }
+}

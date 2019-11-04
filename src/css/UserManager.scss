@@ -1,6 +1,6 @@
 .section_usermanager {
     width: 80%;
-    margin: 0 auto;
+    margin: 20px 0 20px 40px;
     .header_section {
         display: flex;
         flex-direction: row;
@@ -26,28 +26,20 @@
     .usermanager_tb {
         width: 100%;
         margin: 20px auto;
+        border: solid 1px #E2E2E3;
+        border-radius: 4px;
         thead > tr {
-            background: #ffe8e8;
+            background: #F9FAFB;
             height: 40px;
         }
         tbody > tr {
             height: 40px;
-            
             &:nth-child(2n) {
-                background: #bbbbbba4;
-            }
-            &:hover {
-                background: #bbbbbb;
-                color: white;
+                background: #F9FAFB;
             }
             td {
                 font-weight: normal;
-                border-bottom: solid 1px #909090;
-                &:nth-child(2):hover {
-                    color: rgb(3, 0, 175);
-                    text-decoration: underline;
-                    cursor:pointer;
-                }
+                border-bottom: solid 1px #E2E2E3;
             }
             td > span.icon {
                 width: 18px;
