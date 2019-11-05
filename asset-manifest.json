@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.e2733c0b.chunk.css",
-    "main.js": "/static/js/main.a8f06e60.chunk.js",
-    "main.js.map": "/static/js/main.a8f06e60.chunk.js.map",
+    "main.js": "/static/js/main.b0966f10.chunk.js",
+    "main.js.map": "/static/js/main.b0966f10.chunk.js.map",
     "runtime~main.js": "/static/js/runtime~main.e12613d6.js",
     "runtime~main.js.map": "/static/js/runtime~main.e12613d6.js.map",
     "static/js/2.8236e709.chunk.js": "/static/js/2.8236e709.chunk.js",
     "static/js/2.8236e709.chunk.js.map": "/static/js/2.8236e709.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.97611b8c88ba86cae5b165c8c56702de.js": "/precache-manifest.97611b8c88ba86cae5b165c8c56702de.js",
+    "precache-manifest.fb4445cb061ad99b75345860c718f869.js": "/precache-manifest.fb4445cb061ad99b75345860c718f869.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.e2733c0b.chunk.css.map": "/static/css/main.e2733c0b.chunk.css.map",
     "static/media/App.css": "/static/media/sort-down-solid.d8e48bb5.svg",
