@@ -1,0 +1,46 @@
+self.__precacheManifest = (self.__precacheManifest || []).concat([
+  {
+    "revision": "16ed4477f89e78bac2a0094b5833bb5f",
+    "url": "/index.html"
+  },
+  {
+    "revision": "e9fca9258dcb96578d4e",
+    "url": "/static/css/main.e2733c0b.chunk.css"
+  },
+  {
+    "revision": "0da65887b641296b55fe",
+    "url": "/static/js/2.8236e709.chunk.js"
+  },
+  {
+    "revision": "e9fca9258dcb96578d4e",
+    "url": "/static/js/main.a8f06e60.chunk.js"
+  },
+  {
+    "revision": "68b107e943ca1e0dc96f",
+    "url": "/static/js/runtime~main.e12613d6.js"
+  },
+  {
+    "revision": "2ada93ac6cc289334f4d687ac5bf483d",
+    "url": "/static/media/AQOOM_logo.2ada93ac.png"
+  },
+  {
+    "revision": "da374f4f829a8a54affb1cf692e69529",
+    "url": "/static/media/ban-solid.da374f4f.svg"
+  },
+  {
+    "revision": "33c3d3786e5154d6682b8bfd2fe708dd",
+    "url": "/static/media/cog-solid.33c3d378.svg"
+  },
+  {
+    "revision": "30d5ac5d0d4fa64c4b0eac88dab6ee42",
+    "url": "/static/media/envelope-regular.30d5ac5d.svg"
+  },
+  {
+    "revision": "d8e48bb5ad8fa7ab84fc0bfd244cd15a",
+    "url": "/static/media/sort-down-solid.d8e48bb5.svg"
+  },
+  {
+    "revision": "3b83b7b77ef1ce145fcfd9e26bd71c44",
+    "url": "/static/media/user-slash-solid.3b83b7b7.svg"
+  }
+]);
