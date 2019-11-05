@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/chatmanager/build/static/css/main.f037beaa.chunk.css",
-    "main.js": "/chatmanager/build/static/js/main.bad3e087.chunk.js",
-    "main.js.map": "/chatmanager/build/static/js/main.bad3e087.chunk.js.map",
-    "runtime~main.js": "/chatmanager/build/static/js/runtime~main.a921ea90.js",
-    "runtime~main.js.map": "/chatmanager/build/static/js/runtime~main.a921ea90.js.map",
-    "static/js/2.5c8d18cf.chunk.js": "/chatmanager/build/static/js/2.5c8d18cf.chunk.js",
-    "static/js/2.5c8d18cf.chunk.js.map": "/chatmanager/build/static/js/2.5c8d18cf.chunk.js.map",
-    "index.html": "/chatmanager/build/index.html",
-    "precache-manifest.2ab7e15c4fe66eac548e844a356aaaa8.js": "/chatmanager/build/precache-manifest.2ab7e15c4fe66eac548e844a356aaaa8.js",
-    "service-worker.js": "/chatmanager/build/service-worker.js",
-    "static/css/main.f037beaa.chunk.css.map": "/chatmanager/build/static/css/main.f037beaa.chunk.css.map",
-    "static/media/App.css": "/chatmanager/build/static/media/sort-down-solid.d8e48bb5.svg",
-    "static/media/UserManager.css": "/chatmanager/build/static/media/user-slash-solid.3b83b7b7.svg",
-    "static/media/LeftNav.css": "/chatmanager/build/static/media/envelope-regular.30d5ac5d.svg"
+    "main.css": "/chatmanager/static/css/main.16315069.chunk.css",
+    "main.js": "/chatmanager/static/js/main.66fffb4c.chunk.js",
+    "main.js.map": "/chatmanager/static/js/main.66fffb4c.chunk.js.map",
+    "runtime~main.js": "/chatmanager/static/js/runtime~main.e737222c.js",
+    "runtime~main.js.map": "/chatmanager/static/js/runtime~main.e737222c.js.map",
+    "static/js/2.5c8d18cf.chunk.js": "/chatmanager/static/js/2.5c8d18cf.chunk.js",
+    "static/js/2.5c8d18cf.chunk.js.map": "/chatmanager/static/js/2.5c8d18cf.chunk.js.map",
+    "index.html": "/chatmanager/index.html",
+    "precache-manifest.dfba1f7b37a2b696da0968555ff4620e.js": "/chatmanager/precache-manifest.dfba1f7b37a2b696da0968555ff4620e.js",
+    "service-worker.js": "/chatmanager/service-worker.js",
+    "static/css/main.16315069.chunk.css.map": "/chatmanager/static/css/main.16315069.chunk.css.map",
+    "static/media/App.css": "/chatmanager/static/media/sort-down-solid.d8e48bb5.svg",
+    "static/media/UserManager.css": "/chatmanager/static/media/user-slash-solid.3b83b7b7.svg",
+    "static/media/LeftNav.css": "/chatmanager/static/media/envelope-regular.30d5ac5d.svg"
   }
 }
