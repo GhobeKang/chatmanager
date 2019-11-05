@@ -3,6 +3,10 @@
   margin: 20px 0 20px 40px;
 }
 
+.section_usermanager .section_title {
+  margin: 0;
+}
+
 .section_usermanager .header_section {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -63,6 +67,7 @@
 .section_usermanager .usermanager_tb tbody > tr td {
   font-weight: normal;
   border-bottom: solid 1px #E2E2E3;
+  text-align: center;
 }
 
 .section_usermanager .usermanager_tb tbody > tr td > span.icon {

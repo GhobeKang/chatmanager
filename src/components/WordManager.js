@@ -41,6 +41,26 @@ class WordManager extends React.Component {
         
         }
     }
+    
+    changeStateWordlist(is_active, id) {
+        if (is_active) {
+            Axios.post('editWordData', {
+                chat_id: window.localStorage.getItem('chat_id'),
+                content: 0,
+                type: 'status',
+                id: id
+            })
+        } else {
+            Axios.post('editWordData', {
+                chat_id: window.localStorage.getItem('chat_id'),
+                content: 1,
+                type: 'status',
+                id: id
+            })
+        }
+
+        return false;
+    }
 
     getWordData() {
         Axios.post('getWordData', {chat_id: window.localStorage.getItem('chat_id')})
@@ -61,7 +81,19 @@ class WordManager extends React.Component {
                             <span> Delete</span>
                         </td>
                         <td>
-                            <span className="edit_icon icon" onClick={(e) => this.editWord(data.word_name)}></span>
+                        <div className="disable_btn_wrap">
+                                <label className="filter_group" htmlFor={index + '_whitelist'}>
+                                    <input
+                                    type="checkbox"
+                                    className="option_item"
+                                    id={index + '_whitelist'}
+                                    onChange={(ev) => this.changeStateWordlist(data.is_active, data.idx)}
+                                    defaultChecked={data.is_active ? true : false}
+                                    ></input>
+                                    <span className="filter_label"></span>
+                                    <span className="filter_circle"></span>
+                                </label>
+                            </div>
                         </td>
                     </tr> 
                 )})

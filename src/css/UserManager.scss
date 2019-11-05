@@ -1,6 +1,9 @@
 .section_usermanager {
     width: 80%;
     margin: 20px 0 20px 40px;
+    .section_title {
+        margin: 0;
+    }
     .header_section {
         display: flex;
         flex-direction: row;
@@ -40,6 +43,7 @@
             td {
                 font-weight: normal;
                 border-bottom: solid 1px #E2E2E3;
+                text-align: center;
             }
             td > span.icon {
                 width: 18px;

@@ -94,6 +94,9 @@ class UserManager extends React.Component {
     render() {
         return (
             <div className="section_usermanager">
+                <div className="module_path">
+                    <p><span>Modules  /  </span>Users</p>
+                </div>
                 <Title title={"Manage your customers"}></Title>
                 <table className="usermanager_tb">
                     <thead>
