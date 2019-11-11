@@ -1,27 +1,35 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "649438b6626bd3820cce36f9c7f6cbd1",
+    "revision": "fb7f21d31adb6d651128a9d3524b48c1",
     "url": "/index.html"
   },
   {
-    "revision": "c1d9c847f685ba063573",
-    "url": "/static/css/main.e2733c0b.chunk.css"
+    "revision": "4be5cae0bd4015627909",
+    "url": "/static/css/main.d4db708f.chunk.css"
   },
   {
     "revision": "0da65887b641296b55fe",
     "url": "/static/js/2.8236e709.chunk.js"
   },
   {
-    "revision": "c1d9c847f685ba063573",
-    "url": "/static/js/main.6e75e8de.chunk.js"
+    "revision": "4be5cae0bd4015627909",
+    "url": "/static/js/main.d5c5b5fd.chunk.js"
   },
   {
     "revision": "68b107e943ca1e0dc96f",
     "url": "/static/js/runtime~main.e12613d6.js"
   },
   {
-    "revision": "2ada93ac6cc289334f4d687ac5bf483d",
-    "url": "/static/media/AQOOM_logo.2ada93ac.png"
+    "revision": "f53ebb7bc7eb4957d6aa13867cb66f42",
+    "url": "/static/media/GothicA1-Bold.f53ebb7b.ttf"
+  },
+  {
+    "revision": "44ea8275e878ed72a9c8a393f9de12d2",
+    "url": "/static/media/Muli-Bold.44ea8275.ttf"
+  },
+  {
+    "revision": "e063a333cc9d58a3ad85d5cd86bf92d5",
+    "url": "/static/media/Muli-Regular.e063a333.ttf"
   },
   {
     "revision": "da374f4f829a8a54affb1cf692e69529",
