@@ -77,7 +77,7 @@
   width: 140px;
   height: 38px;
   border: #43425D solid 1px;
-  background: #43425D;
+  background: #1C62F9;
   border-radius: 4px;
   font-size: .8rem;
   cursor: pointer;
@@ -169,6 +169,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   resize: none;
+  background: #fff;
 }
 
 .faq_section .faq_tb tbody > tr td:first-child > div img, .faq_section .faq_tb tbody > tr td:first-child > textarea img, .faq_section .faq_tb tbody > tr td:nth-child(2) > div img, .faq_section .faq_tb tbody > tr td:nth-child(2) > textarea img {
@@ -211,7 +212,7 @@
   right: 40px;
   bottom: 40px;
   font-size: 20px;
-  background: #00196b;
+  background: #1C62F9;
   color: white;
 }
 
@@ -225,14 +226,17 @@
 }
 
 .faq_section .delete_icon {
-  background: url("../img/delete.png");
+  background: url("../img/Icons/ic_delete_24px@2x.png") no-repeat;
+  background-size: contain;
   position: relative;
 }
 
 .faq_section .delete_icon::after {
   content: 'Delete';
   position: absolute;
-  left: 23px;
+  left: 25px;
+  color: #DE1717;
+  font-size: 0.8rem;
 }
 
 .faq_section .edit_icon {
@@ -243,7 +247,8 @@
 .faq_section .edit_icon::after {
   content: 'Edit';
   position: absolute;
-  left: 23px;
+  left: 25px;
+  font-size: 0.8rem;
 }
 
 .faq_section .save_icon {
@@ -254,7 +259,8 @@
 .faq_section .save_icon::after {
   content: 'Save';
   position: absolute;
-  left: 23px;
+  left: 25px;
+  font-size: 0.8rem;
 }
 
 .faq_section .cancle_icon {
@@ -265,7 +271,8 @@
 .faq_section .cancle_icon::after {
   content: 'Cancle';
   position: absolute;
-  left: 23px;
+  left: 25px;
+  font-size: 0.8rem;
 }
 
 .faq_section .text-icon-active {

@@ -45,7 +45,7 @@ class Settings extends React.Component {
         </div>
         <Title title={"Settings"}></Title>
         <label className="filter_group" htmlFor="img_filtering">
-          Face Filtering
+          Face-filtering
           <input
             type="checkbox"
             className="option_item"

@@ -35,8 +35,8 @@ class FAQ_register extends React.Component {
 
     uploadedImage(event) {
         const file = event.target.files[0];
-        if (file.size > 2 * 1024 * 1024) {
-            alert('File size should be less than 2MB')
+        if (file.size > 5 * 1024 * 1024) {
+            alert('File size should be less than 5MB')
             return false
         }
         this.makePreview(file);
@@ -127,7 +127,7 @@ class FAQ_register extends React.Component {
                 }
                 
                 this.setState({faqlist: result.map((data, index) => 
-                    <QnA_List data={data} index={index} getFaqList={() => this.getFaqList()}></QnA_List>
+                    <QnA_List data={data} index={index} getFaqList={() => this.getFaqList()} key={index}></QnA_List>
                 )})
 
                 return

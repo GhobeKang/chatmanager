@@ -27,7 +27,7 @@ class Header_main extends React.Component {
     }
     
     getHeaderPhoto() {
-        if (this.state.chat_photo) {
+        if (this.state.chat_photo.file_path !== undefined) {
             return (
                 <img src={'https://api.telegram.org/file/bot847825836:AAFv02ESsTVjnrzIomgdiVjBGWVw7CpN_Cg/' + this.state.chat_photo.file_path}></img>
             )

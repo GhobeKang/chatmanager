@@ -24,20 +24,21 @@
             width: 100px;
             height: 30px;
             margin-left: 20px;
-            border: #43425D solid 2px;
-            background: #43425D;
+            border: #1C62F9 solid 2px;
+            background: #1C62F9;
             border-radius: 4px;
             font-size: .9rem;
             color: white;
+            cursor:pointer;
             &:hover {
                 transform: translateY(1px);
-                box-shadow: #00196b 0px 0px 10px;
+                box-shadow: #00196b 0px 0px 5px;
             }
         }
     }
     .table_title {
-        color: #333333DE;
-        font-size: 0.8rem;
+        color: #333132;
+        font-size: 1rem;
         margin: 40px 0 0;
     }
     .blacklist_tb {
@@ -51,6 +52,10 @@
             th {
                 text-align: left;
                 padding-left: 20px;
+                &:nth-child(3), &:nth-child(4) {
+                    text-align: center;
+                    padding: 0;
+                }
             }
         }
         tbody > tr {
@@ -66,14 +71,11 @@
                 padding-left: 20px;
                 font-size: 0.8rem;
                 color: #000000CC;
-                &:nth-child(2):hover {
-                    color: rgb(3, 0, 175);
-                    text-decoration: underline;
-                    cursor:pointer;
-                }
                 &:nth-child(3) {
                     padding: 0;
                     text-align: center;
+                    color: #DE1717;
+                    cursor:pointer;
                 }
                 &:nth-child(4) {
                     position: relative;
@@ -87,10 +89,10 @@
                 margin: 0 auto;
             }
             .delete_icon {
-                background: url('../img/delete.png');
+                background: url('../img/Icons/ic_delete_24px@2x.png') no-repeat;
             }
             .edit_icon {
-                background: url('../img/edit.png');
+                background: url('../img/edit.png') no-repeat;
             }
             .empty_item {
                 text-align: center;
@@ -121,8 +123,8 @@
         top: 6px;
         .filter_group {
             .filter_label {
-                width: 50px;
-                height: 25px;
+                width: 49px;
+                height: 20px;
                 border-radius: 20px;
                 background: #707070;
                 position: absolute;
@@ -130,15 +132,15 @@
                 transition: all 0.5s ease;
             }
             .filter_circle {
-                width: 20px;
-                height: 20px;
+                width: 18px;
+                height: 18px;
                 border-radius: 50%;
                 background: linear-gradient(#ffffff, #FCFCFC);
                 border: solid 1px #DEDFDF;
                 box-shadow: 0px 1px 3px #0000001A;
                 position: absolute;
-                right: -25px;
-                top: 2px;
+                right: -23px;
+                top: 1px;
                 transition: transform 0.3s ease-out;
             }
             input {
@@ -146,7 +148,7 @@
                 opacity: 0;
                 position: absolute;
                 &:checked + .filter_label {
-                    background: #0C71BB;
+                    background: #2FC21D;
                 }
                 &:checked ~ .filter_circle {
                     transform: translateX(25px);

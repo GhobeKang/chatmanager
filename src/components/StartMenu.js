@@ -35,8 +35,8 @@ class FAQ_register extends React.Component {
 
   uploadedImage(event) {
     const file = event.target.files[0];
-    if (file.size > 2 * 1024 * 1024) {
-      alert("File size should be less than 2MB");
+    if (file.size > 5 * 1024 * 1024) {
+      alert("File size should be less than 5MB");
       return false;
     }
     this.makePreview(file);
@@ -207,7 +207,9 @@ class FAQ_register extends React.Component {
         <p className="table_title">Responds</p>
         <div className="preview_wrap">
           <div className="preview_contents">
-            {this.state.preview_img !== "undefined" ? (
+            {this.state.preview_img !== undefined &&
+            this.state.preview_img !== null &&
+            this.state.preview_img !== '' ? (
               <div className="preview_img">
                 <img
                   src={this.state.preview_img}

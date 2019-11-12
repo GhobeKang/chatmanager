@@ -77,8 +77,8 @@
 .startmenu_section button.start_register {
   width: 140px;
   height: 38px;
-  border: #43425D solid 1px;
-  background: #43425D;
+  border: #1C62F9 solid 1px;
+  background: #1C62F9;
   border-radius: 4px;
   font-size: .8rem;
   cursor: pointer;
@@ -138,6 +138,7 @@
   border: #DEDEDF solid 1px;
   border-radius: 4px;
   padding: 10px;
+  background: #fff;
 }
 
 .startmenu_section .preview_wrap .preview_contents .preview_img {

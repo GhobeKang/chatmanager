@@ -40,23 +40,24 @@
   width: 100px;
   height: 30px;
   margin-left: 20px;
-  border: #43425D solid 2px;
-  background: #43425D;
+  border: #1C62F9 solid 2px;
+  background: #1C62F9;
   border-radius: 4px;
   font-size: .9rem;
   color: white;
+  cursor: pointer;
 }
 
 .section_wordmanager .input_wrap button.blacklist_register:hover {
   -webkit-transform: translateY(1px);
           transform: translateY(1px);
-  -webkit-box-shadow: #00196b 0px 0px 10px;
-          box-shadow: #00196b 0px 0px 10px;
+  -webkit-box-shadow: #00196b 0px 0px 5px;
+          box-shadow: #00196b 0px 0px 5px;
 }
 
 .section_wordmanager .table_title {
-  color: #333333DE;
-  font-size: 0.8rem;
+  color: #333132;
+  font-size: 1rem;
   margin: 40px 0 0;
 }
 
@@ -77,6 +78,11 @@
   padding-left: 20px;
 }
 
+.section_wordmanager .blacklist_tb thead > tr th:nth-child(3), .section_wordmanager .blacklist_tb thead > tr th:nth-child(4) {
+  text-align: center;
+  padding: 0;
+}
+
 .section_wordmanager .blacklist_tb tbody > tr {
   height: 40px;
 }
@@ -94,15 +100,11 @@
   color: #000000CC;
 }
 
-.section_wordmanager .blacklist_tb tbody > tr td:nth-child(2):hover {
-  color: #0300af;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
 .section_wordmanager .blacklist_tb tbody > tr td:nth-child(3) {
   padding: 0;
   text-align: center;
+  color: #DE1717;
+  cursor: pointer;
 }
 
 .section_wordmanager .blacklist_tb tbody > tr td:nth-child(4) {
@@ -118,11 +120,11 @@
 }
 
 .section_wordmanager .blacklist_tb tbody > tr .delete_icon {
-  background: url("../img/delete.png");
+  background: url("../img/Icons/ic_delete_24px@2x.png") no-repeat;
 }
 
 .section_wordmanager .blacklist_tb tbody > tr .edit_icon {
-  background: url("../img/edit.png");
+  background: url("../img/edit.png") no-repeat;
 }
 
 .section_wordmanager .blacklist_tb tbody > tr .empty_item {
@@ -155,8 +157,8 @@
 }
 
 .section_wordmanager .disable_btn_wrap .filter_group .filter_label {
-  width: 50px;
-  height: 25px;
+  width: 49px;
+  height: 20px;
   border-radius: 20px;
   background: #707070;
   position: absolute;
@@ -166,8 +168,8 @@
 }
 
 .section_wordmanager .disable_btn_wrap .filter_group .filter_circle {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#FCFCFC));
   background: linear-gradient(#ffffff, #FCFCFC);
@@ -175,8 +177,8 @@
   -webkit-box-shadow: 0px 1px 3px #0000001A;
           box-shadow: 0px 1px 3px #0000001A;
   position: absolute;
-  right: -25px;
-  top: 2px;
+  right: -23px;
+  top: 1px;
   -webkit-transition: -webkit-transform 0.3s ease-out;
   transition: -webkit-transform 0.3s ease-out;
   transition: transform 0.3s ease-out;
@@ -191,7 +193,7 @@
 }
 
 .section_wordmanager .disable_btn_wrap .filter_group input:checked + .filter_label {
-  background: #0C71BB;
+  background: #2FC21D;
 }
 
 .section_wordmanager .disable_btn_wrap .filter_group input:checked ~ .filter_circle {

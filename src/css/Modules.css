@@ -20,9 +20,8 @@
 
 .modules_list_wrap .module_item {
   width: 25%;
-  height: 208px;
-  border: solid 1px #707070;
-  border-radius: 6px;
+  height: 185px;
+  border-radius: 4px;
   margin: 20px;
   padding: 0 20px;
   display: -webkit-box;
@@ -36,31 +35,34 @@
       -ms-flex-pack: start;
           justify-content: flex-start;
   position: relative;
+  -webkit-box-shadow: 0 5px 7px #00000029;
+          box-shadow: 0 5px 7px #00000029;
+  background: #fff;
 }
 
 .modules_list_wrap .module_item .module_title p {
   font-size: 1.3rem;
   font-weight: bold;
+  margin: 10px 0 0 0;
 }
 
 .modules_list_wrap .module_item .module_content {
   font-size: 0.8rem;
-  margin-top: 10px;
 }
 
 .modules_list_wrap .module_item a {
   position: absolute;
-  width: 185px;
+  width: 170px;
   height: 35px;
   color: white;
-  background: #43425D;
-  border: solid 1px #43425D;
-  border-radius: 4px;
+  background: #1C62F9;
+  border: solid 1px #1C62F9;
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.8rem;
   text-decoration: none;
   line-height: 35px;
   bottom: 20px;
+  font-weight: bold;
 }
 
 .modules_list_wrap .module_item .disable_btn_wrap {
@@ -70,8 +72,8 @@
 }
 
 .modules_list_wrap .module_item .disable_btn_wrap .filter_group .filter_label {
-  width: 50px;
-  height: 25px;
+  width: 49px;
+  height: 20px;
   border-radius: 20px;
   background: #707070;
   position: absolute;
@@ -81,8 +83,8 @@
 }
 
 .modules_list_wrap .module_item .disable_btn_wrap .filter_group .filter_circle {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#FCFCFC));
   background: linear-gradient(#ffffff, #FCFCFC);
@@ -90,8 +92,8 @@
   -webkit-box-shadow: 0px 1px 3px #0000001A;
           box-shadow: 0px 1px 3px #0000001A;
   position: absolute;
-  right: -25px;
-  top: 2px;
+  right: -23px;
+  top: 1px;
   -webkit-transition: -webkit-transform 0.3s ease-out;
   transition: -webkit-transform 0.3s ease-out;
   transition: transform 0.3s ease-out;
@@ -106,7 +108,7 @@
 }
 
 .modules_list_wrap .module_item .disable_btn_wrap .filter_group input:checked + .filter_label {
-  background: #0C71BB;
+  background: #2FC01D;
 }
 
 .modules_list_wrap .module_item .disable_btn_wrap .filter_group input:checked ~ .filter_circle {

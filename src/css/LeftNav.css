@@ -1,16 +1,16 @@
 .left_nav {
   width: 300px;
-  background: #BEBEBE;
+  background: #FFFFFF;
   text-align: left;
   height: 900px;
 }
 
 .left_nav .nav_header {
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   font-weight: bold;
   position: relative;
   margin-bottom: 10px;
-  color: #000546;
+  color: #333132;
 }
 
 .left_nav .nav_header .header_logo {
@@ -78,11 +78,11 @@
 }
 
 .left_nav .nav_contents a {
+  font-family: 'muli-bold';
   margin: 5px 0;
   font-size: 0.9rem;
   padding: 15px;
-  color: #fff;
-  background: #A3A3A3;
+  color: #333132;
   cursor: pointer;
   text-decoration: none;
   position: relative;
@@ -98,7 +98,13 @@
 }
 
 .left_nav .nav_contents a:hover {
-  background: #4A4A4A;
+  background: #255CF9;
+  color: white;
+}
+
+.left_nav .nav_contents a.active {
+  background: #255CF9;
+  color: white;
 }
 
 .left_nav .nav_contents a i.icon {

@@ -32,6 +32,7 @@ class WordManager extends React.Component {
                 .then((res) => {
                     if (res.data) {
                         this.getWordData()
+                        this.setState({value: ''})
                     }
                 })
             } else {
@@ -127,7 +128,7 @@ class WordManager extends React.Component {
                 <div className="blacklist_input_wrap">
                     <label htmlFor="blacklist_input" className="blacklist_label">Enter words you want to ban</label>
                     <div className="input_wrap">
-                        <input id="blacklist_input" className="blacklist_input" placeholder="Input a URL to shut down" onChange={(ev) => this.changeValues(ev)} onKeyUp={(ev)=> {if(ev.which === 13) {this.submit_blacklist(ev)}}}></input>
+                        <input id="blacklist_input" className="blacklist_input" onChange={(ev) => this.changeValues(ev)} onKeyUp={(ev)=> {if(ev.which === 13) {this.submit_blacklist(ev)}}} value={this.state.value}></input>
                         <button type="button" className="blacklist_register" onClick={(ev) => this.submit_blacklist(ev)}>ADD</button>
                     </div>
                 </div>

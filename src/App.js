@@ -17,7 +17,7 @@ import Modules from './components/Modules';
 import Settings from './components/Settings';
 
 import Axios from "axios";
-Axios.defaults.baseURL = "http://localhost:4000/api/";
+Axios.defaults.baseURL = "https://chatbot-258301.appspot.com/api/";
 
 function App() {
   const [isValid, setIsValid] = useState(false);
@@ -38,7 +38,7 @@ function App() {
   
   if (isLiving || isValid) {
     return (
-      <Router>
+      <Router basename="/chatmanager">
         <Header></Header>
         <div className="main_container">
           <LeftNav setStatus={setStatusNav} statusNav={statusNav} setChatInfo={setChatInfo}></LeftNav>

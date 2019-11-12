@@ -2,7 +2,6 @@ import React from 'react';
 import Axios from 'axios';
 import Title from './Section_title';
 import '../css/Whitelist_URL.css';
-import { networkInterfaces } from 'os';
 
 class Whitelist_URL extends React.Component{
     constructor (props) {
@@ -24,6 +23,7 @@ class Whitelist_URL extends React.Component{
                     .then((res) => {
                         if (res.data) {
                             this.getWhitelist()
+                            this.setState({value: ''})
                         }
                     })
                 } else {
@@ -150,7 +150,7 @@ class Whitelist_URL extends React.Component{
                 <div className="whitelist_input_wrap">
                     <label htmlFor="whitelist_input" className="whitelist_label">Enter URL you want to ban</label>
                     <div className="input_wrap">
-                        <input id="whitelist_input" className="whitelist_input" placeholder="Input a URL to shut down" onChange={(ev) => this.changeValues(ev)} onKeyUp={(ev)=> {if(ev.which === 13) {this.submit_whitelist(ev)}}}></input>
+                        <input id="whitelist_input" className="whitelist_input" onChange={(ev) => this.changeValues(ev)} onKeyUp={(ev)=> {if(ev.which === 13) {this.submit_whitelist(ev)}}} value={this.state.value}></input>
                         <button type="button" className="whitelist_register" onClick={(ev) => this.submit_whitelist(ev)}>ADD</button>
                     </div>
                 </div>

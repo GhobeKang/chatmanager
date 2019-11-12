@@ -52,7 +52,7 @@
         width: 140px;
         height: 38px;
         border: #43425D solid 1px;
-        background: #43425D;
+        background: #1C62F9;
         border-radius: 4px;
         font-size: .8rem;
         cursor: pointer;
@@ -123,6 +123,7 @@
                     padding: 20px;
                     box-sizing: border-box;
                     resize: none;
+                    background: #fff;
                     img {
                         width: 50%;
                         height: 100%;
@@ -159,7 +160,7 @@
         right: 40px;
         bottom: 40px;
         font-size: 20px;
-        background: #00196b;
+        background: #1C62F9;
         color: white;
     }    
     span.icon {
@@ -171,12 +172,15 @@
         cursor:pointer;
     }
     .delete_icon {
-        background: url('../img/delete.png');
+        background: url('../img/Icons/ic_delete_24px@2x.png') no-repeat;
+        background-size: contain;
         position: relative;
         &::after {
             content: 'Delete';
             position: absolute;
-            left: 23px;
+            left: 25px;
+            color: #DE1717;
+            font-size: 0.8rem;
         }
     }
     .edit_icon {
@@ -185,7 +189,8 @@
         &::after {
             content: 'Edit';
             position: absolute;
-            left: 23px;
+            left: 25px;
+            font-size: 0.8rem;
         }
     }
     .save_icon {
@@ -194,7 +199,8 @@
         &::after {
             content: 'Save';
             position: absolute;
-            left: 23px;
+            left: 25px;
+            font-size: 0.8rem;
         }
     }
     .cancle_icon {
@@ -203,7 +209,8 @@
         &::after {
             content: 'Cancle';
             position: absolute;
-            left: 23px;
+            left: 25px;
+            font-size: 0.8rem;
         }
     }
     .text-icon-active {
