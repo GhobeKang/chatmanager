@@ -95,6 +95,10 @@
   background: url("../img/ban-solid.svg") no-repeat;
 }
 
+.section_usermanager .usermanager_tb tbody > tr .interest_icon {
+  background: url("../img/code-branch-solid.svg") no-repeat;
+}
+
 .section_usermanager .usermanager_tb .empty_item {
   text-align: center;
   color: #909090;

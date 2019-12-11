@@ -19,7 +19,7 @@ class UserManager extends React.Component {
                 user_id: userid
             }
     
-            Axios.post('https://api.telegram.org/bot847825836:AAFv02ESsTVjnrzIomgdiVjBGWVw7CpN_Cg/kickChatMember', dataset)
+            Axios.post(`https://api.telegram.org/bot${this.props.botId}/kickChatMember`, dataset)
                 .then((res) => {
                     setTimeout(() => {
                         Axios.post('deleteUser', dataset);
@@ -46,7 +46,7 @@ class UserManager extends React.Component {
                 until_date: 300000
             }
 
-            Axios.post('https://api.telegram.org/bot847825836:AAFv02ESsTVjnrzIomgdiVjBGWVw7CpN_Cg/restrictChatMember', dataset)
+            Axios.post(`https://api.telegram.org/bot${this.props.botId}/restrictChatMember`, dataset)
                 .then((res) => {
                     event.currentTarget.style = 'color:red'
                 }).catch((err) => {
@@ -54,6 +54,18 @@ class UserManager extends React.Component {
                     return false;
                 })
         }
+    }
+
+    interestMember(user_id) {
+        const dataset = {
+            user_id: user_id,
+            chat_id: window.localStorage.getItem('chat_id')
+        }
+        
+        Axios.post('/setInterest', dataset)
+            .then(() => {
+                alert("Interesting list was updated, You can check it in 'forked users' of the menus");
+            })
     }
 
     componentDidMount() {
@@ -82,7 +94,7 @@ class UserManager extends React.Component {
                             <span className="icon kick_icon" onClick={() => this.kickMember(data.id)}></span>
                         </td>
                         <td>
-                            <span className="icon ban_icon" onClick={(ev) => this.restrictMember(ev, data.id)}></span>
+                            <span className="icon interest_icon" onClick={() => this.interestMember(data.id)}></span>
                         </td>
                     </tr> 
                 )})
@@ -103,9 +115,9 @@ class UserManager extends React.Component {
                         <tr>
                             <th>username</th>
                             <th width="10%">is_admin</th>
-                            <th width="10%">actions</th>
+                            <th width="10%">scores</th>
                             <th width="10%">kick</th>
-                            <th width="10%">restriction</th>
+                            <th width="10%">interested</th>
                         </tr>
                     </thead>
                     <tbody>

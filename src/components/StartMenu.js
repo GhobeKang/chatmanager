@@ -207,9 +207,7 @@ class FAQ_register extends React.Component {
         <p className="table_title">Responds</p>
         <div className="preview_wrap">
           <div className="preview_contents">
-            {this.state.preview_img !== undefined &&
-            this.state.preview_img !== null &&
-            this.state.preview_img !== '' ? (
+            {this.state.preview_img !== 'undefined' ? (
               <div className="preview_img">
                 <img
                   src={this.state.preview_img}

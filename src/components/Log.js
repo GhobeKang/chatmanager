@@ -67,7 +67,7 @@ class Log extends React.Component{
             origin msg : <b>${data.msg}</b>`,
             parse_mode: 'html'
         }
-        Axios.post(`https://api.telegram.org/bot847825836:AAFv02ESsTVjnrzIomgdiVjBGWVw7CpN_Cg/sendMessage`, dataset)
+        Axios.post(`https://api.telegram.org/bot${this.props.botId}/sendMessage`, dataset)
     }
 
     render_resend_icon(data) {
