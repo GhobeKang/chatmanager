@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9dde08c1cade34e64dccec2e8a58c2d9",
+    "revision": "4eb7a7004f56350f4b4aeee497d4085e",
     "url": "/index.html"
   },
   {
-    "revision": "fff8933cdb9a9b95c8cc",
-    "url": "/static/css/main.b7b06d02.chunk.css"
+    "revision": "a02974cc6d86269beda4",
+    "url": "/static/css/main.6b0f93be.chunk.css"
   },
   {
-    "revision": "ac522e9e0fbd9faff92f",
-    "url": "/static/js/2.fcf5560a.chunk.js"
+    "revision": "39b140b788f6a2a38d88",
+    "url": "/static/js/2.be91d6fb.chunk.js"
   },
   {
-    "revision": "fff8933cdb9a9b95c8cc",
-    "url": "/static/js/main.7461833b.chunk.js"
+    "revision": "a02974cc6d86269beda4",
+    "url": "/static/js/main.e1159d34.chunk.js"
   },
   {
     "revision": "68b107e943ca1e0dc96f",
@@ -36,8 +36,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/ban-solid.da374f4f.svg"
   },
   {
+    "revision": "4871712ca0d3dacaecb37310738bedd3",
+    "url": "/static/media/code-branch-solid.4871712c.svg"
+  },
+  {
     "revision": "33c3d3786e5154d6682b8bfd2fe708dd",
     "url": "/static/media/cog-solid.33c3d378.svg"
+  },
+  {
+    "revision": "29edbd0fd1dea104f298a670fb85b6f4",
+    "url": "/static/media/download-solid.29edbd0f.svg"
   },
   {
     "revision": "30d5ac5d0d4fa64c4b0eac88dab6ee42",
