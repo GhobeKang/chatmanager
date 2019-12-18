@@ -87,7 +87,7 @@ class Interests extends React.Component {
         return (
             <div className="section_interests">
                 <div className="module_path">
-                    <p><span>Modules  /  </span>Interests</p>
+                    <p><span>Modules  /  </span>Users Followed</p>
                 </div>
                 <Title title={"Focus on user who you are interested in"}></Title>
                 <table className="interests_wrap">

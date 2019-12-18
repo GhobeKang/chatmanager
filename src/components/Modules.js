@@ -61,6 +61,18 @@ class Modules extends React.Component {
             content: 'Focus on user who you are interested in',
             link: '/interest',
             is_editable: false
+        },{
+            id: 9,
+            title: 'Interested Words',
+            content: 'Focus on words which you want to watch',
+            link: '/keypoint',
+            is_editable: false
+        },{
+            id: 10,
+            title: 'FAQ Stats',
+            content: 'Figure a stat of your answers out more clear',
+            link: '/faqstats',
+            is_editable: false
         }]
 
         for (const [key, val] of Object.entries(status)) {

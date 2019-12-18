@@ -68,6 +68,18 @@ class UserManager extends React.Component {
             })
     }
 
+    scoreUpByBounus(user_id) {
+        const dataset = {
+            user_id: user_id,
+            chat_id: window.localStorage.getItem('chat_id')
+        }
+
+        Axios.post('/scoreUp', dataset)
+            .then(() => {
+                alert('bonus points were just put in the user successfully.');
+            })
+    }
+
     componentDidMount() {
         Axios.post('getMemberStatus', {chat_id: window.localStorage.getItem('chat_id')})
             .then((res) => {
@@ -82,10 +94,13 @@ class UserManager extends React.Component {
                 this.setState({members: dataset.map((data, index) => 
                     <tr key={index}>
                         <td>
+                            {index + 1}
+                        </td>
+                        <td>
                             {data.username}
                         </td>
                         <td>
-                            {data.is_admin}
+                            {data.score}
                         </td>
                         <td>
                             {data.act_txt_cnt + data.act_photo_cnt + data.act_url_cnt}
@@ -95,6 +110,9 @@ class UserManager extends React.Component {
                         </td>
                         <td>
                             <span className="icon interest_icon" onClick={() => this.interestMember(data.id)}></span>
+                        </td>
+                        <td>
+                            <span className="icon bonus_icon" onClick={() => this.scoreUpByBounus(data.id)}></span>
                         </td>
                     </tr> 
                 )})
@@ -113,11 +131,13 @@ class UserManager extends React.Component {
                 <table className="usermanager_tb">
                     <thead>
                         <tr>
+                            <th width="5%">rank</th>
                             <th>username</th>
-                            <th width="10%">is_admin</th>
                             <th width="10%">scores</th>
+                            <th width="10%">actions</th>
                             <th width="10%">kick</th>
                             <th width="10%">interested</th>
+                            <th width="10%">bounus</th>
                         </tr>
                     </thead>
                     <tbody>

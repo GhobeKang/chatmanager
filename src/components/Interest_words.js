@@ -1,9 +1,9 @@
 import React from 'react';
 import Axios from 'axios';
 import Title from './Section_title';
-import '../css/WordManager.css';
+import '../css/Interest_words.css';
 
-class WordManager extends React.Component {
+class Interest_words extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -26,7 +26,7 @@ class WordManager extends React.Component {
             
             const chat_id = window.localStorage.getItem('chat_id')
             if (chat_id.length !== 0) {
-                Axios.post('pushWordData', {word: val, chat_id: chat_id})
+                Axios.post('pushExpectWord', {word: val, chat_id: chat_id})
                 .then((res) => {
                     if (res.data) {
                         this.getWordData()
@@ -43,14 +43,14 @@ class WordManager extends React.Component {
     
     changeStateWordlist(is_active, id) {
         if (is_active) {
-            Axios.post('editWordData', {
+            Axios.post('editExpectedWord', {
                 chat_id: window.localStorage.getItem('chat_id'),
                 content: 0,
                 type: 'status',
                 id: id
             })
         } else {
-            Axios.post('editWordData', {
+            Axios.post('editExpectedWord', {
                 chat_id: window.localStorage.getItem('chat_id'),
                 content: 1,
                 type: 'status',
@@ -62,7 +62,7 @@ class WordManager extends React.Component {
     }
 
     getWordData() {
-        Axios.post('getWordData', {chat_id: window.localStorage.getItem('chat_id')})
+        Axios.post('getExpectedWords', {chat_id: window.localStorage.getItem('chat_id')})
         .then((res) => {
             if (res.data && res.status === 200) {
                 let dataset = res.data;
@@ -76,7 +76,7 @@ class WordManager extends React.Component {
                             {data.created_time}
                         </td>
                         <td>
-                            <span className="delete_icon icon" onClick={(e) => this.deleteWord(data.word_name)}></span>
+                            <span className="delete_icon icon" onClick={(e) => this.deleteWord(data.idx)}></span>
                             <span> Delete</span>
                         </td>
                         <td>
@@ -100,15 +100,14 @@ class WordManager extends React.Component {
         })
     }
 
-    deleteWord(word) {
+    deleteWord(word_id) {
         var check = window.confirm('Are you sure to Delete this Item?')
         if (check) {
-            Axios.post('delWordData', {
-                word: word,
+            Axios.post('delExpectedWord', {
+                word_id: word_id,
                 chat_id: window.localStorage.getItem('chat_id')
             }).then((res) => {
                 if (res.status === 200 && res.data === true) {
-                    alert(`delete '${word}' successfully `)
                     this.getWordData()
                 }
             })
@@ -118,23 +117,23 @@ class WordManager extends React.Component {
 
     render() {
         return (
-            <div className="section_wordmanager">
+            <div className="section_interestword">
                 <div className="module_path">
-                    <p><span>Modules  /  </span>Blacklist</p>
+                    <p><span>Modules  /  </span>Interest Words</p>
                 </div>
-                <Title title={'Manage Blacklist'}></Title>
-                <div className="blacklist_input_wrap">
-                    <label htmlFor="blacklist_input" className="blacklist_label">Enter words you want to ban</label>
+                <Title title={'put a word what you want to look down.'}></Title>
+                <div className="interestword_input_wrap">
+                    <label htmlFor="interestword_input" className="interestword_label">Enter words you want to watch</label>
                     <div className="input_wrap">
-                        <input id="blacklist_input" className="blacklist_input" onChange={(ev) => this.changeValues(ev)} onKeyUp={(ev)=> {if(ev.which === 13) {this.submit_blacklist(ev)}}} value={this.state.value}></input>
-                        <button type="button" className="blacklist_register" onClick={(ev) => this.submit_blacklist(ev)}>ADD</button>
+                        <input id="interestword_input" className="interestword_input" onChange={(ev) => this.changeValues(ev)} onKeyUp={(ev)=> {if(ev.which === 13) {this.submit_blacklist(ev)}}} value={this.state.value}></input>
+                        <button type="button" className="interestword_register" onClick={(ev) => this.submit_blacklist(ev)}>ADD</button>
                     </div>
                 </div>
                 
                 <p className="table_title">
-                    Blacklist
+                    interest words
                 </p>
-                <table className="blacklist_tb">
+                <table className="interestword_tb">
                     <thead>
                         <tr>
                             <th width="35%">Words</th>
@@ -158,4 +157,4 @@ class WordManager extends React.Component {
 }
 
 
-export default WordManager;
+export default Interest_words;
