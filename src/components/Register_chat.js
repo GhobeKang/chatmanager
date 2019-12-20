@@ -14,10 +14,10 @@ class RegisterChat extends React.Component {
     if (window.location.search !== '') {
       const qstring = window.location.search.slice(1).split('&');
       if (qstring.length !== 0) {
-        const room_name = qstring[0].split('=')[1];
+        const room_id = qstring[0].split('=')[1];
         const activation_code = qstring[1].split('=')[1];
         
-        this.checkValidation(room_name, activation_code);
+        this.checkValidation(room_id, activation_code);
 
       }
     }
@@ -40,7 +40,7 @@ class RegisterChat extends React.Component {
 
   checkValidationRoom(t) {
     Axios.post('checkValidationRoom', {
-      title: t
+      id: t
         }, {withCredentials: true}).then((response) => {
           if (response.status === 200) {
             if (response.data !== false) {
@@ -56,7 +56,7 @@ class RegisterChat extends React.Component {
 
   checkValidation(t, a) {
     Axios.post('checkValidation', {
-        title: t,
+        id: t,
         ac_code: a
       }, {withCredentials: true}).then((response) => {
         if (response.status === 200) {
