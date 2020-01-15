@@ -1,5 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
+import TelegramLoginButton from 'react-telegram-login';
 
 class RegisterChat extends React.Component {
   
@@ -38,26 +39,9 @@ class RegisterChat extends React.Component {
     }
   }
 
-  checkValidationRoom(t) {
-    Axios.post('checkValidationRoom', {
-      id: t
-        }, {withCredentials: true}).then((response) => {
-          if (response.status === 200) {
-            if (response.data !== false) {
-              window.localStorage.setItem('chat_id', response.data.id)
-              this.props.setValid(true)
-            } else {
-              this.isActive = false
-              alert('your Room is not activated properly. Please chack your activation code again. if you don\'t have an activation code, ask to AQOOM service manager.')
-            }
-          }
-        })  
-  }
-
-  checkValidation(t, a) {
+  checkValidation(t) {
     Axios.post('checkValidation', {
-        id: t,
-        ac_code: a
+        id: t
       }, {withCredentials: true}).then((response) => {
         if (response.status === 200) {
           if (response.data !== false) {
@@ -81,6 +65,9 @@ class RegisterChat extends React.Component {
     return now.toUTCString();
   }
   
+  onTelegramAuth(user) {
+    this.checkValidation(user.id);
+  }
 
   render() {
     return (
@@ -94,6 +81,7 @@ class RegisterChat extends React.Component {
                 <input type="text" name="title" className="strChatName" placeholder="plaese write a Chatting room's Title" required></input>
                 <button className="submit_btn" onClick={() => this.req_validCheck()}>submit</button>
             </div>
+            <TelegramLoginButton dataOnauth={(user) => this.onTelegramAuth(user)} botName="aqoom_test_bot" />
             </header>
         </div>
     )

@@ -21,15 +21,15 @@ import Keypoint from './components/Interest_words';
 import FAQStats from './components/FAQ_stats';
 
 import Axios from "axios";
-Axios.defaults.baseURL = "https://chatbot-258301.appspot.com/api/";
-// Axios.defaults.baseURL = "http://localhost:4000/api/";
+// Axios.defaults.baseURL = "https://chatbot-258301.appspot.com/api/";
+Axios.defaults.baseURL = "http://localhost:4000/api/";
 
 function App() {
   const [isValid, setIsValid] = useState(false);
   const [statusNav, setStatusNav] = useState("word");
   const [chatInfo, setChatInfo] = useState([]);
-  const [botId, setBotId] = useState('847825836:AAFv02ESsTVjnrzIomgdiVjBGWVw7CpN_Cg');
-  // const [botId, setBotId] = useState('822428347:AAGXao7qTxCL5MoqQyeSqPc7opK607fA51I');
+  // const [botId, setBotId] = useState('847825836:AAFv02ESsTVjnrzIomgdiVjBGWVw7CpN_Cg');
+  const [botId, setBotId] = useState('822428347:AAGXao7qTxCL5MoqQyeSqPc7opK607fA51I');
   
   const isLiving = getCookie("living");
 
