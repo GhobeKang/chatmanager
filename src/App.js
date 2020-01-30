@@ -3,6 +3,7 @@ import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 
 import RegisterChat from "./components/Register_chat";
+import Signin from './components/Signin';
 import LeftNav from "./components/LeftNav";
 import Header from './components/Header_main';
 
@@ -73,7 +74,14 @@ function App() {
       </Router>
     );
   } else {
-    return <RegisterChat setValid={setIsValid}></RegisterChat>;
+    return (
+      <Router basename="/">
+        <Switch>
+          <Route path="/" exact render={() => <RegisterChat setValid={setIsValid}></RegisterChat>}></Route>
+          <Route path="/signin" render={() => <Signin setValid={setIsValid}></Signin>}></Route>
+        </Switch>
+      </Router>
+    )
   }
 }
 
