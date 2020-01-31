@@ -11,18 +11,22 @@ class Header_main extends React.Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         const chat_id = window.localStorage.getItem('chat_id');
-        
-        Axios.post(`https://api.telegram.org/bot${this.props.botId}/getChat`, {chat_id : chat_id})
+        const user_id = window.sessionStorage.getItem('tel_id');
+        Axios.post(`https://api.telegram.org/bot${this.props.botId}/getChatMember`, {chat_id: chat_id, user_id: user_id})
             .then((res) => {
-                this.setState({default_info: res.data.result})
+                this.setState({default_info: res.data.result.user})
                 if (res.data.result.photo) {
                     Axios.get(`https://api.telegram.org/bot${this.props.botId}/getFile?file_id=`+res.data.result.photo.small_file_id)
                     .then((res_photo) => {
                         this.setState({chat_photo: res_photo.data.result})
                     })
                 }
+            })
+            .catch((err) => {
+                alert('cannot find a user');
+                return false;
             })
     }
     
@@ -48,6 +52,7 @@ class Header_main extends React.Component {
         // 스토리지 chat_id, cookie living delete
         window.localStorage.removeItem('chat_id')
         document.cookie = "living=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "STAY_C=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         window.location.href = '/';
     }
 
@@ -59,11 +64,11 @@ class Header_main extends React.Component {
                 </div>
                 <div className="header_infos">
                     <div className="header_name" onClick={() => this.toggleDropbox()}>
-                        <span>{this.state.default_info.title}</span>
+                        <span>{this.state.default_info.username}</span>
                         <span className="icon icon-down"></span>
                     </div>
                     <ul className={this.state.isOpen ? 'header_drop open' : 'header_drop'}>
-                        <li>{this.state.default_info.title}</li>
+                        <li>{this.state.default_info.username}</li>
                         <li style={{color:'#2F2F2F'}} onClick={() => this.logout()}>LOG OUT</li>
                     </ul>
                     <div className="header_photo">

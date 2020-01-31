@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import { Route, Switch, HashRouter as Router } from "react-router-dom";
 import "./App.css";
 
 import RegisterChat from "./components/Register_chat";
 import Signin from './components/Signin';
+import Features from './components/Features';
 import LeftNav from "./components/LeftNav";
 import Header from './components/Header_main';
+import LandingFooter from './components/LandingFooter';
+import LandingHeader from './components/LandingHeader';
 
 import WordManager from "./components/WordManager";
 import Whitelist from "./components/Whitelist_URL";
@@ -22,17 +25,18 @@ import Keypoint from './components/Interest_words';
 import FAQStats from './components/FAQ_stats';
 
 import Axios from "axios";
-// Axios.defaults.baseURL = "https://chatbot-258301.appspot.com/api/";
-Axios.defaults.baseURL = "http://localhost:4000/api/";
+Axios.defaults.baseURL = "https://chatbot-258301.appspot.com/api/";
+// Axios.defaults.baseURL = "http://localhost:4000/api/";
 
 function App() {
   const [isValid, setIsValid] = useState(false);
   const [statusNav, setStatusNav] = useState("word");
   const [chatInfo, setChatInfo] = useState([]);
-  // const [botId, setBotId] = useState('847825836:AAFv02ESsTVjnrzIomgdiVjBGWVw7CpN_Cg');
-  const [botId, setBotId] = useState('822428347:AAGXao7qTxCL5MoqQyeSqPc7opK607fA51I');
+  const [botId, setBotId] = useState('847825836:AAFv02ESsTVjnrzIomgdiVjBGWVw7CpN_Cg');
+  // const [botId, setBotId] = useState('822428347:AAGXao7qTxCL5MoqQyeSqPc7opK607fA51I');
   
-  const isLiving = getCookie("living");
+  const isLiving = getCookie("living") == 'true';
+  const inConsole = getCookie('STAY_C') == 'true';
 
   function getCookie(id) {
     const cookies = document.cookie.split(";");
@@ -45,7 +49,7 @@ function App() {
     }
   }
   
-  if (isLiving || isValid) {
+  if (isValid || inConsole) {
     return (
       <Router basename="/chatmanager">
         <Header botId={botId}></Header>
@@ -75,11 +79,16 @@ function App() {
     );
   } else {
     return (
-      <Router basename="/">
-        <Switch>
-          <Route path="/" exact render={() => <RegisterChat setValid={setIsValid}></RegisterChat>}></Route>
-          <Route path="/signin" render={() => <Signin setValid={setIsValid}></Signin>}></Route>
-        </Switch>
+      <Router>
+        <div className="App">
+          <LandingHeader onLogin={isLiving} setValid={setIsValid}></LandingHeader>
+          <Switch>
+            <Route path="/" exact render={() => <RegisterChat></RegisterChat>}></Route>
+            <Route path="/features" render={() => <Features></Features>}></Route>
+            <Route path="/signin" render={() => <Signin></Signin>}></Route>
+          </Switch>
+          <LandingFooter></LandingFooter>
+        </div>
       </Router>
     )
   }

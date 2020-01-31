@@ -11,28 +11,23 @@ html {
   width: 100%;
 }
 
-.App::after {
+.app_container:after {
   content: '';
+  display: block;
   position: absolute;
   width: 100%;
   background: url(../img/grayarea.svg) no-repeat;
   height: 1200px;
   top: 460px;
+  left: 0;
   background-size: contain;
+  z-index: -1;
 }
 
-.app_container {
+.App-header {
   width: 1100px;
   margin: 0 auto;
-}
-
-.app_container * {
-  font-family: "muli";
-}
-
-.app_container .App-header {
   height: 130px;
-  width: 100%;
   background: transparent;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -45,7 +40,7 @@ html {
           justify-content: space-between;
 }
 
-.app_container .App-header .nav_menus {
+.App-header .nav_menus {
   width: 220px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -57,7 +52,7 @@ html {
           align-items: center;
 }
 
-.app_container .App-header .nav_menus a {
+.App-header .nav_menus a {
   width: 100px;
   height: 35px;
   color: #333132;
@@ -68,12 +63,22 @@ html {
   font-family: "muli-bold";
 }
 
-.app_container .App-header .nav_menus a.signin_btn {
+.App-header .nav_menus a.signin_btn {
   border-radius: 18px;
   background-color: #1c62f9;
   color: white;
   -webkit-box-shadow: 0 3px 6px #00000029;
           box-shadow: 0 3px 6px #00000029;
+}
+
+.app_container {
+  width: 1100px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.app_container * {
+  font-family: "muli-regular";
 }
 
 .app_container .main_contents section {
@@ -135,6 +140,11 @@ html {
   text-align: center;
 }
 
+.app_container .main_contents section.main_intro > div.intro_img img {
+  display: block;
+  margin: 0 auto;
+}
+
 .app_container .main_contents section.main_features {
   display: block;
 }
@@ -154,7 +164,7 @@ html {
 }
 
 .app_container .main_contents section.main_features .features_item > div img {
-  width: 70%;
+  width: 90%;
   margin: 0 auto;
   display: block;
 }
@@ -200,7 +210,7 @@ html {
   font-family: 'muli-bold';
   font-size: 32px;
   text-align: center;
-  margin: 15px 0;
+  margin: 20px 0;
   line-height: 34px;
 }
 
@@ -210,7 +220,7 @@ html {
   width: 100%;
 }
 
-.footer .app_container {
+.footer .footer_container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -221,14 +231,16 @@ html {
       -ms-flex-align: center;
           align-items: center;
   height: 100%;
+  width: 1100px;
+  margin: 0 auto;
 }
 
-.footer .app_container .footer_left .aqoom_right {
+.footer .footer_container .footer_left .aqoom_right {
   color: #fff;
   font-size: 14px;
 }
 
-.footer .app_container .footer_right {
+.footer .footer_container .footer_right {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -237,7 +249,7 @@ html {
   width: 300px;
 }
 
-.footer .app_container .footer_right a {
+.footer .footer_container .footer_right a {
   font-family: 'muli-bold';
   color: #fff;
   font-size: 14px;

@@ -7,9 +7,6 @@ import "../css/Signin.css";
 class Signin extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isActive: false
-    };
   }
 
   checkValidation(t) {
@@ -29,7 +26,7 @@ class Signin extends React.Component {
           window.localStorage.setItem("chat_id", response.data.id[0]);
           const expire_time = this.getUTCExpiredTime();
           document.cookie = "living=true; expires=" + expire_time;
-          this.props.setValid(true);
+          window.location.href = '/';
         } else {
           alert(
             "it's not valid input. check again if chat Room's name or activation code is valid."
@@ -50,6 +47,7 @@ class Signin extends React.Component {
 
   onTelegramAuth(user) {
     this.checkValidation(user.id);
+    window.sessionStorage.setItem('tel_id', user.id);
   }
 
   render() {
@@ -65,13 +63,13 @@ class Signin extends React.Component {
           </p>
           <TelegramLoginButton
             dataOnauth={user => this.onTelegramAuth(user)}
-            botName="aqoom_test_bot"
+            botName="aqoom_bot"
           />
           <p className="login_help">
             AQOOM uses Telegram Secure ID to provide seamless automation of
             group management services. To learn more about Telegram Login works
-            for websites, click <a href="">here</a>. <br/><br/> Having trouble logging in? Contact us at 
-            <a href="mailto::info@aqoom.com"> info@aqoom.com</a>
+            for websites, click <a href="https://telegram.org/blog/login">here</a>. <br/><br/> Having trouble logging in? Contact us at 
+            <a href="mailto:info@aqoom.com"> info@aqoom.com</a>
           </p>
         </div>
       </div>
