@@ -1,0 +1,181 @@
+.startmenu_section {
+    width: 80%;
+    margin: 20px 0 20px 40px;
+    .section_title {
+        margin: 0;
+    }
+    .start_input_wrap {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        .start_content_wrap {
+            flex-direction: column;    
+            width: 40%;
+            position: relative;
+            label {
+                display: inline-block;
+                color: #848484DE;
+                font-size: 13px;
+            }
+            textarea, .input_file_preview {
+                width: 80%;
+                height: 158px;
+                margin: 5px 0 20px;
+                padding:20px;
+                resize: none;
+            }
+            .input_file_preview {
+                border: 1px solid #DEDEDF;
+                border-radius: 4px;
+                img {
+                    width: 60%;
+                    height: 100%;
+                }
+            }
+            .response_type_btns_wrap {
+                position: absolute;
+                width: 60px;
+                height: 30px;
+                right: 15%;
+                bottom: 20px;
+                display: flex;
+            }
+            
+            input[type=file] {
+                opacity: 0;
+                width: 1px; height: 1px;
+                position: absolute;
+            }
+        }
+    }
+    button.start_register {
+        width: 140px;
+        height: 38px;
+        border: #1C62F9 solid 1px;
+        background: #1C62F9;
+        border-radius: 4px;
+        font-size: .8rem;
+        cursor: pointer;
+        color: white;
+        &:hover {
+            transform: translateY(1px);
+            box-shadow: #00196b 0px 0px 10px;
+        }
+    }
+    .table_title {
+        color: #333333DE;
+        font-size: 0.8rem;
+        margin: 40px 0 0;
+    }
+    
+    .append_btn {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+        text-align: center;
+        box-shadow: 1px 1px 20px #001f86;
+        border: solid 1px #003479;
+        right: 40px;
+        bottom: 40px;
+        font-size: 20px;
+        background: #00196b;
+        color: white;
+    }    
+    
+    .preview_wrap {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 20px;
+        
+        .preview_contents {
+            width: 40%;
+            height: 173px;
+            border: #DEDEDF solid 1px;
+            border-radius: 4px;
+            padding: 10px;
+            background: #fff;
+            .preview_img {
+                height: 100%;
+                img {
+                    height: 100%;
+                }
+            }
+            .preview_txt {
+                font-size: 14px;
+                text-align: left;
+            }
+        }
+        .edit_btns_wrap {
+            margin-left: 20px;
+            span {
+                margin-top: 10px;
+            }
+        }
+    }
+
+    span.icon {
+        width: 18px;
+        height: 18px;
+        background-size: contain;
+        display: block;
+        margin: 0 auto;
+        cursor:pointer;
+    }
+    .delete_icon {
+        background: url('../../img/delete.png');
+        position: relative;
+        &::after {
+            content: 'Delete';
+            position: absolute;
+            left: 23px;
+        }
+    }
+    .edit_icon {
+        background: url('../../img/edit.png');
+        position: relative;
+        &::after {
+            content: 'Edit';
+            position: absolute;
+            left: 23px;
+        }
+    }
+    .save_icon {
+        background: url('../../img/Icons/ic_check_24px.png') no-repeat;
+        position: relative;
+        &::after {
+            content: 'Save';
+            position: absolute;
+            left: 23px;
+        }
+    }
+    .cancle_icon {
+        background: url('../../img/Icons/ic_close_24px.png') no-repeat;
+        position: relative;
+        &::after {
+            content: 'Cancle';
+            position: absolute;
+            left: 23px;
+        }
+    }
+    .text-icon-active {
+        background: url(../../img/Icons//ic_title_-1.png) no-repeat;
+        background-size: contain;
+    }
+    .pic-icon-active {
+        background: url(../../img/Icons/ic_photo_library_24px.png) no-repeat;
+        background-size: contain;
+    }
+    .text-icon-disabled {
+        background: url(../../img/Icons/ic_title_24px.png) no-repeat;
+        background-size: contain;
+    }
+    .pic-icon-disabled {
+        background: url(../../img/Icons/ic_photo_library_-1.png) no-repeat;
+        background-size: contain;
+    }
+}

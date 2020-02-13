@@ -1,7 +1,7 @@
 import React from "react";
 import Axios from "axios";
 import Title from "./Section_title";
-import "../css/StartMenu_reg.css";
+import "../style/css/StartMenu_reg.min.css";
 
 class FAQ_register extends React.Component {
   constructor(props) {

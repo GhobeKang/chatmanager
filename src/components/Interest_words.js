@@ -1,7 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import Title from './Section_title';
-import '../css/Interest_words.css';
+import '../style/css/Interest_words.min.css';
 
 class Interest_words extends React.Component {
     constructor(props) {

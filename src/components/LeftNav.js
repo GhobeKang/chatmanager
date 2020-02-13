@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
-import "../css/LeftNav.css";
+import "../style/css/LeftNav.min.css";
 
 class LeftNav extends React.Component {
   constructor(props) {
@@ -139,14 +139,11 @@ class LeftNav extends React.Component {
         </div>
         <div className="nav_groups">{this.state.group_list}</div>
         <div className="nav_contents">
-          <Link to="/dashboard" onClick={ev => this.activeNav(1)}>
-            <i className="icon icon-dashboard"></i> Dashboard
+          <Link to="/members" onClick={ev => this.activeNav(1)}>
+            <i className="icon icon-members"></i> Members
           </Link>
-          <Link to="/modules" onClick={ev => this.activeNav(2)}>
-            <i className="icon icon-modules"></i> Modules
-          </Link>
-          <Link to="/settings" onClick={ev => this.activeNav(3)}>
-            <i className="icon icon-setting"></i> Settings
+          <Link to="/messages" onClick={ev => this.activeNav(2)}>
+            <i className="icon icon-messages"></i> Messages
           </Link>
         </div>
       </section>

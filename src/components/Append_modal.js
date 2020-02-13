@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/Append_modal.css';
+import '../style/css/Append_modal.min.css';
 import Axios from 'axios';
 
 function Append_modal (props) {

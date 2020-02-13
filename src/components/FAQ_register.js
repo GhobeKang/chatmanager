@@ -2,7 +2,7 @@ import React from 'react';
 import Axios from 'axios';
 import Title from './Section_title';
 import QnA_List from './QnA_List_Component';
-import '../css/FAQ_register.css'
+import '../style/css/FAQ_register.min.css'
 
 class FAQ_register extends React.Component {
     constructor(props) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-import '../css/Edit_modal.css';
+import '../style/css/Edit_modal.min.css';
 
 function Edit_modal (props) {
     

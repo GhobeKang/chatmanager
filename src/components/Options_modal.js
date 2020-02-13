@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/Options_modal.css";
+import "../style/css/Options_modal.min.css";
 import Axios from 'axios';
 
 function Options_modal(props) {

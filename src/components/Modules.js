@@ -2,7 +2,7 @@ import React from 'react';
 import Module_item from './module_item';
 import Title from './Section_title';
 import Axios from 'axios';
-import '../css/Modules.css';
+import '../style/css/Modules.min.css';
 
 class Modules extends React.Component {
     constructor(props) {

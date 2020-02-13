@@ -4,7 +4,7 @@ import INTRO_IMG_HAND from "../img/Hand.svg";
 import FEATURES_IMG_MESSAGES from "../img/messagebubbles.svg";
 import FEATURES_IMG_PROFILE from "../img/memberprofile.svg";
 import FEATURES_IMG_SPAM from "../img/spam.svg";
-import "../css/Register_chat.css";
+import "../style/css/Register_chat.min.css";
 
 class RegisterChat extends React.Component {
   constructor(props) {
@@ -19,9 +19,7 @@ class RegisterChat extends React.Component {
             <div className="intro_desc">
               <h2>managing Telegram groups made easier</h2>
               <p>
-                Creating solutions for Community Managers to have a easy and
-                deep interaction with users while having the right data that can
-                help further grow your community!
+              Creating solutions for Community Managers to have an easy and deep interaction with users while obtaining the right data that can help further grow your community.
               </p>
               <Link to="/signin">Try AQOOM</Link>
             </div>
@@ -69,10 +67,7 @@ class RegisterChat extends React.Component {
                   your community
                 </h2>
                 <p>
-                  We are sure that your community will be protected in any form
-                  of spam. With basic to advanced filters, you have a full
-                  control over your community. These can protect and improve
-                  your brand image.
+                We are sure that your community will be protected in any form of spam. With basic to advanced filters, you have full control over your community. These can protect and improve your brand image.
                 </p>
               </div>
             </div>

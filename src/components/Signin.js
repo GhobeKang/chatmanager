@@ -2,7 +2,7 @@ import React from "react";
 import Axios from "axios";
 import AQ_LOGO from "../img/AQOOM_logo.png";
 import TelegramLoginButton from "react-telegram-login";
-import "../css/Signin.css";
+import "../style/css/Signin.min.css";
 
 class Signin extends React.Component {
   constructor(props) {
@@ -63,7 +63,7 @@ class Signin extends React.Component {
           </p>
           <TelegramLoginButton
             dataOnauth={user => this.onTelegramAuth(user)}
-            botName="aqoom_bot"
+            botName="aqoom_test_bot"
           />
           <p className="login_help">
             AQOOM uses Telegram Secure ID to provide seamless automation of

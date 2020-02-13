@@ -1,7 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import Title from './Section_title';
-import '../css/Whitelist_URL.css';
+import '../style/css/Whitelist_URL.min.css';
 
 class Whitelist_URL extends React.Component{
     constructor (props) {

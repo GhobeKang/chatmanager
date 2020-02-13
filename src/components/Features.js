@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/Features.css";
+import "../style/css/Features.min.css";
 import GRAY_LINE from "../img/grayline.svg";
 import INTERACTION_LINE from "../img/interaction_line.svg";
 import INTERACTION_BUBBLE from "../img/interaction_bubble.svg";

@@ -1,0 +1,84 @@
+.section_usermanager {
+    width: 80%;
+    margin: 20px 0 20px 40px;
+    .section_title {
+        margin: 0;
+    }
+    .header_section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        .append_btn {
+            width: 100px;
+            border-radius: 5px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 1px 1px 20px #001f86;
+            border: solid 1px #003479;
+            font-size: 20px;
+            background: #00196b;
+            color: white;
+            cursor: pointer;
+            &:hover {
+                transform: translateY(1px);
+                box-shadow: 0px 0px 10px #001f86;
+            }
+        }
+    }
+    .usermanager_tb {
+        width: 100%;
+        margin: 20px auto;
+        border: solid 1px #E2E2E3;
+        border-radius: 4px;
+        thead > tr {
+            background: #F9FAFB;
+            height: 40px;
+        }
+        tbody > tr {
+            height: 40px;
+            &:nth-child(2n) {
+                background: #F9FAFB;
+            }
+            td {
+                font-weight: normal;
+                border-bottom: solid 1px #E2E2E3;
+                text-align: center;
+            }
+            td > span.icon {
+                width: 18px;
+                height: 18px;
+                background-size: contain;
+                display: block;
+                margin: 0 auto;
+                cursor: pointer;
+            }
+            .delete_icon {
+                background: url('../../img/delete.png');
+            }
+            .edit_icon {
+                background: url('../../img/edit.png');
+            }
+            .kick_icon {
+                background: url('../../img/user-slash-solid.svg') no-repeat;
+            }
+            .ban_icon {
+                background: url('../../img/ban-solid.svg') no-repeat;
+            }
+            .interest_icon {
+                background: url('../../img/code-branch-solid.svg') no-repeat;
+            }
+            .bonus_icon {
+                background: url('../../img/coins-solid.svg') no-repeat;
+            }
+        }
+        .empty_item {
+            text-align: center;
+            color: #909090;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+    }
+    
+}

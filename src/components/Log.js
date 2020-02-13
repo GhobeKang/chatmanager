@@ -1,6 +1,6 @@
 import React from 'react';
 import Title from './Section_title';
-import '../css/Log.css';
+import '../style/css/Log.min.css';
 import Axios from 'axios';
 
 class Log extends React.Component{

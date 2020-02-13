@@ -10,12 +10,13 @@ import Header from './components/Header_main';
 import LandingFooter from './components/LandingFooter';
 import LandingHeader from './components/LandingHeader';
 
+import Messages from './components/Pages/Messages';
 import WordManager from "./components/WordManager";
 import Whitelist from "./components/Whitelist_URL";
 import Log from "./components/Log";
 import Faq from "./components/FAQ_register";
 import Start from "./components/StartMenu";
-import Users from "./components/UserManager";
+import Users from "./components/Pages/UserManager";
 import Dashboard from "./components/Dashboard";
 import Modules from './components/Modules';
 import Settings from './components/Settings';
@@ -32,8 +33,8 @@ function App() {
   const [isValid, setIsValid] = useState(false);
   const [statusNav, setStatusNav] = useState("word");
   const [chatInfo, setChatInfo] = useState([]);
-  const [botId, setBotId] = useState('847825836:AAFv02ESsTVjnrzIomgdiVjBGWVw7CpN_Cg');
-  // const [botId, setBotId] = useState('822428347:AAGXao7qTxCL5MoqQyeSqPc7opK607fA51I');
+  // const [botId, setBotId] = useState('847825836:AAFv02ESsTVjnrzIomgdiVjBGWVw7CpN_Cg');
+  const [botId, setBotId] = useState('822428347:AAGXao7qTxCL5MoqQyeSqPc7opK607fA51I');
   
   const isLiving = getCookie("living") == 'true';
   const inConsole = getCookie('STAY_C') == 'true';
@@ -58,6 +59,10 @@ function App() {
           <section className="section_content">
             <Switch>
               <Route path="/" exact render={() => <Dashboard botId={botId}></Dashboard>}></Route>
+
+              <Route path="/members" exact render={() => <Users botId={botId}></Users>}></Route>
+              <Route path="/messages" exact render={() => <Messages botId={botId}></Messages>}></Route>
+
               <Route path="/dashboard" render={() => <Dashboard botId={botId}></Dashboard>}></Route>
               <Route path="/modules" render={() => <Modules botId={botId}></Modules>}></Route>
               <Route path="/whitelist" render={() => <Whitelist botId={botId}></Whitelist>}></Route>

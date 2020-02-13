@@ -2,7 +2,7 @@ import React from 'react';
 import Axios from 'axios';
 import Title from './Section_title';
 import Question_reply from './Question_reply';
-import '../css/Questions.css'
+import '../style/css/Questions.min.css'
 
 class Questions extends React.Component {
     constructor(props) {

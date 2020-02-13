@@ -2,7 +2,7 @@ import React from 'react';
 import Module_item from './module_item';
 import Title from './Section_title';
 import Axios from 'axios';
-import '../css/Dashboard.css';
+import '../style/css/Dashboard.min.css';
 
 class Dashboard extends React.Component {
     constructor(props) {

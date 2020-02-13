@@ -1,7 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import Title from './Section_title';
-import '../css/WordManager.css';
+import '../style/css/WordManager.min.css';
 
 class WordManager extends React.Component {
     constructor(props) {
