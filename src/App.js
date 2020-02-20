@@ -17,6 +17,7 @@ import Log from "./components/Log";
 import Faq from "./components/FAQ_register";
 import Start from "./components/StartMenu";
 import Users from "./components/Pages/UserManager";
+import User from './components/Pages/User';
 import Dashboard from "./components/Dashboard";
 import Modules from './components/Modules';
 import Settings from './components/Settings';
@@ -33,8 +34,10 @@ function App() {
   const [isValid, setIsValid] = useState(false);
   const [statusNav, setStatusNav] = useState("word");
   const [chatInfo, setChatInfo] = useState([]);
-  // const [botId, setBotId] = useState('847825836:AAFv02ESsTVjnrzIomgdiVjBGWVw7CpN_Cg');
-  const [botId, setBotId] = useState('822428347:AAGXao7qTxCL5MoqQyeSqPc7opK607fA51I');
+  const [botId, setBotId] = useState('847825836:AAFv02ESsTVjnrzIomgdiVjBGWVw7CpN_Cg');
+  const [botName, setBotName] = useState('aqoom_bot')
+  // const [botId, setBotId] = useState('822428347:AAGXao7qTxCL5MoqQyeSqPc7opK607fA51I');
+  // const [botName, setBotName] = useState('aqoom_test_bot')
   
   const isLiving = getCookie("living") == 'true';
   const inConsole = getCookie('STAY_C') == 'true';
@@ -58,10 +61,11 @@ function App() {
           <LeftNav setStatus={setStatusNav} statusNav={statusNav} setChatInfo={setChatInfo} botId={botId}></LeftNav>
           <section className="section_content">
             <Switch>
-              <Route path="/" exact render={() => <Dashboard botId={botId}></Dashboard>}></Route>
+              <Route path="/" exact render={() => <Users botId={botId}></Users>}></Route>
 
-              <Route path="/members" exact render={() => <Users botId={botId}></Users>}></Route>
-              <Route path="/messages" exact render={() => <Messages botId={botId}></Messages>}></Route>
+              <Route path="/members" render={() => <Users botId={botId}></Users>}></Route>
+              <Route path="/messages" render={() => <Messages botId={botId}></Messages>}></Route>
+              <Route path="/user" render={() => <User botId={botId}></User>}></Route>
 
               <Route path="/dashboard" render={() => <Dashboard botId={botId}></Dashboard>}></Route>
               <Route path="/modules" render={() => <Modules botId={botId}></Modules>}></Route>
@@ -90,7 +94,7 @@ function App() {
           <Switch>
             <Route path="/" exact render={() => <RegisterChat></RegisterChat>}></Route>
             <Route path="/features" render={() => <Features></Features>}></Route>
-            <Route path="/signin" render={() => <Signin></Signin>}></Route>
+            <Route path="/signin" render={() => <Signin botName={botName}></Signin>}></Route>
           </Switch>
           <LandingFooter></LandingFooter>
         </div>

@@ -63,7 +63,7 @@ class Signin extends React.Component {
           </p>
           <TelegramLoginButton
             dataOnauth={user => this.onTelegramAuth(user)}
-            botName="aqoom_test_bot"
+            botName={this.props.botName}
           />
           <p className="login_help">
             AQOOM uses Telegram Secure ID to provide seamless automation of

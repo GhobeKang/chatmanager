@@ -69,7 +69,7 @@ class Header_main extends React.Component {
                     </div>
                     <ul className={this.state.isOpen ? 'header_drop open' : 'header_drop'}>
                         <li>{this.state.default_info.username}</li>
-                        <li style={{color:'#2F2F2F'}} onClick={() => this.logout()}>LOG OUT</li>
+                        <li style={{color:'#2F2F2F', cursor:'pointer'}} onClick={() => this.logout()}>LOG OUT</li>
                     </ul>
                     <div className="header_photo">
                         {this.getHeaderPhoto()}

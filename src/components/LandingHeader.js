@@ -15,7 +15,7 @@ function LandingHeader (props) {
               {
                 props.onLogin 
                 ? 
-                <Link to="/dashboard" className="signin_btn" onClick={() => {
+                <Link to="/members" className="signin_btn" onClick={() => {
                     var now = new Date();
                     var time = now.getTime();
                     var expireTime = time + 2 * 360000;

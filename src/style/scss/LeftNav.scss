@@ -15,6 +15,9 @@
       width: 42px; height: 42px;
       border-radius: 50%;
       background: rgb(187, 187, 187);
+      img {
+        width: 100%;
+      }
     }
     .group_title {
       flex-grow: 1;
@@ -66,6 +69,9 @@
         width: 32px; height: 32px;
         border-radius: 50%;
         background: rgb(187, 187, 187);
+        img {
+          width: 100%;
+        }
       }
       .group_title {
         flex-grow: 1;
@@ -148,13 +154,14 @@
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      border-left: solid 5px #fff;
       &:hover {
-        background: #255CF9;
-        color: white;
+        color: #1C62F9;
+        border-left: solid 5px #1C62F9;
       }
       &.active {
-        background: #255CF9;
-        color: white;
+        color: #1C62F9;
+        border-left: solid 5px #1C62F9;
       }
       i.icon {
         width: 18px;
@@ -173,14 +180,6 @@
       }
       .icon.icon-modules {
         background: url(../../img/envelope-regular.svg) no-repeat;
-        background-size: contain;
-      }
-      .icon.icon-members {
-        background: url(../../img/user-friends-solid.svg) no-repeat;
-        background-size: contain;
-      }
-      .icon.icon-messages {
-        background: url(../../img/comments-solid.svg) no-repeat;
         background-size: contain;
       }
     }
