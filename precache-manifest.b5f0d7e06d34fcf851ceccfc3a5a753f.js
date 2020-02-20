@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "51f7a14f4c15c540625822116db088de",
+    "revision": "03d93563c22b1edd726737c84f59a902",
     "url": "/index.html"
   },
   {
-    "revision": "07030d3133fab3daf987",
-    "url": "/static/css/main.682cd97e.chunk.css"
+    "revision": "34ef0e82f79c54115040",
+    "url": "/static/css/main.a510294a.chunk.css"
   },
   {
     "revision": "aabb3cbbeb99485bf94d",
     "url": "/static/js/2.eb7ddff5.chunk.js"
   },
   {
-    "revision": "07030d3133fab3daf987",
-    "url": "/static/js/main.09fbe201.chunk.js"
+    "revision": "34ef0e82f79c54115040",
+    "url": "/static/js/main.d9effbc6.chunk.js"
   },
   {
     "revision": "68b107e943ca1e0dc96f",
@@ -86,10 +86,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "3f77a599330cded6f86c38ceff9bd308",
     "url": "/static/media/coins-solid.3f77a599.svg"
-  },
-  {
-    "revision": "08515c4f1f810bf85488d8579635377e",
-    "url": "/static/media/comments-solid.08515c4f.svg"
   },
   {
     "revision": "a4773144b79eedf2b3c1a6f415a95989",
@@ -186,10 +182,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "df63f7dcb7368eedb6046fe7e627697e",
     "url": "/static/media/star-solid.df63f7dc.svg"
-  },
-  {
-    "revision": "f7258f77b563c3db0655e3ff20ea8b49",
-    "url": "/static/media/user-friends-solid.f7258f77.svg"
   },
   {
     "revision": "3b83b7b77ef1ce145fcfd9e26bd71c44",
