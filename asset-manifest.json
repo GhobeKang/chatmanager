@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.0b86eb47.chunk.css",
+    "main.css": "/static/css/main.1200798e.chunk.css",
     "main.js": "/static/js/main.c7785342.chunk.js",
     "main.js.map": "/static/js/main.c7785342.chunk.js.map",
     "runtime~main.js": "/static/js/runtime~main.e12613d6.js",
@@ -8,9 +8,9 @@
     "static/js/2.04ce46dc.chunk.js": "/static/js/2.04ce46dc.chunk.js",
     "static/js/2.04ce46dc.chunk.js.map": "/static/js/2.04ce46dc.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.239bec8f4c3b0f7a065895523b1f42db.js": "/precache-manifest.239bec8f4c3b0f7a065895523b1f42db.js",
+    "precache-manifest.1ee237ab42490bd8253fa21f2a6fe148.js": "/precache-manifest.1ee237ab42490bd8253fa21f2a6fe148.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.0b86eb47.chunk.css.map": "/static/css/main.0b86eb47.chunk.css.map",
+    "static/css/main.1200798e.chunk.css.map": "/static/css/main.1200798e.chunk.css.map",
     "static/media/App.css": "/static/media/Muli-Regular.e063a333.ttf",
     "static/media/AQOOM_whitelogo.svg": "/static/media/AQOOM_whitelogo.311ee2ce.svg",
     "static/media/Hand.svg": "/static/media/Hand.33162f95.svg",
