@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.db0efd4c.chunk.css",
-    "main.js": "/static/js/main.b431aa05.chunk.js",
-    "main.js.map": "/static/js/main.b431aa05.chunk.js.map",
+    "main.css": "/static/css/main.da993d17.chunk.css",
+    "main.js": "/static/js/main.4ff49bf0.chunk.js",
+    "main.js.map": "/static/js/main.4ff49bf0.chunk.js.map",
     "runtime~main.js": "/static/js/runtime~main.e12613d6.js",
     "runtime~main.js.map": "/static/js/runtime~main.e12613d6.js.map",
     "static/css/2.77b5691f.chunk.css": "/static/css/2.77b5691f.chunk.css",
-    "static/js/2.81b47391.chunk.js": "/static/js/2.81b47391.chunk.js",
-    "static/js/2.81b47391.chunk.js.map": "/static/js/2.81b47391.chunk.js.map",
+    "static/js/2.30b7b984.chunk.js": "/static/js/2.30b7b984.chunk.js",
+    "static/js/2.30b7b984.chunk.js.map": "/static/js/2.30b7b984.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.fa9100351efb78c09cc1ffbdf1ccf62c.js": "/precache-manifest.fa9100351efb78c09cc1ffbdf1ccf62c.js",
+    "precache-manifest.988fded511d22f3cc9d63e39311d0ab9.js": "/precache-manifest.988fded511d22f3cc9d63e39311d0ab9.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.77b5691f.chunk.css.map": "/static/css/2.77b5691f.chunk.css.map",
-    "static/css/main.db0efd4c.chunk.css.map": "/static/css/main.db0efd4c.chunk.css.map",
+    "static/css/main.da993d17.chunk.css.map": "/static/css/main.da993d17.chunk.css.map",
     "static/media/App.css": "/static/media/Muli-Regular.e063a333.ttf",
     "static/media/AQOOM_whitelogo.svg": "/static/media/AQOOM_whitelogo.311ee2ce.svg",
     "static/media/Hand.svg": "/static/media/Hand.33162f95.svg",
@@ -26,7 +26,7 @@
     "static/media/LeftNav.min.css": "/static/media/envelope-regular.30d5ac5d.svg",
     "static/media/delete_normal.svg": "/static/media/delete_normal.a4773144.svg",
     "static/media/Interests.min.css": "/static/media/download-solid.29edbd0f.svg",
-    "static/media/ellipses_normal.svg": "/static/media/ellipses_normal.0a8d9eef.svg",
+    "static/media/Interactions.min.css": "/static/media/sort-down-solid.d8e48bb5.svg",
     "static/media/Register_chat.min.css": "/static/media/grayarea.59404805.svg",
     "static/media/grayline.svg": "/static/media/grayline.beaba093.svg",
     "static/media/interaction_bubble.svg": "/static/media/interaction_bubble.ca20be28.svg",
@@ -38,7 +38,6 @@
     "static/media/moderation_line.svg": "/static/media/moderation_line.a1f4329f.svg",
     "static/media/opentelegram_normal.svg": "/static/media/opentelegram_normal.f92e1346.svg",
     "static/media/reply_normal.svg": "/static/media/reply_normal.2c1c3f0c.svg",
-    "static/media/Interactions.min.css": "/static/media/sort-down-solid.d8e48bb5.svg",
     "static/media/spam.svg": "/static/media/spam.4b517870.svg"
   }
 }
