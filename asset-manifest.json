@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.37010f1d.chunk.css",
+    "main.css": "/static/css/main.0b7d04e4.chunk.css",
     "main.js": "/static/js/main.422390dc.chunk.js",
     "main.js.map": "/static/js/main.422390dc.chunk.js.map",
     "runtime~main.js": "/static/js/runtime~main.e12613d6.js",
@@ -9,10 +9,10 @@
     "static/js/2.cd7a0ef7.chunk.js": "/static/js/2.cd7a0ef7.chunk.js",
     "static/js/2.cd7a0ef7.chunk.js.map": "/static/js/2.cd7a0ef7.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.bc07fb2d4a79287194216670021d856f.js": "/precache-manifest.bc07fb2d4a79287194216670021d856f.js",
+    "precache-manifest.141e52c9fb23baead7522914692dda8a.js": "/precache-manifest.141e52c9fb23baead7522914692dda8a.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.77b5691f.chunk.css.map": "/static/css/2.77b5691f.chunk.css.map",
-    "static/css/main.37010f1d.chunk.css.map": "/static/css/main.37010f1d.chunk.css.map",
+    "static/css/main.0b7d04e4.chunk.css.map": "/static/css/main.0b7d04e4.chunk.css.map",
     "static/media/App.css": "/static/media/Muli-Regular.e063a333.ttf",
     "static/media/AQOOM_whitelogo.svg": "/static/media/AQOOM_whitelogo.311ee2ce.svg",
     "static/media/Hand.svg": "/static/media/Hand.33162f95.svg",
