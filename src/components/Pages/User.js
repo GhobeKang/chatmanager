@@ -1,9 +1,11 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import Axios from 'axios';
-import Title from '../Section_title';
+
 import Chart from 'chart.js';
 
-import ContentContainer from '../Modules/MessageContentContainer';
+import MessageLogModal from '../Modules/MessageLog_Modal';
+
 
 import '../../style/css/User.min.css';
 
@@ -19,6 +21,10 @@ class User extends React.Component {
             top_active: null,
             message_log_open: false
         }
+    }
+
+    backtoManage() {
+        window.location.href = '/#/members';
     }
 
     openTelegram(username) {
@@ -52,18 +58,26 @@ class User extends React.Component {
         })
     }
 
-    kickMember(userid) {
+    kickMember(userid, isBan) {
         const result = window.confirm('Are you sure to kick this user?')
         if (result) {
             const dataset = {
                 chat_id: window.localStorage.getItem('chat_id'),
                 user_id: userid
             }
+
+            if (isBan) {
+                dataset['until_date'] = Date.now() + 1000;
+            }
     
             Axios.post(`https://api.telegram.org/bot${this.props.botId}/kickChatMember`, dataset)
                 .then((res) => {
                     setTimeout(() => {
-                        Axios.post('deleteUser', dataset);
+                        Axios.post('/deleteUser', dataset);
+                        Axios.post('/pushEventBotActivity', {
+                            chat_id: dataset.chat_id,
+                            event: 'kick'
+                        })
                         window.location.reload();
                     }, 2000);
                 })
@@ -89,10 +103,15 @@ class User extends React.Component {
 
             Axios.post(`https://api.telegram.org/bot${this.props.botId}/restrictChatMember`, dataset)
                 .then((res) => {
-                    
+                    Axios.post('/pushEventBotActivity', {
+                        chat_id: dataset.chat_id,
+                        event: 'restrict'
+                    })
                 }).catch((err) => {
-                    alert(err);
-                    return false;
+                    if (!err.data.ok) {
+                        alert('this feature is available only in [supergroup]')
+                        return false;
+                    }
                 })
         }
     }
@@ -185,15 +204,23 @@ class User extends React.Component {
                 },
                 responsive: false,
                 scales: {
+                    xAxes: [{
+                        ticks: {
+                            fontSize: 10,
+                            fontFamily: 'muli-ragular'
+                        },
+                        gridLines: {
+                            display: false
+                        }
+                    }],
                     yAxes: [{
                         ticks: {
                             stepSize: 5,
-                            beginAtZero: true
+                            beginAtZero: true,
+                            fontSize: 10,
+                            fontFamily: 'muli-ragular'
                         }
-                    }],
-                    gridLines: {
-                        lineWidth: 0
-                    }
+                    }]
                 },
             }
         })
@@ -238,10 +265,21 @@ class User extends React.Component {
                 },
                 responsive: false,
                 scales: {
+                    xAxes: [{
+                        ticks: {
+                            fontSize: 10,
+                            fontFamily: 'muli-ragular'
+                        },
+                        gridLines: {
+                            display: false
+                        }
+                    }],
                     yAxes: [{
                         ticks: {
                             stepSize: 5,
-                            beginAtZero: true
+                            beginAtZero: true,
+                            fontSize: 10,
+                            fontFamily: 'muli-ragular'
                         }
                     }],
                     gridLines: {
@@ -339,7 +377,11 @@ class User extends React.Component {
 
         return (
             <div className="user_wrap">
-                <Title title={"User Profile"}></Title>
+                <div className="section_title" onClick={() => this.backtoManage()}>
+                    <h2 className="title">
+                        User Profile
+                    </h2>
+                </div>
                 <div className="profile_state">
                     <div className="user_profile">
                         <div className={this.state.user_profile_data.is_interested ? 'interest_icon interested' : 'interest_icon'} 
@@ -371,19 +413,34 @@ class User extends React.Component {
                         </div>
                         <div className="profile_manipulation">
                             <div className="manipulation_item" onClick={() => this.openTelegram(this.state.user_profile_data.username)}>
-                                <span className="icon open_telegram_icon"></span>
-                            </div>
-                            <div className="manipulation_item" onClick={() => this.toggleMessageLogModal()}>
-                                <span className="icon message_log_icon"></span>
-                            </div>
-                            <div className="manipulation_item" onClick={() => this.restrictMember(this.state.user_profile_data.user_id)}>
-                                <span className="icon restrict_icon"></span>
+                                <div className="icon open_telegram_icon">
+                                    <span className="tooltip">Open in Telegram</span>
+                                </div>
                             </div>
                             <div className="manipulation_item">
-                                <span className="icon ban_icon"></span>
+                                <Link to={{
+                                    pathname: "/logs",
+                                    search: "?user_id=" + this.state.user_profile_data.user_id
+                                }}>
+                                    <div className="icon message_log_icon">
+                                        <span className="tooltip">Message Logs</span>
+                                    </div>
+                                </Link>
                             </div>
-                            <div className="manipulation_item" onClick={() => this.kickMember(this.state.user_profile_data.user_id)}>
-                                <span className="icon kick_icon"></span>
+                            <div className="manipulation_item" onClick={() => this.restrictMember(this.state.user_profile_data.user_id)}>
+                                <div className="icon restrict_icon">
+                                    <span className="tooltip">Restrict</span>
+                                </div>
+                            </div>
+                            <div className="manipulation_item" onClick={() => this.kickMember(this.state.user_profile_data.user_id, true)}>
+                                <div className="icon ban_icon">
+                                    <span className="tooltip">Ban</span>
+                                </div>
+                            </div>
+                            <div className="manipulation_item" onClick={() => this.kickMember(this.state.user_profile_data.user_id, false)}>
+                                <div className="icon kick_icon">
+                                    <span className="tooltip">Kick</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -441,11 +498,7 @@ class User extends React.Component {
                     <p>Active Hours</p>
                     <canvas id="active_hour_crt"  width="1186" height="200"></canvas>
                 </div>
-                <div className={this.state.message_log_open ? "modal message_log_modal open" : "modal message_log_modal"}>
-                    <h2 className="message_modal_title">Message Logs</h2>
-                    <span className="message_modal_close" onClick={() => this.toggleMessageLogModal()}>&times;</span>
-                    <ContentContainer messages={this.state.message_log} botId={this.props.botId} is_allMessages={true}></ContentContainer>
-                </div>
+                <MessageLogModal message_log_open={this.state.message_log_open} botId={this.props.botId} message_log={this.state.message_log} closeModal={this.toggleMessageLogModal.bind(this)}></MessageLogModal>
             </div>
         )
     }

@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../style/css/TabMenu.min.css';
 
 function changeTab(event) {
     document.querySelector('div[class^=opt].active').classList.remove('active');
@@ -22,6 +23,11 @@ return (
             <div className="opt_3" onClick={(ev) => {changeTab(ev); props.active_tab(3)}}>
                 <p>
                     {props.opt3}
+                </p>
+            </div>
+            <div className="opt_4" onClick={(ev) => {changeTab(ev); props.active_tab(4)}}>
+                <p>
+                    {props.opt4}
                 </p>
             </div>
         </div>

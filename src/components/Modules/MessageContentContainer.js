@@ -38,7 +38,12 @@ class MessageContentContainer extends React.Component {
 
         return (
             <div className="content_tab">
-                {contents}
+                {contents.length !== 0 ?
+                contents
+                :
+                <div className="emtpy_section">
+                    <p>No messages yet</p>    
+                </div>}
             </div>
         )
     }

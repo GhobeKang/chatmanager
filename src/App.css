@@ -10,11 +10,16 @@
   font-family: 'gothic-1';
   src: url(./fonts/Gothic_A1/GothicA1-Bold.ttf);
 }
+@font-face {
+  font-family: 'muli-lighter';
+  src: url(./fonts/Muli/Muli-Light.ttf);
+}
 *:focus {
   outline: none;
 }
 body {
   overflow-y:scroll;
+  background: #f5f5f5;
 }
 .main_container {
   display: flex;
@@ -29,6 +34,7 @@ body {
 .section_content {
   width: 100%;
   background: #F5F5F5;
+  margin: 45px;
 }
 .module_path span {
   color: #2185d0;
@@ -77,45 +83,6 @@ body {
   height: 100%;
   z-index: 10;
   display: none;
-}
-
-.section_header {
-  background: #fff;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: 80px;
-  box-shadow: #0000000a 0 2px 6px;
-}
-.header_logo {
-  background: url(./img/AQOOM_logo.png) no-repeat;
-  background-size: contain;
-  width: fit-content;
-  width: 250px;
-  background-position-y: center;
-}
-.header_infos {
-  display: table;
-  width: 220px;
-}
-.header_infos .header_name {
-  display: table-cell;
-  width: 50%;
-  line-height: 80px;
-  font-size: 14px;
-  color: #4d4f5c;
-  cursor: pointer;
-  overflow: hidden;
-}
-.header_infos .header_photo {
-  display: table-cell;
-  width: 50%;
-  vertical-align: middle;
-}
-.header_infos .header_photo img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
 }
 
 .icon.icon-down {

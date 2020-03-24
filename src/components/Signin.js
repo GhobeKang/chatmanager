@@ -15,7 +15,9 @@ class Signin extends React.Component {
       {
         id: t
       },
-      { withCredentials: true }
+      {
+        withCredentials: true
+      }
     ).then(response => {
       if (response.status === 200) {
         if (response.data !== false) {
@@ -39,7 +41,7 @@ class Signin extends React.Component {
   getUTCExpiredTime() {
     var now = new Date();
     var time = now.getTime();
-    var expireTime = time + 2 * 360000;
+    var expireTime = time + 2 * 3600000;
     now.setTime(expireTime);
 
     return now.toUTCString();

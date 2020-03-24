@@ -1,8 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
 
-import ELIPSE_ICON from '../../img/Icons/ellipses_normal.svg';
-import TIMES_ICON from '../../img/Icons/close_normal.svg';
 import TELEGRAM_ICON from '../../img/Icons/opentelegram_normal.svg';
 import BEN_ICON from '../../img/Icons/ban_normal.svg';
 import KICK_ICON from '../../img/Icons/kick_normal.svg';
@@ -57,15 +55,24 @@ class MessageContentItem extends React.Component {
                 this.setState({origin_msg: res.data[0]})
             })
         }
+
+        if (this.isMobileDevice()) {
+            
+        }
     }
     
+    isMobileDevice() {
+        return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+    };
+
     expand_minipulation(event) {
+        document.querySelectorAll('.message_manipulation.active').forEach((v) => v.classList.remove('active'));
         this.setState({
             isExpanded: !this.state.isExpanded
         })
     }
 
-    kickMember(userid) {
+    kickMember(userid, isBan) {
         const result = window.confirm('Are you sure to kick this user?')
         if (result) {
             const dataset = {
@@ -73,10 +80,18 @@ class MessageContentItem extends React.Component {
                 user_id: userid
             }
     
+            if (isBan) {
+                dataset['until_date'] = Date.now() + 1000;
+            }
+
             Axios.post(`https://api.telegram.org/bot${this.props.botId}/kickChatMember`, dataset)
                 .then((res) => {
                     setTimeout(() => {
                         Axios.post('deleteUser', dataset);
+                        Axios.post('/pushEventBotActivity', {
+                            chat_id: dataset.chat_id,
+                            event: 'kick'
+                        })
                         window.location.reload();
                     }, 2000);
                 })
@@ -120,7 +135,11 @@ class MessageContentItem extends React.Component {
         Axios.post(`https://api.telegram.org/bot${this.props.botId}/sendMessage`, dataset).then(() => {
             alert('the reply sent to chat successfully')
             this.close_modal();
-            Axios.post('/setStateReplied', dataset)
+            Axios.post('/setStateReplied', dataset);
+            Axios.post('/pushEventBotActivity', {
+                chat_id: dataset.chat_id,
+                event: 'reply'
+            })
         })
     }
 
@@ -176,12 +195,12 @@ class MessageContentItem extends React.Component {
             }
             case 'ban' : {
                 const user_id = this.props.data.user_id;
-                this.restrictMember(user_id)
+                this.kickMember(user_id, true)
                 break;
             }
             case 'kick' : {
                 const user_id = this.props.data.user_id;
-                this.kickMember(user_id)
+                this.kickMember(user_id, false)
                 break;
             }
             case 'reply' : {
@@ -219,7 +238,7 @@ class MessageContentItem extends React.Component {
         return (
             <div className="content_message_wrap">
                 <div className="message_owner">
-                    <img src={`https://api.telegram.org/file/bot${this.props.botId}/${this.state.user_profile_photo}`}></img>
+                    <img src={`https://api.telegram.org/file/bot${this.props.botId}/${this.state.user_profile_photo}`} alt="profile"></img>
                 </div>
                 <div className="message_contents">
                     <div className="message_header">
@@ -229,6 +248,16 @@ class MessageContentItem extends React.Component {
                         <p className="message_time">
                             {msg_date.getMonth() + 1} / {msg_date.getDate()} , {msg_date.getHours()}:{msg_date.getMinutes()}
                         </p>
+                        {
+                            this.props.data.replied_date
+                            ?
+                            <p>
+                                <span className="replied_icon"></span>
+                                <span className="replied_mark">Replied</span>
+                            </p>
+                            :
+                            null
+                        }
                     </div>
                     <div className="message_body">
                         {this.state.origin_msg !== null ?
@@ -259,7 +288,7 @@ class MessageContentItem extends React.Component {
                         :
                         null} 
                         {this.props.content === 'file' ? 
-                        <img src={`https://api.telegram.org/file/bot${this.props.botId}/${this.state.img_path}`}></img>
+                        <img src={`https://api.telegram.org/file/bot${this.props.botId}/${this.state.img_path}`} alt="file"></img>
                         :
                         this.props.content === 'sticker' ? 
                         <p>
@@ -285,42 +314,26 @@ class MessageContentItem extends React.Component {
                     </div>
                 </div>
                 <div className={this.state.isExpanded ? 'message_manipulation active' : 'message_manipulation'} onClick={(ev) => this.expand_minipulation(ev)}>
-                    {this.state.isExpanded ? 
-                    <img src={TIMES_ICON}></img>
-                    :
-                    <img src={ELIPSE_ICON}></img>}
-                    
+                    <div className="expand_icon"></div>
                 </div>
                 
-                {this.props.is_allMessages 
-                    ? 
-                    <div className="message_manipulation_expand">
-                        <div className="manipulation_item" onClick={() => this.telegram_actions('open')}>
-                            <img src={TELEGRAM_ICON} title="Open in Telegram"></img>
-                        </div>
-                        <div className="manipulation_item">
-                            <img src={BEN_ICON} title="Ban" onClick={() => this.telegram_actions('ban')}></img>
-                        </div>
-                        <div className="manipulation_item">
-                            <img src={KICK_ICON} title="Kick" onClick={() => this.telegram_actions('kick')}></img>
-                        </div>
-                        <div className="manipulation_item">
-                            <img src={REPLY_ICON} title="Reply" onClick={() => this.telegram_actions('reply')}></img>
-                        </div>
-                        <div className="manipulation_item">
-                            <img src={DELETE_ICON} title="Delete" onClick={() => this.telegram_actions('delete')}></img>
-                        </div>
+                <div className="message_manipulation_expand">
+                    <div className="manipulation_item" onClick={() => this.telegram_actions('open')}>
+                        <img src={TELEGRAM_ICON} title="Open in Telegram" alt="open telegram"></img>
                     </div>
-                    :
-                    <div className="message_manipulation_expand question">
-                        <div className="manipulation_item" onClick={() => this.telegram_actions('open')}>
-                            <img src={TELEGRAM_ICON} title="Open in Telegram"></img>
-                        </div>  
-                        <div className="manipulation_item">
-                            <img src={REPLY_ICON} title="Reply" onClick={() => this.telegram_actions('reply')}></img>
-                        </div>
+                    <div className="manipulation_item">
+                        <img src={BEN_ICON} title="Ban" onClick={() => this.telegram_actions('ban')} alt="ben user"></img>
                     </div>
-                }
+                    <div className="manipulation_item">
+                        <img src={KICK_ICON} title="Kick" onClick={() => this.telegram_actions('kick')} alt="kick user"></img>
+                    </div>
+                    <div className="manipulation_item">
+                        <img src={REPLY_ICON} title="Reply" onClick={() => this.telegram_actions('reply')} alt="reply"></img>
+                    </div>
+                    <div className="manipulation_item">
+                        <img src={DELETE_ICON} title="Delete" onClick={() => this.telegram_actions('delete')} alt="delete"></img>
+                    </div>
+                </div>
                     
                 <div className={this.state.open_modal ? 'modal reply_modal open' : 'modal reply_modal'}>
                     <div className="modal_title">

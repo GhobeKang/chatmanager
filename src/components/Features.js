@@ -42,7 +42,7 @@ class Features extends React.Component {
             Telegram community. These features can help you have the right tools
             managing and moderating your groups.
           </p>
-          <a href="/signin">Try AQOOM</a>
+          <a href="#/signin">Try AQOOM</a>
         </section>
 
         <section className="features_interaction">
@@ -122,7 +122,7 @@ class Features extends React.Component {
         <h4 className="foot_desc">
         Just the right amount of features that fits your needs.
         </h4>
-        <a href="/signin">Try AQOOM</a>
+        <a href="#/signin">Try AQOOM</a>
       </div>
     );
   }

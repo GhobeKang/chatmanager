@@ -3,6 +3,16 @@
     margin: 20px 0 20px 40px;
     .section_title {
         margin:0;
+        &::before {
+            content: '';
+            width: 15px;
+            height: 15px;
+            position: absolute;
+            left: -20px;
+            top: 7px;
+            background: url(../../img/Icons/arrow-left-solid.svg) no-repeat;
+            background-size: contain;
+        }
     }
     .log_tb {
         width: 100%;

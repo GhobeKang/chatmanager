@@ -1,34 +1,37 @@
 import React, { useState } from "react";
 import { Route, Switch, HashRouter as Router } from "react-router-dom";
+import ReactGA from 'react-ga';
+import {createBrowserHistory} from 'history';
 import "./App.css";
 
 import RegisterChat from "./components/Register_chat";
 import Signin from './components/Signin';
 import Features from './components/Features';
 import LeftNav from "./components/LeftNav";
+import RightDrawer_m from './components/Modules/RightDrawer_m';
 import Header from './components/Header_main';
 import LandingFooter from './components/LandingFooter';
 import LandingHeader from './components/LandingHeader';
 
 import Messages from './components/Pages/Messages';
-import WordManager from "./components/WordManager";
-import Whitelist from "./components/Whitelist_URL";
-import Log from "./components/Log";
-import Faq from "./components/FAQ_register";
-import Start from "./components/StartMenu";
+import MessageLog from './components/Pages/MessageLog';
 import Users from "./components/Pages/UserManager";
 import User from './components/Pages/User';
-import Dashboard from "./components/Dashboard";
-import Modules from './components/Modules';
-import Settings from './components/Settings';
-import Questions from './components/Questions';
-import Interests from './components/Interests';
-import Keypoint from './components/Interest_words';
-import FAQStats from './components/FAQ_stats';
+import Intereactions from './components/Pages/Interactions';
+import AntiSpam from './components/Pages/AntiSpam';
+import Settings from './components/Pages/Settings';
+import Analystic from './components/Pages/Analystic';
 
 import Axios from "axios";
-Axios.defaults.baseURL = "https://chatbot-258301.appspot.com/api/";
+// Axios.defaults.baseURL = "https://chatbot-258301.appspot.com/api/";
 // Axios.defaults.baseURL = "http://localhost:4000/api/";
+Axios.defaults.baseURL = "https://hysoop.com/api/"
+const history = createBrowserHistory();
+
+history.listen(location => {
+  ReactGA.set({ page: location.pathname }); // Update the user's current page
+  ReactGA.pageview(location.pathname); // Record a pageview for the given page
+});
 
 function App() {
   const [isValid, setIsValid] = useState(false);
@@ -53,33 +56,32 @@ function App() {
     }
   }
   
+  ReactGA.initialize('UA-125314475-4', {
+    debug: true,
+    gaOptions: {
+      name: 'aqoomchat_tracker'
+    }
+  });
+
   if (isValid || inConsole) {
     return (
-      <Router basename="/chatmanager">
+      <Router basename="/chatmanager" history={history}>
         <Header botId={botId}></Header>
+        <RightDrawer_m setStatus={setStatusNav} statusNav={statusNav} setChatInfo={setChatInfo} botId={botId}></RightDrawer_m>
         <div className="main_container">
           <LeftNav setStatus={setStatusNav} statusNav={statusNav} setChatInfo={setChatInfo} botId={botId}></LeftNav>
           <section className="section_content">
             <Switch>
               <Route path="/" exact render={() => <Users botId={botId}></Users>}></Route>
 
+              <Route path="/analytics" render={() => <Analystic botId={botId}></Analystic>}></Route>
               <Route path="/members" render={() => <Users botId={botId}></Users>}></Route>
               <Route path="/messages" render={() => <Messages botId={botId}></Messages>}></Route>
               <Route path="/user" render={() => <User botId={botId}></User>}></Route>
-
-              <Route path="/dashboard" render={() => <Dashboard botId={botId}></Dashboard>}></Route>
-              <Route path="/modules" render={() => <Modules botId={botId}></Modules>}></Route>
-              <Route path="/whitelist" render={() => <Whitelist botId={botId}></Whitelist>}></Route>
-              <Route path="/blacklist" render={() => <WordManager botId={botId}></WordManager>}></Route>
-              <Route path="/faq" render={() => <Faq botId={botId}></Faq>}></Route>
-              <Route path="/startmenu" render={() => <Start botId={botId}></Start>}></Route>
-              <Route path="/logs" render={() => <Log botId={botId}></Log>}></Route>
-              <Route path="/users" render={() => <Users botId={botId}></Users>}></Route>
+              <Route path="/logs" render={() => <MessageLog botId={botId}></MessageLog>}></Route>
+              <Route path="/interactions" render={() => <Intereactions botId={botId}></Intereactions>}></Route>
+              <Route path="/antispam" render={() => <AntiSpam botId={botId}></AntiSpam>}></Route>
               <Route path="/settings" render={() => <Settings botId={botId}></Settings>}></Route>
-              <Route path="/questions" render={() => <Questions botId={botId}></Questions>}></Route>
-              <Route path="/interest" render={() => <Interests botId={botId}></Interests>}></Route>
-              <Route path="/keypoint" render={() => <Keypoint botId={botId}></Keypoint>}></Route>
-              <Route path="/faqstats" render={() => <FAQStats botId={botId}></FAQStats>}></Route>
             </Switch>
           </section>
           <div className="dim"></div>
@@ -88,7 +90,7 @@ function App() {
     );
   } else {
     return (
-      <Router>
+      <Router history={history}>
         <div className="App">
           <LandingHeader onLogin={isLiving} setValid={setIsValid}></LandingHeader>
           <Switch>
