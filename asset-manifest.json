@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.7f76d767.chunk.css",
+    "main.css": "/static/css/main.e8c65bb4.chunk.css",
     "main.js": "/static/js/main.7bc4d573.chunk.js",
     "main.js.map": "/static/js/main.7bc4d573.chunk.js.map",
     "runtime~main.js": "/static/js/runtime~main.e12613d6.js",
@@ -9,10 +9,10 @@
     "static/js/2.d11070bb.chunk.js": "/static/js/2.d11070bb.chunk.js",
     "static/js/2.d11070bb.chunk.js.map": "/static/js/2.d11070bb.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.dca1e725981477ea7425fd7d5967429a.js": "/precache-manifest.dca1e725981477ea7425fd7d5967429a.js",
+    "precache-manifest.d2cae887f2e455cfed7a9db88d47fca4.js": "/precache-manifest.d2cae887f2e455cfed7a9db88d47fca4.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.77b5691f.chunk.css.map": "/static/css/2.77b5691f.chunk.css.map",
-    "static/css/main.7f76d767.chunk.css.map": "/static/css/main.7f76d767.chunk.css.map",
+    "static/css/main.e8c65bb4.chunk.css.map": "/static/css/main.e8c65bb4.chunk.css.map",
     "static/media/AQOOM_logo.png": "/static/media/AQOOM_logo.2ada93ac.png",
     "static/media/AQOOM_whitelogo.svg": "/static/media/AQOOM_whitelogo.311ee2ce.svg",
     "static/media/App.css": "/static/media/aqoom_beta_logo.69b2b3c6.svg",
