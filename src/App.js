@@ -4,14 +4,14 @@ import ReactGA from 'react-ga';
 import {createBrowserHistory} from 'history';
 import "./App.css";
 
-import RegisterChat from "./components/Register_chat";
-import Signin from './components/Signin';
-import Features from './components/Features';
-import LeftNav from "./components/LeftNav";
+import RegisterChat from "./components/Pages/Register_chat";
+import Signin from './components/Pages/Signin';
+import Features from './components/Pages/Features';
+import LeftNav from "./components/Modules/LeftNav";
 import RightDrawer_m from './components/Modules/RightDrawer_m';
-import Header from './components/Header_main';
-import LandingFooter from './components/LandingFooter';
-import LandingHeader from './components/LandingHeader';
+import Header from './components/Modules/Header_main';
+import LandingFooter from './components/Modules/LandingFooter';
+import LandingHeader from './components/Modules/LandingHeader';
 
 import Messages from './components/Pages/Messages';
 import MessageLog from './components/Pages/MessageLog';
@@ -37,10 +37,10 @@ function App() {
   const [isValid, setIsValid] = useState(false);
   const [statusNav, setStatusNav] = useState("word");
   const [chatInfo, setChatInfo] = useState([]);
-  const [botId, setBotId] = useState('847825836:AAFv02ESsTVjnrzIomgdiVjBGWVw7CpN_Cg');
-  const [botName, setBotName] = useState('aqoom_bot')
-  // const [botId, setBotId] = useState('822428347:AAGXao7qTxCL5MoqQyeSqPc7opK607fA51I');
-  // const [botName, setBotName] = useState('aqoom_test_bot')
+  // const [botId, setBotId] = useState('847825836:AAFv02ESsTVjnrzIomgdiVjBGWVw7CpN_Cg');
+  // const [botName, setBotName] = useState('aqoom_bot')
+  const [botId, setBotId] = useState('822428347:AAGXao7qTxCL5MoqQyeSqPc7opK607fA51I');
+  const [botName, setBotName] = useState('aqoom_test_bot')
   
   const isLiving = getCookie("living") == 'true';
   const inConsole = getCookie('STAY_C') == 'true';

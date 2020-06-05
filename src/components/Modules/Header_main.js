@@ -1,6 +1,6 @@
 import React from "react";
 import Axios from "axios";
-import '../style/css/Header_main.min.css';
+import '../../style/css/Header_main.min.css';
 
 class Header_main extends React.Component {
   constructor(props) {

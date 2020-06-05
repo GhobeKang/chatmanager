@@ -1,8 +1,8 @@
 import React from "react";
 import Axios from "axios";
-import AQ_LOGO from "../img/AQOOM_logo.png";
+import AQ_LOGO from "../../img/AQOOM_logo.png";
 import TelegramLoginButton from "react-telegram-login";
-import "../style/css/Signin.min.css";
+import "../../style/css/Signin.min.css";
 
 class Signin extends React.Component {
   constructor(props) {

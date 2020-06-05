@@ -1,11 +1,11 @@
 import React from "react";
-import "../style/css/Features.min.css";
-import GRAY_LINE from "../img/grayline.svg";
-import INTERACTION_LINE from "../img/interaction_line.svg";
-import INTERACTION_BUBBLE from "../img/interaction_bubble.svg";
-import MODERATION_LINE from "../img/moderation_line.svg";
-import MODERATION_BUBBLE from "../img/moderation_bubble.svg";
-import ANALYTICS_LINE from "../img/analytics_line.svg";
+import "../../style/css/Features.min.css";
+import GRAY_LINE from "../../img/grayline.svg";
+import INTERACTION_LINE from "../../img/interaction_line.svg";
+import INTERACTION_BUBBLE from "../../img/interaction_bubble.svg";
+import MODERATION_LINE from "../../img/moderation_line.svg";
+import MODERATION_BUBBLE from "../../img/moderation_bubble.svg";
+import ANALYTICS_LINE from "../../img/analytics_line.svg";
 
 class Features extends React.Component {
   constructor(props) {

@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import INTRO_IMG_HAND from "../img/Hand.svg";
-import FEATURES_IMG_MESSAGES from "../img/messagebubbles.svg";
-import FEATURES_IMG_PROFILE from "../img/memberprofile.svg";
-import FEATURES_IMG_SPAM from "../img/spam.svg";
-import "../style/css/Register_chat.min.css";
+import INTRO_IMG_HAND from "../../img/Hand.svg";
+import FEATURES_IMG_MESSAGES from "../../img/messagebubbles.svg";
+import FEATURES_IMG_PROFILE from "../../img/memberprofile.svg";
+import FEATURES_IMG_SPAM from "../../img/spam.svg";
+import "../../style/css/Register_chat.min.css";
 
 class RegisterChat extends React.Component {
   constructor(props) {

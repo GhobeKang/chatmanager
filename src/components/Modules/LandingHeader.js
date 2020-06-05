@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import AQ_LOGO from '../img/AQOOM_logo.png';
-import AQ_LOGO_BETA from '../img/aqoom_beta_logo.svg';
+import AQ_LOGO from '../../img/AQOOM_logo.png';
+import AQ_LOGO_BETA from '../../img/aqoom_beta_logo.svg';
 
 function LandingHeader (props) {
     return (

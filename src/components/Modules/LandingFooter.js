@@ -1,5 +1,5 @@
 import React from 'react';
-import AQ_LOGO_W from '../img/AQOOM_whitelogo.svg';
+import AQ_LOGO_W from '../../img/AQOOM_whitelogo.svg';
 
 function LandingFooter (props) {
     return (

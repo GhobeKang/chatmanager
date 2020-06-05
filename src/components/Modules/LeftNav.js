@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
-import "../style/css/LeftNav.min.css";
+import "../../style/css/LeftNav.min.css";
 
 class LeftNav extends React.Component {
   constructor(props) {
