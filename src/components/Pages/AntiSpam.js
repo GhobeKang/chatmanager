@@ -1,5 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
+import {Event} from '../Tracking';
+
 import '../../style/css/AntiSpam.min.css';
 
 function FieldRow(props) {
@@ -58,7 +60,7 @@ function FieldRow(props) {
             chat_id: window.localStorage.getItem('chat_id')
         }).then(res => {
             if (res.data) {
-
+                Event('Antispam', 'set item', field + 'option')
             }
         })
     }
@@ -115,6 +117,7 @@ class AntiSpam extends React.Component {
                     if (res.data) {
                         this.getWordData();
                         document.forms[1].blacklist.value = '';
+                        Event('Antispam', 'set item', 'blacklist')
                     }
                 })
             } else {
@@ -143,6 +146,7 @@ class AntiSpam extends React.Component {
                     if (res.data) {
                         this.getWhitelistURL();
                         document.forms[1].whitelisturl.value = ''
+                        Event('Antispam', 'set item', 'whitelist')
                     }
                 })
             } else {
@@ -165,6 +169,7 @@ class AntiSpam extends React.Component {
                     if (res.data) {
                         this.getWhitelistUser();
                         document.forms[1].whitelistuser.value = ''
+                        Event('Antispam', 'set item', 'whitelist user')
                     }
                 })
             } else {
@@ -262,6 +267,7 @@ class AntiSpam extends React.Component {
         }).then(res => {
             if (res.data) {
                 this.getWordData();
+                Event('Antispam', 'Delete item', 'blacklist')
             }
         })
     }
@@ -273,6 +279,7 @@ class AntiSpam extends React.Component {
         }).then(res => {
             if (res.data) {
                 this.getWhitelistURL();
+                Event('Antispam', 'Delete item', 'whitelist')
             }
         })
     }
@@ -284,6 +291,7 @@ class AntiSpam extends React.Component {
         }).then(res => {
             if (res.data) {
                 this.getWhitelistUser();
+                Event('Antispam', 'Delete item', 'whitelist user')
             }
         })
     }

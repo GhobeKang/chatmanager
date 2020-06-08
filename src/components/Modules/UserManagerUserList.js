@@ -2,6 +2,7 @@ import React from 'react';
 import Axios from 'axios';
 import SearchBox from './SearchBox';
 import { Link } from 'react-router-dom';
+import { Event } from '../Tracking';
 
 class UserManagerUserList extends React.Component {
     constructor(props) {
@@ -21,6 +22,7 @@ class UserManagerUserList extends React.Component {
         .then((res) => {
             if (res.data) {
                 this.updateMemberList(res.data);
+                Event('UserManager', 'Search Member', 'member searching');
             }
         })
     }
@@ -35,6 +37,9 @@ class UserManagerUserList extends React.Component {
     
             if (isBan) {
                 dataset['until_date'] = Date.now() + 1000;
+                Event('UserManager', 'adjust member status', 'ban member');
+            } else {
+                Event('UserManager', 'adjust member status', 'kick member');
             }
     
             Axios.post(`https://api.telegram.org/bot${this.props.botId}/kickChatMember`, dataset)
@@ -74,6 +79,7 @@ class UserManagerUserList extends React.Component {
                         chat_id: dataset.chat_id,
                         event: 'restrict'
                     })
+                    Event('UserManager', 'adjust member status', 'restrict member');
                 }).catch((err) => {
                     if (err.data.ok) {
                         alert('this feature should be available into Supergroup only.')

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
+import {Event} from '../Tracking';
+
 import '../../style/css/AutoResponse.min.css'
 
 class AutoResponce extends React.Component {
@@ -157,6 +159,7 @@ class AutoResponce extends React.Component {
       }).then((res) => {
         if (res.data) {
             this.getFaqList();
+            Event('Interactions', 'delete interaction', 'Auto responce');
         }
       })
   }
@@ -189,6 +192,7 @@ class AutoResponce extends React.Component {
                 if (res.data) {
                     this.getFaqList();
                     // this.clearTexts();
+                    Event('Interactions', 'set interaction', 'Auto responce');
                 }
             })
     } 

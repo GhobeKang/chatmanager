@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import "../../style/css/LeftNav.min.css";
+import { Event } from '../Tracking';
 
 class LeftNav extends React.Component {
   constructor(props) {
@@ -150,6 +151,7 @@ class LeftNav extends React.Component {
   change_group(event) {
     window.localStorage.setItem("chat_id", event.currentTarget.dataset.chatid);
     window.location.reload();
+    Event('navigation', 'Change group', 'change group');
   }
 
   activeNav(num) {
@@ -160,7 +162,39 @@ class LeftNav extends React.Component {
     document
       .querySelector(`.nav_contents > a:nth-child(${num})`)
       .classList.add("active");
+    
+    this.setGAEvent(num);
+
     return false;
+  }
+
+  setGAEvent(navNum) {
+    switch (navNum) {
+      case 1 : {
+        Event('navigation', 'change category', 'Analystic');
+        break;
+      }
+      case 2 : {
+        Event('navigation', 'change category', 'Members');
+        break;
+      }
+      case 3 : {
+        Event('navigation', 'change category', 'Messages');
+        break;
+      }
+      case 4 : {
+        Event('navigation', 'change category', 'Interactions');
+        break;
+      }
+      case 5 : {
+        Event('navigation', 'change category', 'Anti-spam');
+        break;
+      }
+      case 6 : {
+        Event('navigation', 'change category', 'Setting');
+        break;
+      }
+    }
   }
 
   dragoutGrouplist () {

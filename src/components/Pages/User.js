@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import Axios from 'axios';
-
+import {Event} from '../Tracking';
 import Chart from 'chart.js';
 
 import MessageLogModal from '../Modules/MessageLog_Modal';
@@ -370,6 +370,8 @@ class User extends React.Component {
         .then((res) => {
             this.makeChartActiveHour(res.data)
         })
+
+        Event('UserManager', 'enter user detail', 'detail page');
     }
 
     render() {

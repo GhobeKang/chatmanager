@@ -1,5 +1,7 @@
 import React from "react";
 import Axios from "axios";
+import {Event} from '../Tracking';
+
 import "../../style/css/StartMenu_reg.min.css";
 
 class FAQ_register extends React.Component {
@@ -82,21 +84,7 @@ class FAQ_register extends React.Component {
         if (res.data) {
           this.getStartMenu();
           this.clearTexts();
-        }
-      });
-    }
-  }
-
-  deleteStartMenu() {
-    var check = window.confirm("Are you sure to Delete this Item?");
-    if (check) {
-      const data = {
-        chat_id: window.localStorage.getItem("chat_id")
-      };
-
-      Axios.post("delStartMenu", data).then(res => {
-        if (res.data) {
-          this.getStartMenu();
+          Event('Interactions', 'set interaction', 'Welcome message');
         }
       });
     }
@@ -157,6 +145,7 @@ class FAQ_register extends React.Component {
     }).then((res) => {
       if (res.data) {
         this.getStartMenu();
+        Event('Interactions', 'delete interaction', 'Welcome message');
       }
     })
   }

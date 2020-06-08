@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
+import {Event} from '../Tracking';
+
 import SelectboxDate from './SelectboxDate';
 import SelectboxDay from './SelectboxDay';
 import SelectboxHour from './SelectboxHour';
@@ -210,6 +212,7 @@ class Announcement extends React.Component {
     }).then(res => {
       if (res.data) {
         this.getAnnouncement();
+        Event('Interactions', 'delete interaction', 'Announcement');
       }
     });
   }
@@ -254,6 +257,7 @@ class Announcement extends React.Component {
     }).then(() => {
       this.getAnnouncement();
       document.forms[0].announce_txt.value = "";
+      Event('Interactions', 'set interaction', 'Announcement');
     });
   }
 

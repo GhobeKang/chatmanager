@@ -1,5 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
+import {Event} from '../Tracking';
 
 import Content_Tabs from '../Modules/MessageContentContainer';
 
@@ -27,7 +28,8 @@ class MessageLog extends React.Component {
             date: 30
         }).then((res) => {
             if (res.data) {
-                this.setState({messages: res.data})    
+                this.setState({messages: res.data})   
+                Event('UserManager', 'show message log', 'message log');
             }
         })
     }

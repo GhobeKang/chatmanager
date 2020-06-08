@@ -1,5 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
+import {Event} from '../Tracking';
 
 import TELEGRAM_ICON from '../../img/Icons/opentelegram_normal.svg';
 import BEN_ICON from '../../img/Icons/ban_normal.svg';
@@ -82,6 +83,9 @@ class MessageContentItem extends React.Component {
     
             if (isBan) {
                 dataset['until_date'] = Date.now() + 1000;
+                Event('Message', 'adjust member status', 'ban member');
+            } else {
+                Event('Message', 'adjust member status', 'kick member');
             }
 
             Axios.post(`https://api.telegram.org/bot${this.props.botId}/kickChatMember`, dataset)
@@ -117,7 +121,7 @@ class MessageContentItem extends React.Component {
 
             Axios.post(`https://api.telegram.org/bot${this.props.botId}/restrictChatMember`, dataset)
                 .then((res) => {
-                    
+                    Event('Message', 'adjust member status', 'restrict member');
                 }).catch((err) => {
                     alert(err);
                     return false;
@@ -140,6 +144,7 @@ class MessageContentItem extends React.Component {
                 chat_id: dataset.chat_id,
                 event: 'reply'
             })
+            Event('Message', 'adjust message', 'reply message');
         })
     }
 
@@ -153,6 +158,7 @@ class MessageContentItem extends React.Component {
             Axios.post(`https://api.telegram.org/bot${this.props.botId}/deleteMessage`, dataset).then((res) => {
                 if (res.data.ok === true) {
                     Axios.post('/removeMessage', dataset);
+                    Event('Message', 'adjust message', 'delete');
                     window.location.reload();
                 }
             })

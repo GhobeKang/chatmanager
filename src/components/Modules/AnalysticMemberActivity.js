@@ -1,5 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
+import {Event} from '../Tracking';
 
 import PeoridPicker from '../Modules/PeoridPicker';
 import Chart from 'chart.js';
@@ -271,6 +272,7 @@ class AnalysticMemberActivity extends React.Component {
                 
                 this.setState({analystic_data: total_cnt})
                 this.makeTotalMsgChart(res.data, diff_result)
+                Event('Analystic', 'Change duration', 'Change duration of member activities');
             }
         })
     }
@@ -303,6 +305,8 @@ class AnalysticMemberActivity extends React.Component {
                     this.makeInactiveUserChart(res.data);
                 }
             })
+        
+        Event('Analystic', 'load module', 'Member Activities');
     }
 
     render() {

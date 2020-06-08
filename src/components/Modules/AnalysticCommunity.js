@@ -2,6 +2,7 @@ import React from 'react';
 import Axios from 'axios';
 import PeoridPicker from '../Modules/PeoridPicker';
 import Chart from 'chart.js';
+import { Event } from '../Tracking';
 
 class AnalysticCommunity extends React.Component {
     constructor(props) {
@@ -27,6 +28,8 @@ class AnalysticCommunity extends React.Component {
                     this.makeChart(res.data, 30)
                 }
             })
+        
+        Event('Analystic', 'load module', 'Community');
     }
 
     confirmPeorid(from, to) {
@@ -42,7 +45,8 @@ class AnalysticCommunity extends React.Component {
                 const diff = date_present - date_past;
                 const diff_result = diff / (1000*60*60*24);
 
-                this.makeChart(res.data, diff_result)
+                this.makeChart(res.data, diff_result);
+                Event('Analystic', 'Change duration', 'Change duration of community');
             }
         })
     }

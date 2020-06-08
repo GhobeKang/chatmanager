@@ -26,21 +26,26 @@ import Axios from "axios";
 // Axios.defaults.baseURL = "https://chatbot-258301.appspot.com/api/";
 // Axios.defaults.baseURL = "http://localhost:4000/api/";
 Axios.defaults.baseURL = "https://hysoop.com/api/"
+
+ReactGA.initialize("UA-125314475-4", {
+  debug: true
+});
+
 const history = createBrowserHistory();
 
 history.listen(location => {
-  ReactGA.set({ page: location.pathname }); // Update the user's current page
-  ReactGA.pageview(location.pathname); // Record a pageview for the given page
+  ReactGA.set({ page: location.hash }); // Update the user's current page
+  ReactGA.pageview(location.hash); // Record a pageview for the given page
 });
 
 function App() {
   const [isValid, setIsValid] = useState(false);
   const [statusNav, setStatusNav] = useState("word");
   const [chatInfo, setChatInfo] = useState([]);
-  // const [botId, setBotId] = useState('847825836:AAFv02ESsTVjnrzIomgdiVjBGWVw7CpN_Cg');
-  // const [botName, setBotName] = useState('aqoom_bot')
-  const [botId, setBotId] = useState('822428347:AAGXao7qTxCL5MoqQyeSqPc7opK607fA51I');
-  const [botName, setBotName] = useState('aqoom_test_bot')
+  const [botId, setBotId] = useState('847825836:AAFv02ESsTVjnrzIomgdiVjBGWVw7CpN_Cg');
+  const [botName, setBotName] = useState('aqoom_bot')
+  // const [botId, setBotId] = useState('822428347:AAGXao7qTxCL5MoqQyeSqPc7opK607fA51I');
+  // const [botName, setBotName] = useState('aqoom_test_bot')
   
   const isLiving = getCookie("living") == 'true';
   const inConsole = getCookie('STAY_C') == 'true';
@@ -55,13 +60,6 @@ function App() {
       }
     }
   }
-  
-  ReactGA.initialize('UA-125314475-4', {
-    debug: true,
-    gaOptions: {
-      name: 'aqoomchat_tracker'
-    }
-  });
 
   if (isValid || inConsole) {
     return (
