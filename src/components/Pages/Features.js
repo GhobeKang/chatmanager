@@ -1,5 +1,6 @@
 import React from "react";
 import "../../style/css/Features.min.css";
+import { Helmet } from 'react-helmet';
 import GRAY_LINE from "../../img/grayline.svg";
 import INTERACTION_LINE from "../../img/interaction_line.svg";
 import INTERACTION_BUBBLE from "../../img/interaction_bubble.svg";
@@ -35,6 +36,15 @@ class Features extends React.Component {
   render() {
     return (
       <div className="features_container">
+        <Helmet>
+          <title>AQOOM telegram CRM service features</title>
+          <meta name="description" content="introduce for Telegram customer relationship management service. let you see all wonderful features as a free!" />
+          <meta name="twitter:card" content="summary"></meta>
+          <meta name="twitter:title" content="AQOOM CRM bot service" />
+          <meta name="twitter:description" content="Telegram CRM bot service. easy to manage your supergroup community and grow it up more effectively." />
+          <meta name="twitter:image" content="https://aqoom.chat/AQOOM_logo_whiteBG.jpg" />
+          <meta name="twitter:site" content="https://aqoom.chat/" />
+        </Helmet>
         <section className="features_intro">
           <h2 className="session_title">just the right features.</h2>
           <p className="session_desc">
@@ -46,8 +56,8 @@ class Features extends React.Component {
         </section>
 
         <section className="features_interaction">
-          <img src={GRAY_LINE}></img>
-          <img src={INTERACTION_LINE}></img>
+          <img src={GRAY_LINE} alt="aqoom can insteract with all user of your communities"></img>
+          <img src={INTERACTION_LINE} alt="user interaction is a key to improve your communities."></img>
           <h2 className="session_title">interaction</h2>
           <ul>
             {this.state.list_interaction.map((val, idx) => {
@@ -67,11 +77,11 @@ class Features extends React.Component {
             also directly ban, kick, or delete a message in the same message
             log. You can also set different announcements for different times.
           </p>
-          <img src={INTERACTION_BUBBLE}></img>
+          <img src={INTERACTION_BUBBLE} alt="telegram CRM feature, available kick, ban, delete message and so on"></img>
         </section>
         <section className="features_moderation">
-          <img src={GRAY_LINE}></img>
-          <img src={MODERATION_LINE}></img>
+          <img src={GRAY_LINE} alt="AQOOM gray line"></img>
+          <img src={MODERATION_LINE} alt="moderate chat group. available anti spam, message fileter"></img>
           <h2 className="session_title">moderation</h2>
           <ul>
             {this.state.list_moderation.map((val, idx) => {
@@ -92,11 +102,11 @@ class Features extends React.Component {
             if you have not turned on a filter, you’ll be notified on what is on
             and what you could be changed.
           </p>
-          <img src={MODERATION_BUBBLE}></img>
+          <img src={MODERATION_BUBBLE} alt="Telegram chat group moderation feature"></img>
         </section>
         <section className="features_analytics">
-          <img src={GRAY_LINE}></img>
-          <img src={ANALYTICS_LINE}></img>
+          <img src={GRAY_LINE} alt="aqoom gray line"></img>
+          <img src={ANALYTICS_LINE} alt="you are able to see an analytics chart of your group. it will make you be inspired."></img>
           <h2 className="session_title">data & analytics</h2>
           <ul>
             {this.state.list_analytics.map((val, idx) => {
@@ -118,7 +128,7 @@ class Features extends React.Component {
             restrictions.
           </p>
         </section>
-        <img src={GRAY_LINE}></img>
+        <img src={GRAY_LINE} alt="aqoom gray line"></img>
         <h4 className="foot_desc">
         Just the right amount of features that fits your needs.
         </h4>

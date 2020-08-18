@@ -7,7 +7,7 @@ function LandingFooter (props) {
             <div className="footer_container">
               <div className="footer_left">
                 <div className="aqoom_logo">
-                  <img src={AQ_LOGO_W}></img>
+                  <img src={AQ_LOGO_W} alt="aqoom logo"></img>
                 </div>
                 <div className="aqoom_right">
                   All rights reserved 2020 © AQOOM

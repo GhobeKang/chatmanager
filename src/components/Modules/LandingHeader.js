@@ -7,7 +7,7 @@ function LandingHeader (props) {
     return (
         <header className="App-header">
             <a className="aqoom_logo" href="/">
-              <img src={AQ_LOGO_BETA}></img>
+              <img src={AQ_LOGO_BETA} alt="aqoom logo"></img>
             </a>
             <div className="nav_menus">
               <a href="/#/features">

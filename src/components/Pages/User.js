@@ -391,7 +391,7 @@ class User extends React.Component {
 
                         </div>
                         <div className="profile_pic">
-                            <img src={`https://api.telegram.org/file/bot${this.props.botId}/` + this.state.profile_pic.file_path}></img>
+                            <img src={`https://api.telegram.org/file/bot${this.props.botId}/` + this.state.profile_pic.file_path} alt="user profile picture"></img>
                         </div>
                         <div className="profile_contents">
                             <p>

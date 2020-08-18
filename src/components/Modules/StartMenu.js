@@ -238,7 +238,7 @@ class FAQ_register extends React.Component {
                     :
                     <div className="img_preview">
                       {this.state.crr_message ? 
-                      <img src={this.state.crr_message.content_img}></img>
+                      <img src={this.state.crr_message.content_img} alt="img preview"></img>
                       : 
                       ''}
                     </div>

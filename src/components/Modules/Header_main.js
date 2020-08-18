@@ -54,6 +54,7 @@ class Header_main extends React.Component {
             `https://api.telegram.org/file/bot${this.props.botId}/` +
             this.state.chat_photo.file_path
           }
+          alt="user profile image"
         ></img>
       );
     } else {

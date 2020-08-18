@@ -56,7 +56,7 @@ class Signin extends React.Component {
     return (
       <div className="signin_container">
         <div className="aqoom_logo">
-          <img src={AQ_LOGO}></img>
+          <img src={AQ_LOGO} alt="aqoom logo"></img>
         </div>
         <div className="login_box">
           <p className="login_info">

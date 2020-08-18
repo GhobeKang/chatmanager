@@ -82,7 +82,7 @@ class LeftNav extends React.Component {
           >
             <div className="group_img">
               {item.photo ?
-            <img src={`https://api.telegram.org/file/bot${this.props.botId}/${item.photo}`}></img>
+            <img src={`https://api.telegram.org/file/bot${this.props.botId}/${item.photo}`} alt="group profile image"></img>
             :
             null  
             }
@@ -216,7 +216,7 @@ class LeftNav extends React.Component {
             {
               this.state.current_group.photo
               ?
-              <img src={`https://api.telegram.org/file/bot${this.props.botId}/${this.state.current_group.photo}`}></img>
+              <img src={`https://api.telegram.org/file/bot${this.props.botId}/${this.state.current_group.photo}`} alt="group profile image"></img>
               :
               null
             }
