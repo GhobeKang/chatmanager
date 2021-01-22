@@ -17,7 +17,8 @@
     "react-helmet": "^6.1.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.1.1",
-    "react-telegram-login": "^1.0.4"
+    "react-telegram-login": "^1.0.4",
+    "rechart": "0.0.1"
   },
   "scripts": {
     "predeploy": "npm run build",

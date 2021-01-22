@@ -61,6 +61,7 @@ function FieldRow(props) {
         }).then(res => {
             if (res.data) {
                 Event('Antispam', 'set item', field + 'option')
+                props.initOptions()
             }
         })
     }
@@ -72,7 +73,7 @@ function FieldRow(props) {
             </p>
             <div className="filter_switch">
                 <label htmlFor={props.name}>
-                    <input type="checkbox" className="anti_filter" name={props.name} id={props.name} onChange={() => updateAntiOption(props.name)} defaultChecked={props.isActive}></input>
+                    <input type="checkbox" className="anti_filter" name={props.name} id={props.name} onChange={() => updateAntiOption(props.name)} checked={props.isActive}></input>
                     <div className="custom_chbox"></div>
                     <div className="custom_chbox_circle"></div>
                 </label>
@@ -92,6 +93,10 @@ class AntiSpam extends React.Component {
     }
 
     componentDidMount() {
+       this.initOptions()
+    }
+
+    initOptions () {
         Axios.post('/getAnti', {
             chat_id: window.localStorage.getItem('chat_id')
         }).then((res) => {
@@ -315,16 +320,16 @@ class AntiSpam extends React.Component {
                     <h5>Filters</h5>
                     <p>By using filters, the bot will automatically delete unwanted messages like photos, images, and documents.</p>
                     <div className="filters">
-                        <FieldRow name="anti_image" isActive={this.state.anti_options.anti_image}></FieldRow>
-                        <FieldRow name="anti_url" isActive={this.state.anti_options.anti_url}></FieldRow>
-                        <FieldRow name="anti_forward" isActive={this.state.anti_options.anti_forward}></FieldRow>
-                        <FieldRow name="anti_voice" isActive={this.state.anti_options.anti_voice}></FieldRow>
-                        <FieldRow name="anti_gif" isActive={this.state.anti_options.anti_gif}></FieldRow>
-                        <FieldRow name="anti_sticker" isActive={this.state.anti_options.anti_sticker}></FieldRow>
-                        <FieldRow name="anti_join_message" isActive={this.state.anti_options.anti_join_message}></FieldRow>
-                        <FieldRow name="anti_left_message" isActive={this.state.anti_options.anti_left_message}></FieldRow>
-                        <FieldRow name="anti_longname" isActive={this.state.anti_options.anti_longname}></FieldRow>
-                        <FieldRow name="anti_flood" isActive={this.state.anti_options.anti_flood}></FieldRow>
+                        <FieldRow name="anti_image" isActive={this.state.anti_options.anti_image} initOptions={this.initOptions.bind(this)}></FieldRow>
+                        <FieldRow name="anti_url" isActive={this.state.anti_options.anti_url} initOptions={this.initOptions.bind(this)}></FieldRow>
+                        <FieldRow name="anti_forward" isActive={this.state.anti_options.anti_forward} initOptions={this.initOptions.bind(this)}></FieldRow>
+                        <FieldRow name="anti_voice" isActive={this.state.anti_options.anti_voice} initOptions={this.initOptions.bind(this)}></FieldRow>
+                        <FieldRow name="anti_gif" isActive={this.state.anti_options.anti_gif} initOptions={this.initOptions.bind(this)}></FieldRow>
+                        <FieldRow name="anti_sticker" isActive={this.state.anti_options.anti_sticker} initOptions={this.initOptions.bind(this)}></FieldRow>
+                        <FieldRow name="anti_join_message" isActive={this.state.anti_options.anti_join_message} initOptions={this.initOptions.bind(this)}></FieldRow>
+                        <FieldRow name="anti_left_message" isActive={this.state.anti_options.anti_left_message} initOptions={this.initOptions.bind(this)}></FieldRow>
+                        {/* <FieldRow name="anti_longname" isActive={this.state.anti_options.anti_longname} initOptions={this.initOptions.bind(this)}></FieldRow> */}
+                        {/* <FieldRow name="anti_flood" isActive={this.state.anti_options.anti_flood} initOptions={this.initOptions.bind(this)}></FieldRow> */}
                     </div>
                 </form>
 
@@ -364,7 +369,7 @@ class AntiSpam extends React.Component {
                             <a className="add_btn" onClick={() => this.submit_whitelistUser()}>Add</a>
                         </div>
                     </div>
-                    <div className="restriction_module disable_slash_module">
+                    {/* <div className="restriction_module disable_slash_module">
                         <div className="restriction_title_wrap">
                             <h6>Disable Slash commands</h6>
                             <p>Prevent users using slash commands in the chatroom. View slash commands here.</p>
@@ -379,7 +384,7 @@ class AntiSpam extends React.Component {
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </form>
             </div>
         )

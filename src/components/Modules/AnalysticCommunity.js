@@ -2,6 +2,8 @@ import React from 'react';
 import Axios from 'axios';
 import PeoridPicker from '../Modules/PeoridPicker';
 import Chart from 'chart.js';
+import Rechart from 'rechart';
+
 import { Event } from '../Tracking';
 
 class AnalysticCommunity extends React.Component {
